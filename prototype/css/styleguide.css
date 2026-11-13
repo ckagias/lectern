@@ -1,9 +1,20 @@
 /* Layout for the dev-only style guide. */
-.guide {
-  width: 100%;
+.layout-public .guide {
   max-width: var(--page-width);
   margin-inline: auto;
   padding: 22px 16px 56px;
+}
+
+.row-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.on-green {
+  padding: 16px;
+  background: var(--green);
 }
 
 .guide h2 {

@@ -1,41 +1,54 @@
 <?php
 // Dev-only page that shows the design system. It is not part of the shipped site.
-$base = rtrim(str_replace('\\', '/', dirname(dirname($_SERVER['SCRIPT_NAME']))), '/');
-$theme = (isset($_GET['theme']) && $_GET['theme'] === 'dark') ? 'dark' : 'light';
+// Try ?layout=public, ?layout=member or ?layout=librarian, and add &theme=dark for the night theme.
+require_once __DIR__ . '/../includes/init.php';
+
+$base = '../';
+$title = 'Style guide';
+$styles = ['styleguide'];
+$layout = 'public';
+if (isset($_GET['layout']) && ($_GET['layout'] === 'member' || $_GET['layout'] === 'librarian')) {
+    $layout = $_GET['layout'];
+}
+if (isset($_GET['theme']) && $_GET['theme'] === 'dark') {
+    $_COOKIE['theme'] = 'dark';
+}
+$_SESSION['username'] = 'maria';
+$active = ($layout === 'librarian') ? 'reservations.php' : 'catalogue.php';
 $colors = ['bg', 'card', 'ink', 'ink-2', 'line', 'cream', 'green', 'green-2', 'action', 'cobalt', 'terra', 'plum', 'ochre', 'teal'];
+
+require __DIR__ . '/../includes/header.php';
 ?>
-<!DOCTYPE html>
-<html lang="el" data-theme="<?= $theme ?>">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Style guide</title>
-    <link rel="stylesheet" href="<?= $base ?>/css/fonts.css">
-    <link rel="stylesheet" href="<?= $base ?>/css/tokens.css">
-    <link rel="stylesheet" href="<?= $base ?>/css/base.css">
-    <link rel="stylesheet" href="<?= $base ?>/css/styleguide.css">
-</head>
-<body>
-    <a class="skip" href="#main">Μετάβαση στο περιεχόμενο</a>
-    <main id="main" class="guide">
-        <h1>Style guide</h1>
-        <p class="note">Theme: <?= $theme ?>. Add ?theme=dark to the address to see the night theme.</p>
+<div class="guide">
+    <h1>Style guide</h1>
+    <p class="note">Layout: <?= $layout ?>. Use ?layout=member, ?layout=librarian and ?theme=dark in the address.</p>
 
-        <h2>Type scale</h2>
-        <div class="scale">
-            <h1>Βρες το επόμενο βιβλίο σου</h1>
-            <h2>Ώρες λειτουργίας</h2>
-            <h3>Pride and Prejudice</h3>
-            <p>Δες τι είναι διαθέσιμο, κράτησε αντίτυπο από το κινητό και πέρνα να το πάρεις.</p>
-            <p class="note">Jane Austen · 1813 · Κωδικός FIC-001-A</p>
-        </div>
+    <h2>Type scale</h2>
+    <div class="scale">
+        <h1>Βρες το επόμενο βιβλίο σου</h1>
+        <h2>Ώρες λειτουργίας</h2>
+        <h3>Pride and Prejudice</h3>
+        <p>Δες τι είναι διαθέσιμο, κράτησε αντίτυπο από το κινητό και πέρνα να το πάρεις.</p>
+        <p class="note">Jane Austen · 1813 · Κωδικός FIC-001-A</p>
+    </div>
 
-        <h2>Colours</h2>
-        <ul class="swatches">
-            <?php foreach ($colors as $c) { ?>
-                <li><span class="chip-color" style="--c: var(--<?= $c ?>)"></span><b><?= $c ?></b><span class="v">--<?= $c ?></span></li>
-            <?php } ?>
-        </ul>
-    </main>
-</body>
-</html>
+    <h2>Buttons</h2>
+    <div class="row-buttons">
+        <a class="btn action" href="#">Κράτηση</a>
+        <a class="btn" href="#">Καταχώριση</a>
+    </div>
+    <div class="on-green row-buttons">
+        <a class="btn ochre" href="#">Σύνδεση</a>
+        <a class="btn line" href="#">Εγγραφή</a>
+    </div>
+
+    <h2>Colours</h2>
+    <ul class="swatches">
+        <?php foreach ($colors as $c) { ?>
+            <li><span class="chip-color" style="--c: var(--<?= $c ?>)"></span><b><?= $c ?></b><span class="v">--<?= $c ?></span></li>
+        <?php } ?>
+    </ul>
+</div>
+<?php
+unset($_SESSION['username']);
+require __DIR__ . '/../includes/footer.php';

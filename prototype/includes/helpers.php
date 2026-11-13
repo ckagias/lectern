@@ -11,3 +11,9 @@ function redirect($path)
     header('Location: ' . $path);
     exit;
 }
+
+/** Prints an icon from the sprite in icons.php. */
+function icon($name)
+{
+    return '<svg class="icon" aria-hidden="true"><use href="#ic-' . $name . '"/></svg>';
+}
