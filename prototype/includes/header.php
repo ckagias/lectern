@@ -45,6 +45,11 @@ $current = 'aria-current="page"';
                     <a href="?lang=en" lang="en" aria-current="true">EN</a>
                 <?php } ?>
             </div>
+            <?php if ($layout !== 'public') { ?>
+                <form action="<?php echo $base; ?>logout.php" method="post">
+                    <button class="btn line" type="submit"><?php echo t('logout'); ?></button>
+                </form>
+            <?php } ?>
             <?php if ($layout === 'public') { ?>
                 <a class="btn line" href="<?php echo $base; ?>login.php"><?php echo t('login'); ?></a>
             <?php } ?>

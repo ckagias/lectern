@@ -64,4 +64,13 @@ class Validator
         }
         return '';
     }
+
+    /** Password at login: it only has to be filled in. The strength rules are for registration. */
+    public function loginPassword($value)
+    {
+        if ($value === '') {
+            return 'err_password_empty';
+        }
+        return '';
+    }
 }

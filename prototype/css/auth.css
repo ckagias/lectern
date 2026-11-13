@@ -10,6 +10,11 @@
   padding: 20px 16px;
 }
 
+.auth .flash {
+  width: auto;
+  margin: 0 0 20px;
+}
+
 .auth-head h1 {
   font-size: 2rem;
   letter-spacing: -0.02em;
