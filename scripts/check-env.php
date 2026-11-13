@@ -2,7 +2,7 @@
 // Checks PHP, the extensions we need and the database connection. Run: php scripts/check-env.php
 declare(strict_types=1);
 
-$config = require __DIR__ . '/../prototype/config.php';
+require __DIR__ . '/../prototype/config.php';
 $ok = true;
 
 /** Prints one check result and remembers failures. */
@@ -20,7 +20,7 @@ foreach (['mysqli', 'mbstring', 'session', 'json', 'fileinfo'] as $ext) {
 
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 try {
-    $db = new mysqli($config['db']['host'], $config['db']['user'], $config['db']['pass']);
+    $db = new mysqli(DB_HOST, DB_USER, DB_PASS);
     report('connect', true, $db->server_info);
     $db->set_charset('utf8mb4');
     // Scratch database, removed at the end.
