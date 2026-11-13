@@ -11,12 +11,13 @@ function hasRole($roleId)
     return isLoggedIn() && $_SESSION['role_id'] == $roleId;
 }
 
-/** Sends visitors who are not logged in to the login page. */
+/** Sends visitors who are not logged in to the login page. The browser is told not to keep the page, so the Back button after logout shows nothing private. */
 function requireLogin($base = '')
 {
     if (!isLoggedIn()) {
         redirect($base . 'login.php');
     }
+    header('Cache-Control: no-store');
 }
 
 /** Lets only this role through. Other users are sent to the Forbidden Action page. */

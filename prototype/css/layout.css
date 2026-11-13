@@ -24,6 +24,12 @@
   font-size: 1.25rem;
 }
 
+@media (max-width: 359px) {
+  .brand {
+    font-size: 1.0625rem;
+  }
+}
+
 .top-actions {
   display: flex;
   align-items: center;

@@ -30,7 +30,7 @@ mysql -u root < prototype/database/seed.sql
 | Table | What it holds |
 |---|---|
 | `roles` | The two roles. Id 1 is member and id 2 is librarian. |
-| `users` | Every account, with a hashed password and a `role_id`. |
+| `users` | Every account, with a hashed password and a `role_id`. Username and email are unique. |
 | `books` | One row per physical copy. Two copies of a title are two rows. |
 | `reservations` | A member asking for a copy. Status is `active`, `cancelled` or `fulfilled`. |
 | `loans` | A copy handed to a member. It is open until `returned_at` is filled in. |
@@ -56,8 +56,8 @@ erDiagram
     }
     users {
         int id PK
-        varchar username
-        varchar email
+        varchar username UK
+        varchar email UK
         varchar password_hash
         int role_id FK
         datetime created_at
