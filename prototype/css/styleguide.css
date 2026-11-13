@@ -1,0 +1,57 @@
+/* Layout for the dev-only style guide. */
+.guide {
+  width: 100%;
+  max-width: var(--page-width);
+  margin-inline: auto;
+  padding: 22px 16px 56px;
+}
+
+.guide h2 {
+  margin-top: 40px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--line);
+}
+
+.guide .note {
+  margin-top: 8px;
+  color: var(--ink-2);
+  font-weight: 600;
+}
+
+.swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+  gap: 12px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.swatches li {
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--card);
+}
+
+.swatches .chip-color {
+  display: block;
+  height: 56px;
+  background: var(--c);
+}
+
+.swatches b,
+.swatches span.v {
+  display: block;
+  padding: 4px 10px;
+  font-size: var(--text-sm);
+}
+
+.swatches span.v {
+  padding-bottom: 8px;
+  color: var(--ink-2);
+}
+
+.scale > * + * {
+  margin-top: 12px;
+}
