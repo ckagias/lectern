@@ -1,46 +1,72 @@
 /* Design tokens. Every colour in the site comes from this file. */
 :root {
   /* surfaces and text */
-  --bg: oklch(97.5% 0.012 105);
-  --card: oklch(99.4% 0.004 105);
-  --ink: oklch(22% 0.03 165);
-  --ink-2: oklch(40% 0.035 165);
-  --line: oklch(86% 0.02 120);
-  --cream: oklch(96.5% 0.02 105);
+  --bg: #f8f7ee;
+  --card: #fdfdfa;
+  --ink: #0c1f17;
+  --ink-2: #364e43;
+  --line: #cfd3c5;
+  --cream: #f5f4e5;
 
   /* library green, used for the header, nav and main actions */
-  --green: oklch(36% 0.085 165);
-  --green-2: oklch(29% 0.075 165);
+  --green: #004b32;
+  --green-2: #003622;
   --action: var(--green);
 
   /* one spine colour per book category */
-  --cobalt: oklch(46% 0.17 262);
-  --terra: oklch(55% 0.15 38);
-  --plum: oklch(40% 0.13 335);
-  --ochre: oklch(82% 0.15 85);
-  --teal: oklch(48% 0.1 200);
+  --cobalt: #1c50b5;
+  --terra: #b84a27;
+  --plum: #6f2563;
+  --ochre: #f0bb3b;
+  --teal: #006e74;
 
-  /* parts that change between the themes */
-  --focus: oklch(60% 0.19 262);
-  --shadow: var(--ink);
+  /* cloth colours of the book spines, gilt lettering, page edge and the wooden shelf */
+  --cloth-cobalt: #1d4aa3;
+  --cloth-terra: #a33e1e;
+  --cloth-plum: #64225a;
+  --cloth-ochre: #c9961f;
+  --cloth-teal: #0b5f64;
+  --cloth-burgundy: #6e1d2b;
+  --cloth-forest: #1f5a3a;
+  --cloth-navy: #1b2a4e;
+  --cloth-charcoal: #2b2b2e;
+  --cloth-leather: #80542f;
+  --cloth-ivory: #e8dcc0;
+  --cloth-slate: #4c5f6b;
+  --cloth-olive: #616028;
+  --cloth-rose: #9a3e5c;
+  --cloth-brick: #8f2d1f;
+  --cloth-petrol: #17506b;
+  --cloth-aubergine: #3d1f4a;
+  --cloth-sand: #cbb98a;
+  --gilt: #f6e8b4;
+  --gilt-on-ochre: #3a2a07;
+  --paper: #f1e9d2;
+  --wood: #6f5334;
+  --wood-top: #9b7b52;
+
+  /* green tint over the hero photo, stronger on the left where the text is */
+  --veil-left: rgba(0, 75, 50, 0.9);
+  --veil-middle: rgba(0, 75, 50, 0.78);
+  --veil-right: rgba(0, 54, 34, 0.66);
+  --veil-top: rgba(0, 38, 24, 0.85);
+  --glass: rgba(245, 244, 229, 0.10);
+
+  /* state colours, focus ring, buttons and footer */
+  --focus: #3c79f0;
   --on-dark: var(--cream);
   --btn-bg: var(--ink);
   --btn-fg: var(--cream);
-  --on-ochre: oklch(22% 0.03 165);
-  --error: oklch(45% 0.18 28);
-  --error-bg: oklch(94.5% 0.035 28);
-  --success: oklch(36% 0.085 165);
-  --success-bg: oklch(94% 0.045 160);
-  --chip-ink: var(--ink);
+  --on-ochre: #0c1f17;
+  --error: #a2080c;
+  --error-bg: #ffe5e0;
+  --success: #004b32;
+  --success-bg: #d2f5e1;
   --staff-bg: var(--ink);
-  --staff-nav: oklch(28% 0.04 165);
+  --staff-nav: #142f24;
   --foot-bg: var(--ink);
-  --foot-fg: oklch(88% 0.02 105);
-  --hatch: oklch(93% 0.02 105);
+  --foot-fg: #d9d8ca;
   --shelf-base: var(--ink);
-  --step-1: var(--cobalt);
-  --step-2: var(--terra);
-  --step-3: var(--plum);
 
   /* type */
   --font: "Manrope", system-ui, sans-serif;
@@ -55,33 +81,4 @@
   --radius-lg: 8px;
   --border: 2.5px;
   --page-width: 70rem;
-}
-
-/* The night theme. The pre-paint script sets data-theme="dark" on the html element. */
-:root[data-theme="dark"] {
-  --bg: oklch(19% 0.03 165);
-  --card: oklch(24% 0.035 165);
-  --ink: oklch(94% 0.02 105);
-  --ink-2: oklch(77% 0.03 105);
-  --line: oklch(35% 0.04 165);
-  --green: oklch(28% 0.07 165);
-  --green-2: oklch(23% 0.06 165);
-  --action: oklch(50% 0.12 160);
-  --shadow: oklch(10% 0.03 165);
-  --btn-bg: var(--cream);
-  --btn-fg: oklch(22% 0.03 165);
-  --chip-ink: oklch(34% 0.05 165);
-  --staff-bg: oklch(12% 0.03 165);
-  --staff-nav: oklch(12% 0.03 165);
-  --foot-bg: var(--green-2);
-  --foot-fg: var(--ink-2);
-  --hatch: oklch(29% 0.035 165);
-  --shelf-base: oklch(11% 0.03 165);
-  --step-1: oklch(72% 0.15 262);
-  --step-2: oklch(72% 0.13 40);
-  --step-3: oklch(74% 0.13 335);
-  --error: oklch(76% 0.14 28);
-  --error-bg: oklch(27% 0.06 28);
-  --success: oklch(78% 0.14 160);
-  --success-bg: oklch(27% 0.05 160);
 }
