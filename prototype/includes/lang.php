@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/lang_el.php';
-require_once __DIR__ . '/lang_en.php';
+require_once $base . 'includes/lang_el.php';
+require_once $base . 'includes/lang_en.php';
 
 // A link like ?lang=en switches the language. The choice is kept in the session and a cookie.
 if (isset($_GET['lang']) && ($_GET['lang'] === 'el' || $_GET['lang'] === 'en')) {
