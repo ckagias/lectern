@@ -5,7 +5,8 @@ require_once __DIR__ . '/includes/init.php';
 $base = '';
 $layout = 'public';
 $title = t('home_title');
-$styles = ['home'];
+$styles = ['css/home.css', 'js/leaflet/leaflet.css'];
+$scripts = ['js/leaflet/leaflet.js', 'js/map.js'];
 require __DIR__ . '/includes/header.php';
 ?>
 <section class="hero">
@@ -74,6 +75,8 @@ require __DIR__ . '/includes/header.php';
             <li><?= t('phone_label') ?> 2610 000 000</li>
             <li>info@achaiareads.test</li>
         </ul>
+        <div id="map" class="map" role="region" aria-label="<?= t('map_label') ?>" data-lat="38.2457" data-lng="21.7350" data-name="AchaiaReads" data-address="<?= t('address_line') ?>"></div>
+        <p class="map-note" id="map-note" hidden><?= t('map_error') ?></p>
     </div>
 </section>
 <?php require __DIR__ . '/includes/footer.php'; ?>

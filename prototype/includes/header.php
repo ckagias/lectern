@@ -1,7 +1,7 @@
 <?php
 // Opens every page: head, header, menu and the start of <main>.
 // The page sets $base, $title and $layout (public, member or librarian) before including this file.
-// A page can also set $styles, a list of extra stylesheet names from css/.
+// A page can also set $styles, a list of extra stylesheet paths like 'css/home.css'.
 require __DIR__ . '/menu.php';
 
 $lang = $_SESSION['lang'];
@@ -25,7 +25,7 @@ $isApp = ($layout !== 'public');
     <link rel="stylesheet" href="<?= $base ?>css/forms.css">
     <?php if (isset($styles)) { ?>
         <?php foreach ($styles as $style) { ?>
-            <link rel="stylesheet" href="<?= $base ?>css/<?= $style ?>.css">
+            <link rel="stylesheet" href="<?= $base . $style ?>">
         <?php } ?>
     <?php } ?>
 </head>

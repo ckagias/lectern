@@ -5,7 +5,7 @@ require_once __DIR__ . '/../includes/init.php';
 
 $base = '../';
 $title = 'Style guide';
-$styles = ['styleguide'];
+$styles = ['css/styleguide.css'];
 $layout = 'public';
 if (isset($_GET['layout']) && ($_GET['layout'] === 'member' || $_GET['layout'] === 'librarian')) {
     $layout = $_GET['layout'];

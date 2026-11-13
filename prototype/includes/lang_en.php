@@ -51,4 +51,6 @@ $lang_en = [
     'find_title' => 'Where to find us',
     'address_line' => 'Korinthou 100, Patras',
     'phone_label' => 'Phone',
+    'map_label' => 'Map showing the library location',
+    'map_error' => 'The map did not load. The address is written above.',
 ];
