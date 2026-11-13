@@ -1,39 +1,39 @@
 /* Design tokens. Every colour in the site comes from this file. */
 :root {
   /* surfaces and text */
-  --bg: #f8f7ee;
-  --card: #fdfdfa;
-  --ink: #0c1f17;
-  --ink-2: #364e43;
-  --line: #cfd3c5;
-  --cream: #f5f4e5;
+  --bg: #e5d5b2;
+  --card: #eee0c3;
+  --ink: #2a2118;
+  --ink-2: #5b4a38;
+  --line: #c9b68b;
+  --cream: #f7ecd3;
 
   /* library green, used for the header, nav and main actions */
-  --green: #004b32;
-  --green-2: #003622;
+  --green: #2f5740;
+  --green-2: #1f3f2d;
   --action: var(--green);
 
   /* one spine colour per book category */
   --cobalt: #1c50b5;
-  --terra: #b84a27;
+  --terra: #ad4120;
   --plum: #6f2563;
   --ochre: #f0bb3b;
   --teal: #006e74;
 
-  /* cloth colours of the book spines, gilt lettering, page edge and the wooden shelf */
+  /* cloth colours of the book spines, gilt lettering, the shelf board and the scrollbar */
   --cloth-cobalt: #1d4aa3;
-  --cloth-terra: #a33e1e;
+  --cloth-terra: #853319;
   --cloth-plum: #64225a;
-  --cloth-ochre: #c9961f;
-  --cloth-teal: #0b5f64;
+  --cloth-ochre: #d7a021;
+  --cloth-teal: #0a595e;
   --cloth-burgundy: #6e1d2b;
   --cloth-forest: #1f5a3a;
   --cloth-navy: #1b2a4e;
   --cloth-charcoal: #2b2b2e;
-  --cloth-leather: #80542f;
+  --cloth-leather: #754d2b;
   --cloth-ivory: #e8dcc0;
-  --cloth-slate: #4c5f6b;
-  --cloth-olive: #616028;
+  --cloth-slate: #42535d;
+  --cloth-olive: #4b4a1f;
   --cloth-rose: #9a3e5c;
   --cloth-brick: #8f2d1f;
   --cloth-petrol: #17506b;
@@ -41,37 +41,41 @@
   --cloth-sand: #cbb98a;
   --gilt: #f6e8b4;
   --gilt-on-ochre: #3a2a07;
-  --paper: #f1e9d2;
   --wood: #6f5334;
   --wood-top: #9b7b52;
+  --paper: #f3e9d0;
+  --paper-edge: #d6c7a0;
+  --scrim: rgba(26, 18, 10, 0.72);
+  --board: #d1bc8e;
+  --board-dark: #b9a273;
 
   /* green tint over the hero photo, stronger on the left where the text is */
-  --veil-left: rgba(0, 75, 50, 0.9);
-  --veil-middle: rgba(0, 75, 50, 0.78);
-  --veil-right: rgba(0, 54, 34, 0.66);
-  --veil-top: rgba(0, 38, 24, 0.85);
-  --glass: rgba(245, 244, 229, 0.10);
+  --veil-left: rgba(52, 78, 56, 0.94);
+  --veil-middle: rgba(52, 78, 56, 0.86);
+  --veil-right: rgba(40, 62, 43, 0.78);
+  --veil-top: rgba(26, 40, 27, 0.88);
+  --glass: rgba(247, 236, 211, 0.10);
 
   /* state colours, focus ring, buttons and footer */
-  --focus: #3c79f0;
+  --focus: #3069e0;
   --on-dark: var(--cream);
   --btn-bg: var(--ink);
   --btn-fg: var(--cream);
-  --on-ochre: #0c1f17;
+  --on-ochre: #2a2118;
   --error: #a2080c;
   --error-bg: #ffe5e0;
   --success: #004b32;
   --success-bg: #d2f5e1;
   --staff-bg: var(--ink);
-  --staff-nav: #142f24;
+  --staff-nav: #3a2e22;
   --foot-bg: var(--ink);
-  --foot-fg: #d9d8ca;
-  --shelf-base: var(--ink);
+  --foot-fg: #e3d6bb;
 
   /* type */
-  --font: "Manrope", system-ui, sans-serif;
-  --text-sm: 0.9375rem;
-  --text-base: 1.0625rem;
+  --font: "Source Sans 3", system-ui, sans-serif;
+  --font-heading: "Literata", Georgia, serif;
+  --text-sm: 1rem;
+  --text-base: 1.125rem;
   --text-lg: 1.25rem;
   --text-xl: 1.5rem;
   --text-2xl: 2rem;

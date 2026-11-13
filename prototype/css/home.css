@@ -39,9 +39,10 @@
 }
 
 .hero .lead {
-  max-width: 34ch;
+  max-width: 40ch;
   margin-top: 16px;
-  font-size: 1.125rem;
+  font-size: 1.25rem;
+  font-weight: 500;
   opacity: 0.92;
 }
 
@@ -77,7 +78,7 @@
   position: relative;
   box-sizing: border-box;
   height: 0;
-  border-bottom: 16px solid var(--card);
+  border-bottom: 16px solid var(--board);
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
 }
@@ -91,7 +92,7 @@
   z-index: 2;
   width: calc(100% + 40px);
   height: 26px;
-  background: linear-gradient(90deg, var(--card) 0%, var(--line) 100%);
+  background: linear-gradient(90deg, var(--board) 0%, var(--board-dark) 100%);
   box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.05), 0 4px 16px rgba(0, 0, 0, 0.25);
 }
 
@@ -101,6 +102,11 @@
   min-width: 0;
   max-width: var(--w);
   height: var(--h);
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
   cursor: pointer;
   transition: transform 0.25s ease-out;
 }
@@ -108,6 +114,10 @@
 .book:nth-child(n + 13) {
   display: none;
 }
+
+.book { --tex: url("../pictures/spine-cloth.jpg"); }
+.book.leather, .book.burgundy, .book.brick, .book.aubergine, .book.terra, .book.rose { --tex: url("../pictures/spine-leather.jpg"); }
+.book.ivory, .book.sand, .book.ochre { --tex: url("../pictures/spine-linen.jpg"); }
 
 .book.cobalt { --cloth: var(--cloth-cobalt); --ink-gilt: var(--gilt); }
 .book.terra { --cloth: var(--cloth-terra); --ink-gilt: var(--gilt); }
@@ -139,9 +149,9 @@
   inset: 0;
   border-radius: 2px 2px 0 0;
   background-color: var(--cloth);
-  background-image:
-    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.07) 0 1px, transparent 1px 3px),
-    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.08) 0 1px, transparent 1px 3px);
+  background-image: var(--tex);
+  background-size: 128px;
+  background-blend-mode: soft-light;
 }
 
 .spine::before {
@@ -161,24 +171,28 @@
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.1) 16%, rgba(255, 255, 255, 0.2) 34%, transparent 55%, rgba(0, 0, 0, 0.22) 88%, rgba(0, 0, 0, 0.5));
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.1) 16%, rgba(255, 255, 255, 0.14) 24%, transparent 38%, rgba(0, 0, 0, 0.22) 88%, rgba(0, 0, 0, 0.5));
 }
 
 .book.stairs .spine {
   background-image:
-    repeating-linear-gradient(63deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1) 1px, transparent 3px, transparent 0),
-    linear-gradient(127deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1) 90px, transparent 55%, transparent 0),
-    linear-gradient(transparent 51%, rgba(0, 0, 0, 0.1) 170px);
-  background-size: 70px 120px;
+    repeating-linear-gradient(63deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05) 1px, transparent 3px, transparent 0),
+    linear-gradient(127deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05) 90px, transparent 55%, transparent 0),
+    linear-gradient(transparent 51%, rgba(0, 0, 0, 0.1) 170px),
+    var(--tex);
+  background-size: 70px 120px, 70px 120px, 70px 120px, 128px;
+  background-blend-mode: normal, normal, normal, soft-light;
 }
 
 .book.pyramid .spine {
   background-image:
-    linear-gradient(315deg, transparent 75%, rgba(255, 255, 255, 0.1) 0),
-    linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.1) 0),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.2) 166px, transparent 0),
-    linear-gradient(45deg, rgba(0, 0, 0, 0.1) 75%, transparent 0);
-  background-size: 20px 20px;
+    linear-gradient(315deg, transparent 75%, rgba(255, 255, 255, 0.05) 0),
+    linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.05) 0),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.1) 166px, transparent 0),
+    linear-gradient(45deg, rgba(0, 0, 0, 0.1) 75%, transparent 0),
+    var(--tex);
+  background-size: 20px 20px, 20px 20px, 20px 20px, 20px 20px, 128px;
+  background-blend-mode: normal, normal, normal, normal, soft-light;
 }
 
 .spine-title {
@@ -197,23 +211,22 @@
   color: var(--ink-gilt);
 }
 
-/* One book leans on its neighbour. */
-.book.lean {
-  margin-left: 9px;
-  transform: rotate(7deg);
-  transform-origin: bottom left;
-}
-
-.book:hover {
+.book:focus-visible {
   transform: translateY(-14px);
 }
 
-.book.lean:hover {
-  transform: translateY(-14px) rotate(7deg);
+.book:focus-visible .spine {
+  box-shadow: 0 10px 14px rgba(0, 0, 0, 0.35);
 }
 
-.book:hover .spine {
-  box-shadow: 0 10px 14px rgba(0, 0, 0, 0.35);
+@media (hover: hover) {
+  .book:hover {
+    transform: translateY(-14px);
+  }
+
+  .book:hover .spine {
+    box-shadow: 0 10px 14px rgba(0, 0, 0, 0.35);
+  }
 }
 
 .section {
@@ -268,7 +281,7 @@
 
 .catalogue .titles {
   color: var(--ink-2);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .text {
@@ -286,7 +299,7 @@
   margin: 14px 0 0;
   padding: 0;
   list-style: none;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .services li,
@@ -326,7 +339,7 @@
 }
 
 .hours dt {
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .hours dd {
@@ -340,7 +353,7 @@
   margin: 14px 0 0;
   padding: 0;
   list-style: none;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 /* Leaflet map. The box makes its own stacking layer so the map controls stay below the header. */
@@ -354,10 +367,24 @@
   background: var(--card);
 }
 
+.map.leaflet-container .leaflet-bar {
+  border-radius: 8px;
+}
+
+.map.leaflet-container .leaflet-bar a:first-child {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.map.leaflet-container .leaflet-bar a:last-child {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
 .map-note {
   margin-top: 10px;
   color: var(--error);
-  font-weight: 700;
+  font-weight: 600;
   font-size: var(--text-sm);
 }
 
@@ -396,6 +423,19 @@
   .two > div + div,
   .two > .photo {
     margin-top: 0;
+  }
+
+  .two > .photo {
+    align-self: stretch;
+    position: relative;
+  }
+
+  .photo img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    object-fit: cover;
   }
 
   .map {
