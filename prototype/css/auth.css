@@ -1,0 +1,61 @@
+/* Login and registration: a heading and one form card in a centred column. */
+.layout-auth main {
+  display: flex;
+}
+
+.auth {
+  width: 100%;
+  max-width: 32rem;
+  margin: auto;
+  padding: 20px 16px;
+}
+
+.auth-head h1 {
+  font-size: 2rem;
+  letter-spacing: -0.02em;
+}
+
+.auth .panel {
+  max-width: none;
+  margin-top: 24px;
+}
+
+.auth-note {
+  color: var(--ink-2);
+  font-size: var(--text-sm);
+  text-align: center;
+}
+
+.auth .choices {
+  margin-top: 16px;
+}
+
+.choice-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 8px;
+}
+
+.choice-row .choice + .choice {
+  margin-top: 0;
+}
+
+.switch {
+  text-align: center;
+  font-weight: 600;
+}
+
+.switch a {
+  color: var(--green);
+  font-weight: 700;
+}
+
+@media (min-width: 600px) {
+  .auth {
+    padding-block: 28px;
+  }
+
+  .auth .panel {
+    padding: 28px 32px;
+  }
+}

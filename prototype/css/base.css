@@ -5,22 +5,36 @@
 
 html {
   -webkit-text-size-adjust: 100%;
+  scrollbar-gutter: stable;
+}
+
+::-webkit-scrollbar       { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--wood-top); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover  { background: var(--wood); }
+::-webkit-scrollbar-thumb:active { background: var(--ink); }
+
+@supports not selector(::-webkit-scrollbar) {
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--wood-top) transparent;
+  }
 }
 
 body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
-  font: 500 var(--text-base) / 1.5 var(--font);
+  font: 400 var(--text-base) / 1.5 var(--font);
 }
 
 h1,
 h2,
 h3 {
   margin: 0;
+  font-family: var(--font-heading);
   font-weight: 800;
   line-height: 1.1;
-  letter-spacing: -0.025em;
 }
 
 h1 {
@@ -51,6 +65,11 @@ svg {
 :focus-visible {
   outline: 3px solid var(--focus);
   outline-offset: 2px;
+}
+
+.top :focus-visible,
+.hero :focus-visible {
+  outline-color: var(--cream);
 }
 
 /* Hidden link that appears on keyboard focus and jumps past the header. */

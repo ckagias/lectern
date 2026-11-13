@@ -19,9 +19,9 @@
   align-items: center;
   gap: 8px;
   text-decoration: none;
+  font-family: var(--font-heading);
   font-weight: 800;
-  font-size: 1rem;
-  letter-spacing: -0.02em;
+  font-size: 1.25rem;
 }
 
 .top-actions {
@@ -46,14 +46,17 @@
   min-width: 30px;
   min-height: 44px;
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 600;
   font-size: var(--text-sm);
   opacity: 0.75;
 }
 
 .lang a[aria-current="true"] {
   opacity: 1;
-  box-shadow: inset 0 -3px 0 var(--ochre);
+  text-decoration: underline;
+  text-decoration-color: var(--ochre);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
 }
 
 .who {
@@ -98,7 +101,7 @@
   min-height: 62px;
   padding: 8px 2px 10px;
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 0.8125rem;
   opacity: 0.8;
 }
@@ -125,7 +128,14 @@ main {
   padding: 22px 16px 100px;
 }
 
+.layout-public {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .layout-public main {
+  flex: 1;
   max-width: none;
   padding: 0;
 }
@@ -136,7 +146,7 @@ main {
   background: var(--foot-bg);
   color: var(--foot-fg);
   font-size: 0.875rem;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .foot p {

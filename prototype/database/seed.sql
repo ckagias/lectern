@@ -35,7 +35,16 @@ INSERT INTO books (id, title, author, call_number, category, published_year, des
     (19, 'The Odyssey', 'Homer', 'POE-001-B', 'Poetry', NULL, 'Odysseus spends ten years trying to get home from Troy to Ithaca.', '2026-11-01 09:00:00', '2026-11-01 09:00:00'),
     (20, 'The Republic', 'Plato', 'PHI-001-A', 'Philosophy', NULL, 'Socrates and his friends ask what justice is and what an ideal city would look like.', '2026-11-01 09:00:00', '2026-11-01 09:00:00'),
     (21, 'The Prince', 'Niccolò Machiavelli', 'PHI-002-A', 'Philosophy', 1532, 'A short and blunt guide to gaining and keeping political power.', '2026-11-01 09:00:00', '2026-11-01 09:00:00'),
-    (22, 'On the Origin of Species', 'Charles Darwin', 'SCI-001-A', 'Science', 1859, 'The argument that species change over time through natural selection.', '2026-11-01 09:00:00', '2026-11-01 09:00:00');
+    (22, 'On the Origin of Species', 'Charles Darwin', 'SCI-001-A', 'Science', 1859, 'The argument that species change over time through natural selection.', '2026-11-01 09:00:00', '2026-11-01 09:00:00'),
+    (23, 'The Iliad', 'Homer', 'POE-002-A', 'Poetry', NULL, 'The last weeks of the Trojan War and the anger of Achilles that changes its course.', '2026-11-01 09:00:00', '2026-11-01 09:00:00'),
+    (24, 'The Divine Comedy', 'Dante Alighieri', 'POE-003-A', 'Poetry', 1320, 'Dante travels through Hell, Purgatory and Paradise, guided first by Virgil and then by Beatrice.', '2026-11-01 09:00:00', '2026-11-01 09:00:00'),
+    (25, 'Leaves of Grass', 'Walt Whitman', 'POE-004-A', 'Poetry', 1855, 'A collection of free-verse poems that celebrates ordinary people, work and the body.', '2026-11-01 09:00:00', '2026-11-01 09:00:00'),
+    (26, 'Meditations', 'Marcus Aurelius', 'PHI-003-A', 'Philosophy', NULL, 'Private notes the Roman emperor wrote to himself about duty, self-control and accepting what we cannot change.', '2026-11-01 09:00:00', '2026-11-01 09:00:00'),
+    (27, 'Nicomachean Ethics', 'Aristotle', 'PHI-004-A', 'Philosophy', NULL, 'Aristotle asks what a good life is and argues that it comes from habits and practical wisdom.', '2026-11-01 09:00:00', '2026-11-01 09:00:00'),
+    (28, 'Beyond Good and Evil', 'Friedrich Nietzsche', 'PHI-005-A', 'Philosophy', 1886, 'Nietzsche questions the beliefs of earlier philosophers and the idea that moral values are fixed.', '2026-11-01 09:00:00', '2026-11-01 09:00:00'),
+    (29, 'Relativity: The Special and General Theory', 'Albert Einstein', 'SCI-002-A', 'Science', 1916, 'Einstein explains his two theories of relativity for readers who are not physicists.', '2026-11-01 09:00:00', '2026-11-01 09:00:00'),
+    (30, 'Euclid''s Elements', 'Euclid', 'SCI-003-A', 'Science', NULL, 'The geometry textbook that builds every proof from a few simple definitions, used for over two thousand years.', '2026-11-01 09:00:00', '2026-11-01 09:00:00'),
+    (31, 'Opticks', 'Isaac Newton', 'SCI-004-A', 'Science', 1704, 'Newton''s experiments on light and colour, including how a prism splits white light.', '2026-11-01 09:00:00', '2026-11-01 09:00:00');
 
 -- Jane Eyre on loan, Dracula returned, Pride and Prejudice (copy A) reserved, Moby-Dick cancelled
 INSERT INTO reservations (id, book_id, user_id, status, reserved_at, ended_at) VALUES

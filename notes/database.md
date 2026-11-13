@@ -7,7 +7,7 @@ The database is called `lectern`. It works on MySQL and MariaDB and was tested o
 Two files are in `prototype/database/`. Import them in this order:
 
 1. `schema.sql` creates the database and the five tables. It deletes an older `lectern` database first.
-2. `seed.sql` adds the roles, two demo accounts, 22 book copies and a few sample reservations and loans.
+2. `seed.sql` adds the roles, two demo accounts, 31 book copies and a few sample reservations and loans.
 
 In phpMyAdmin, open the **Import** tab from the server home page, choose the file and press **Import**. Do this for `schema.sql` and then for `seed.sql`.
 
