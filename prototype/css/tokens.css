@@ -37,6 +37,10 @@
   --foot-bg: var(--ink);
   --foot-fg: oklch(88% 0.02 105);
   --hatch: oklch(93% 0.02 105);
+  --shelf-base: var(--ink);
+  --step-1: var(--cobalt);
+  --step-2: var(--terra);
+  --step-3: var(--plum);
 
   /* type */
   --font: "Manrope", system-ui, sans-serif;
@@ -72,6 +76,10 @@
   --foot-bg: var(--green-2);
   --foot-fg: var(--ink-2);
   --hatch: oklch(29% 0.035 165);
+  --shelf-base: oklch(11% 0.03 165);
+  --step-1: oklch(72% 0.15 262);
+  --step-2: oklch(72% 0.13 40);
+  --step-3: oklch(74% 0.13 335);
   --error: oklch(76% 0.14 28);
   --error-bg: oklch(27% 0.06 28);
   --success: oklch(78% 0.14 160);
