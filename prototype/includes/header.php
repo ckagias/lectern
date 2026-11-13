@@ -4,10 +4,6 @@
 // A page can also set $styles, a list of extra stylesheet names from css/.
 require __DIR__ . '/menu.php';
 
-$theme = 'light';
-if (isset($_COOKIE['theme']) && $_COOKIE['theme'] === 'dark') {
-    $theme = 'dark';
-}
 $lang = $_SESSION['lang'];
 $current = basename($_SERVER['SCRIPT_NAME']);
 if (isset($active)) {
@@ -26,6 +22,7 @@ $isApp = ($layout !== 'public');
     <link rel="stylesheet" href="<?= $base ?>css/base.css">
     <link rel="stylesheet" href="<?= $base ?>css/layout.css">
     <link rel="stylesheet" href="<?= $base ?>css/components.css">
+    <link rel="stylesheet" href="<?= $base ?>css/forms.css">
     <?php if (isset($styles)) { ?>
         <?php foreach ($styles as $style) { ?>
             <link rel="stylesheet" href="<?= $base ?>css/<?= $style ?>.css">
@@ -45,9 +42,14 @@ $isApp = ($layout !== 'public');
                 <span class="who"><?= e($_SESSION['username']) ?> · <?= t('role_' . $layout) ?></span>
             <?php } ?>
             <div class="lang" role="group" aria-label="<?= t('lang_label') ?>">
-                <a href="?lang=el" lang="el"<?= $lang === 'el' ? ' aria-current="true"' : '' ?>>EL</a>
-                <a href="?lang=en" lang="en"<?= $lang === 'en' ? ' aria-current="true"' : '' ?>>EN</a>
+                <a href="<?= switchLink('lang', 'el') ?>" lang="el"<?= $lang === 'el' ? ' aria-current="true"' : '' ?>>EL</a>
+                <a href="<?= switchLink('lang', 'en') ?>" lang="en"<?= $lang === 'en' ? ' aria-current="true"' : '' ?>>EN</a>
             </div>
+            <?php if ($theme === 'dark') { ?>
+                <a class="theme-toggle" href="<?= switchLink('theme', 'light') ?>"><?= icon('sun') ?><span class="visually-hidden"><?= t('theme_light') ?></span></a>
+            <?php } else { ?>
+                <a class="theme-toggle" href="<?= switchLink('theme', 'dark') ?>"><?= icon('moon') ?><span class="visually-hidden"><?= t('theme_dark') ?></span></a>
+            <?php } ?>
             <?php if (!$isApp) { ?>
                 <a class="btn line" href="<?= $base ?>login.php"><?= t('login') ?></a>
             <?php } ?>
@@ -65,3 +67,10 @@ $isApp = ($layout !== 'public');
     <?php } ?>
 
     <main id="main">
+    <?php if (isset($_SESSION['flash'])) { ?>
+        <div class="flash flash-<?= $_SESSION['flash']['type'] ?>" role="status">
+            <?= icon($_SESSION['flash']['type'] === 'error' ? 'alert' : ($_SESSION['flash']['type'] === 'success' ? 'check' : 'info')) ?>
+            <p><?= t($_SESSION['flash']['key']) ?></p>
+        </div>
+        <?php unset($_SESSION['flash']); ?>
+    <?php } ?>

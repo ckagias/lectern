@@ -22,4 +22,6 @@ $lang_en = [
     'nav_books' => 'Books',
     'nav_returns' => 'Returns',
     'footer_text' => 'A fictional library made for a coursework. It does not exist in real life.',
+    'theme_dark' => 'Dark theme',
+    'theme_light' => 'Light theme',
 ];

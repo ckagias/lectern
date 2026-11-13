@@ -10,10 +10,8 @@ $layout = 'public';
 if (isset($_GET['layout']) && ($_GET['layout'] === 'member' || $_GET['layout'] === 'librarian')) {
     $layout = $_GET['layout'];
 }
-if (isset($_GET['theme']) && $_GET['theme'] === 'dark') {
-    $_COOKIE['theme'] = 'dark';
-}
 $_SESSION['username'] = 'maria';
+setFlash('info', 'forbidden_text');
 $active = ($layout === 'librarian') ? 'reservations.php' : 'catalogue.php';
 $colors = ['bg', 'card', 'ink', 'ink-2', 'line', 'cream', 'green', 'green-2', 'action', 'cobalt', 'terra', 'plum', 'ochre', 'teal'];
 
@@ -21,7 +19,7 @@ require __DIR__ . '/../includes/header.php';
 ?>
 <div class="guide">
     <h1>Style guide</h1>
-    <p class="note">Layout: <?= $layout ?>. Use ?layout=member, ?layout=librarian and ?theme=dark in the address.</p>
+    <p class="note">Layout: <?= $layout ?>. Add ?layout=member or ?layout=librarian to the address. The moon button switches the theme.</p>
 
     <h2>Type scale</h2>
     <div class="scale">
@@ -41,6 +39,22 @@ require __DIR__ . '/../includes/header.php';
         <a class="btn ochre" href="#">Σύνδεση</a>
         <a class="btn line" href="#">Εγγραφή</a>
     </div>
+
+    <h2>Forms</h2>
+    <form class="panel" action="#" method="post">
+        <?= field('email', 'Email', 'email', 'maria@example.com', '', ['autocomplete' => 'email', 'required' => 'required']) ?>
+        <?= field('password', 'Κωδικός', 'password', '', t('err_password'), ['autocomplete' => 'new-password'], '8 έως 72 χαρακτήρες') ?>
+        <fieldset class="choices">
+            <legend>Ρόλος</legend>
+            <label class="choice"><input type="radio" name="role" value="1" checked>Μέλος</label>
+            <label class="choice"><input type="radio" name="role" value="2">Βιβλιοθηκονόμος</label>
+        </fieldset>
+        <button class="btn action block" type="submit">Εγγραφή</button>
+    </form>
+
+    <h2>Messages</h2>
+    <div class="flash flash-success"><?= icon('check') ?><p>Η εγγραφή ολοκληρώθηκε. Μπορείς να συνδεθείς.</p></div>
+    <div class="flash flash-error"><?= icon('alert') ?><p>Λάθος email ή κωδικός.</p></div>
 
     <h2>Colours</h2>
     <ul class="swatches">

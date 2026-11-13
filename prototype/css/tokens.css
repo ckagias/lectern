@@ -27,6 +27,10 @@
   --btn-bg: var(--ink);
   --btn-fg: var(--cream);
   --on-ochre: oklch(22% 0.03 165);
+  --error: oklch(45% 0.18 28);
+  --error-bg: oklch(94.5% 0.035 28);
+  --success: oklch(36% 0.085 165);
+  --success-bg: oklch(94% 0.045 160);
   --chip-ink: var(--ink);
   --staff-bg: var(--ink);
   --staff-nav: oklch(28% 0.04 165);
@@ -68,4 +72,8 @@
   --foot-bg: var(--green-2);
   --foot-fg: var(--ink-2);
   --hatch: oklch(29% 0.035 165);
+  --error: oklch(76% 0.14 28);
+  --error-bg: oklch(27% 0.06 28);
+  --success: oklch(78% 0.14 160);
+  --success-bg: oklch(27% 0.05 160);
 }
