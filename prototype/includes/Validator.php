@@ -47,4 +47,21 @@ class Validator
         }
         return '';
     }
+
+    /** Registration code: it must be given and it must be the code of the chosen role. */
+    public function code($role, $code)
+    {
+        $code = strtoupper(trim($code));
+        if ($code === '') {
+            return 'err_code';
+        }
+        $right = CODE_MEMBER;
+        if ($role === 'librarian') {
+            $right = CODE_LIBRARIAN;
+        }
+        if (!hash_equals($right, $code)) {
+            return 'err_code_wrong';
+        }
+        return '';
+    }
 }
