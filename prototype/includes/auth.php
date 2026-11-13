@@ -19,12 +19,11 @@ function requireLogin($base = '')
     }
 }
 
-/** Lets only this role through. Other users see Forbidden Action. */
+/** Lets only this role through. Other users are sent to the Forbidden Action page. */
 function requireRole($roleId, $base = '')
 {
     requireLogin($base);
     if (!hasRole($roleId)) {
-        require __DIR__ . '/forbidden.php';
-        exit;
+        redirect($base . 'forbidden.php');
     }
 }

@@ -48,21 +48,67 @@
 .swatches .chip-color {
   display: block;
   height: 56px;
-  background: var(--c);
+  background: var(--card);
 }
 
-.swatches b,
-.swatches span.v {
+.swatches b {
   display: block;
-  padding: 4px 10px;
+  padding: 4px 10px 8px;
   font-size: var(--text-sm);
-}
-
-.swatches span.v {
-  padding-bottom: 8px;
-  color: var(--ink-2);
 }
 
 .scale > * + * {
   margin-top: 12px;
+}
+
+.swatch-bg {
+  background: var(--bg);
+}
+
+.swatch-card {
+  background: var(--card);
+}
+
+.swatch-ink {
+  background: var(--ink);
+}
+
+.swatch-ink-2 {
+  background: var(--ink-2);
+}
+
+.swatch-line {
+  background: var(--line);
+}
+
+.swatch-cream {
+  background: var(--cream);
+}
+
+.swatch-green {
+  background: var(--green);
+}
+
+.swatch-action {
+  background: var(--action);
+}
+
+.swatch-cobalt {
+  background: var(--cobalt);
+}
+
+.swatch-terra {
+  background: var(--terra);
+}
+
+.swatch-plum {
+  background: var(--plum);
+}
+
+.swatch-ochre {
+  background: var(--ochre);
+}
+
+.swatch-teal {
+  background: var(--teal);
 }
