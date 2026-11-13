@@ -1,0 +1,47 @@
+/* Reusable parts. Buttons for now, form fields are added later. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 52px;
+  padding: 0 22px;
+  border: 2px solid var(--btn-bg);
+  border-radius: var(--radius);
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font: 800 1rem var(--font);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  filter: brightness(1.08);
+}
+
+/* Main action, drawn in library green. */
+.btn.action {
+  border-color: var(--action);
+  background: var(--action);
+  color: var(--cream);
+}
+
+/* Bright button for dark backgrounds, like the hero. */
+.btn.ochre {
+  border-color: var(--ochre);
+  background: var(--ochre);
+  color: var(--on-ochre);
+}
+
+/* Outline button for dark backgrounds, like the header. */
+.btn.line {
+  border-color: var(--cream);
+  background: transparent;
+  color: var(--cream);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .btn {
+    transition: filter 0.15s ease-out;
+  }
+}

@@ -7,4 +7,5 @@ require_once __DIR__ . '/Database.php';
 require_once __DIR__ . '/User.php';
 require_once __DIR__ . '/Validator.php';
 require_once __DIR__ . '/lang.php';
+require_once __DIR__ . '/theme.php';
 require_once __DIR__ . '/auth.php';

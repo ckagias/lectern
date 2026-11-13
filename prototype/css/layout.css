@@ -1,0 +1,229 @@
+/* Page shell: header, language switch, bottom nav (tab bar on desktop), main area and footer. */
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  min-height: 60px;
+  padding: 6px 12px;
+  background: var(--green);
+  color: var(--on-dark);
+}
+
+.layout-librarian .top {
+  background: var(--staff-bg);
+}
+
+.brand {
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 1.0625rem;
+  letter-spacing: -0.02em;
+}
+
+.top-actions {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.top .btn {
+  min-height: 44px;
+  padding: 0 8px;
+  font-size: var(--text-sm);
+}
+
+.lang {
+  display: flex;
+}
+
+.lang a {
+  display: grid;
+  place-items: center;
+  min-width: 32px;
+  min-height: 44px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: var(--text-sm);
+  opacity: 0.75;
+}
+
+.lang a[aria-current="true"] {
+  opacity: 1;
+  box-shadow: inset 0 -3px 0 var(--ochre);
+}
+
+.theme-toggle {
+  display: grid;
+  place-items: center;
+  min-width: 36px;
+  min-height: 44px;
+  color: inherit;
+}
+
+.who {
+  display: none;
+  margin-right: 8px;
+  font-size: var(--text-sm);
+  opacity: 0.85;
+}
+
+.staff-tag {
+  margin-right: 4px;
+  padding: 4px 8px;
+  border-radius: 3px;
+  background: var(--ochre);
+  color: var(--on-ochre);
+  font-weight: 800;
+  font-size: 0.8125rem;
+}
+
+/* Navigation: fixed to the bottom on phones. */
+.nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--green);
+  color: var(--on-dark);
+}
+
+.nav a {
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  min-height: 62px;
+  padding: 8px 2px 10px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  opacity: 0.8;
+}
+
+.nav a[aria-current="page"] {
+  background: var(--cream);
+  color: var(--green);
+  opacity: 1;
+}
+
+.layout-librarian .nav {
+  background: var(--staff-bg);
+}
+
+.layout-librarian .nav a[aria-current="page"] {
+  background: var(--ochre);
+  color: var(--on-ochre);
+}
+
+main {
+  width: 100%;
+  max-width: var(--page-width);
+  margin-inline: auto;
+  padding: 22px 16px 100px;
+}
+
+.layout-public main {
+  max-width: none;
+  padding: 0;
+}
+
+.foot {
+  margin-top: 56px;
+  padding: 22px 16px 30px;
+  background: var(--foot-bg);
+  color: var(--foot-fg);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.foot p {
+  max-width: var(--page-width);
+  margin-inline: auto;
+}
+
+@media (min-width: 380px) {
+  .top {
+    gap: 8px;
+    padding-inline: 16px;
+  }
+
+  .top-actions {
+    gap: 4px;
+  }
+
+  .brand {
+    font-size: 1.25rem;
+  }
+
+  .top .btn {
+    padding: 0 14px;
+    font-size: 1rem;
+  }
+
+  .lang a {
+    min-width: 40px;
+  }
+
+  .theme-toggle {
+    min-width: 44px;
+  }
+}
+
+@media (min-width: 900px) {
+  /* The same nav markup becomes a tab bar under the header. */
+  .layout-member,
+  .layout-librarian {
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    min-height: 100vh;
+  }
+
+  .top {
+    min-height: 68px;
+    padding: 6px 32px;
+  }
+
+  .brand {
+    font-size: 1.5rem;
+  }
+
+  .who {
+    display: block;
+  }
+
+  .nav {
+    position: static;
+    display: flex;
+    gap: 4px;
+    padding: 0 32px;
+    background: var(--green-2);
+  }
+
+  .layout-librarian .nav {
+    background: var(--staff-nav);
+  }
+
+  .nav a {
+    grid-auto-flow: column;
+    align-items: center;
+    gap: 10px;
+    min-height: 52px;
+    padding: 0 20px;
+    font-size: 1rem;
+  }
+
+  main {
+    padding: 36px 32px 56px;
+  }
+
+  .layout-public main {
+    padding: 0;
+  }
+
+  .foot {
+    padding: 24px 32px 32px;
+  }
+}
