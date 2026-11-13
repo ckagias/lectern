@@ -1,25 +1,26 @@
 <?php
 // Dev-only page that shows the design system. It is not part of the shipped site.
-// Try ?layout=public, ?layout=member or ?layout=librarian, and add &theme=dark for the night theme.
-require_once __DIR__ . '/../includes/init.php';
-
+// Add ?layout=member or ?layout=librarian to the address to see the other shells.
 $base = '../';
+require_once $base . 'includes/init.php';
+
+$layout = 'public';
+$active = 'catalogue';
+if (isset($_GET['layout']) && $_GET['layout'] === 'member') {
+    $layout = 'member';
+}
+if (isset($_GET['layout']) && $_GET['layout'] === 'librarian') {
+    $layout = 'librarian';
+    $active = 'reservations';
+}
 $title = 'Style guide';
 $styles = ['css/styleguide.css'];
-$layout = 'public';
-if (isset($_GET['layout']) && ($_GET['layout'] === 'member' || $_GET['layout'] === 'librarian')) {
-    $layout = $_GET['layout'];
-}
 $_SESSION['username'] = 'maria';
-setFlash('info', 'forbidden_text');
-$active = ($layout === 'librarian') ? 'reservations.php' : 'catalogue.php';
-$colors = ['bg', 'card', 'ink', 'ink-2', 'line', 'cream', 'green', 'green-2', 'action', 'cobalt', 'terra', 'plum', 'ochre', 'teal'];
-
-require __DIR__ . '/../includes/header.php';
+require $base . 'includes/header.php';
 ?>
 <div class="guide">
     <h1>Style guide</h1>
-    <p class="note">Layout: <?= $layout ?>. Add ?layout=member or ?layout=librarian to the address. The moon button switches the theme.</p>
+    <p class="note">Layout: <?php echo $layout; ?>. Add ?layout=member or ?layout=librarian to the address.</p>
 
     <h2>Type scale</h2>
     <div class="scale">
@@ -42,27 +43,48 @@ require __DIR__ . '/../includes/header.php';
 
     <h2>Forms</h2>
     <form class="panel" action="#" method="post">
-        <?= field('email', 'Email', 'email', 'maria@example.com', '', ['autocomplete' => 'email', 'required' => 'required']) ?>
-        <?= field('password', 'Κωδικός', 'password', '', t('err_password'), ['autocomplete' => 'new-password'], '8 έως 72 χαρακτήρες') ?>
+        <div class="field">
+            <label for="email">Email</label>
+            <input class="input" id="email" name="email" type="email" value="maria@example.com">
+            <p class="error" id="email-error"></p>
+        </div>
+        <div class="field">
+            <label for="password">Κωδικός</label>
+            <p class="hint">8 έως 72 χαρακτήρες</p>
+            <input class="input" id="password" name="password" type="password" aria-invalid="true">
+            <p class="error" id="password-error"><?php echo t('err_password'); ?></p>
+        </div>
         <fieldset class="choices">
             <legend>Ρόλος</legend>
-            <label class="choice"><input type="radio" name="role" value="1" checked>Μέλος</label>
-            <label class="choice"><input type="radio" name="role" value="2">Βιβλιοθηκονόμος</label>
+            <label class="choice"><input type="radio" name="role" value="member" checked>Μέλος</label>
+            <label class="choice"><input type="radio" name="role" value="librarian">Βιβλιοθηκονόμος</label>
         </fieldset>
         <button class="btn action block" type="submit">Εγγραφή</button>
     </form>
 
     <h2>Messages</h2>
-    <div class="flash flash-success"><?= icon('check') ?><p>Η εγγραφή ολοκληρώθηκε. Μπορείς να συνδεθείς.</p></div>
-    <div class="flash flash-error"><?= icon('alert') ?><p>Λάθος email ή κωδικός.</p></div>
+    <div class="flash flash-success"><svg class="icon" aria-hidden="true"><use href="#ic-check"/></svg><p>Η εγγραφή ολοκληρώθηκε. Μπορείς να συνδεθείς.</p></div>
+    <div class="flash flash-error"><svg class="icon" aria-hidden="true"><use href="#ic-alert"/></svg><p>Λάθος email ή κωδικός.</p></div>
+    <div class="flash"><svg class="icon" aria-hidden="true"><use href="#ic-info"/></svg><p>Αυτή η σελίδα είναι για άλλο ρόλο.</p></div>
 
     <h2>Colours</h2>
     <ul class="swatches">
-        <?php foreach ($colors as $c) { ?>
-            <li><span class="chip-color" style="--c: var(--<?= $c ?>)"></span><b><?= $c ?></b><span class="v">--<?= $c ?></span></li>
-        <?php } ?>
+        <li><span class="chip-color swatch-bg"></span><b>bg</b></li>
+        <li><span class="chip-color swatch-card"></span><b>card</b></li>
+        <li><span class="chip-color swatch-ink"></span><b>ink</b></li>
+        <li><span class="chip-color swatch-ink-2"></span><b>ink-2</b></li>
+        <li><span class="chip-color swatch-line"></span><b>line</b></li>
+        <li><span class="chip-color swatch-cream"></span><b>cream</b></li>
+        <li><span class="chip-color swatch-green"></span><b>green</b></li>
+        <li><span class="chip-color swatch-action"></span><b>action</b></li>
+        <li><span class="chip-color swatch-cobalt"></span><b>cobalt</b></li>
+        <li><span class="chip-color swatch-terra"></span><b>terra</b></li>
+        <li><span class="chip-color swatch-plum"></span><b>plum</b></li>
+        <li><span class="chip-color swatch-ochre"></span><b>ochre</b></li>
+        <li><span class="chip-color swatch-teal"></span><b>teal</b></li>
     </ul>
 </div>
 <?php
 unset($_SESSION['username']);
-require __DIR__ . '/../includes/footer.php';
+require $base . 'includes/footer.php';
+?>

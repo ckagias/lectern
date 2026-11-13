@@ -33,15 +33,9 @@
   color: var(--on-ochre);
 }
 
-/* Outline button for dark backgrounds, like the header. */
+/* Second button for dark backgrounds, like the hero and the header. A light see-through fill with a cream border. */
 .btn.line {
   border-color: var(--cream);
-  background: transparent;
+  background: var(--glass);
   color: var(--cream);
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .btn {
-    transition: filter 0.15s ease-out;
-  }
 }

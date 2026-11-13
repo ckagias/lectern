@@ -97,16 +97,6 @@
   accent-color: var(--action);
 }
 
-.choice:has(input:checked) {
-  background: var(--success-bg);
-  border-color: var(--success);
-}
-
-.choice:has(input:focus-visible) {
-  outline: 3px solid var(--focus);
-  outline-offset: 2px;
-}
-
 .btn.block {
   width: 100%;
 }
