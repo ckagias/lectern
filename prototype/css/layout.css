@@ -65,15 +65,7 @@
   text-underline-offset: 6px;
 }
 
-.who {
-  display: none;
-  margin-right: 8px;
-  font-size: var(--text-sm);
-  opacity: 0.85;
-}
-
 .staff-tag {
-  margin-right: 2px;
   padding: 4px 7px;
   border-radius: 3px;
   background: var(--ochre);
@@ -85,6 +77,11 @@
 .brand-mark {
   display: none;
   color: var(--ochre);
+}
+
+/* The user block at the top of the side menu. Phones have no side menu, so it is hidden there. */
+.nav-user {
+  display: none;
 }
 
 /* Navigation: fixed to the bottom on phones. */
@@ -197,15 +194,17 @@ main {
 }
 
 @media (min-width: 900px) {
-  /* The same nav markup becomes a tab bar under the header. */
+  /* The same nav markup becomes a menu on the left, under the header. */
   .layout-member,
   .layout-librarian {
     display: grid;
-    grid-template-rows: auto auto 1fr;
+    grid-template-columns: 15rem 1fr;
+    grid-template-rows: auto 1fr;
     min-height: 100vh;
   }
 
   .top {
+    grid-column: 1 / -1;
     min-height: 68px;
     padding: 6px 32px;
   }
@@ -214,15 +213,12 @@ main {
     font-size: 1.5rem;
   }
 
-  .who {
-    display: block;
-  }
-
   .nav {
     position: static;
     display: flex;
+    flex-direction: column;
     gap: 4px;
-    padding: 0 32px;
+    padding: 20px 12px;
     background: var(--green-2);
   }
 
@@ -230,16 +226,42 @@ main {
     background: var(--staff-nav);
   }
 
+  .nav-user {
+    display: grid;
+    justify-items: start;
+    gap: 2px;
+    margin-top: auto;
+    padding: 18px 16px 4px;
+    border-top: 1px solid var(--glass);
+    overflow-wrap: anywhere;
+  }
+
+  .nav-user .staff-tag {
+    margin-bottom: 8px;
+  }
+
+  .who {
+    font-weight: 700;
+  }
+
+  .role {
+    font-size: var(--text-sm);
+    opacity: 0.8;
+  }
+
   .nav a {
     grid-auto-flow: column;
+    justify-content: start;
     align-items: center;
-    gap: 10px;
-    min-height: 52px;
-    padding: 0 20px;
+    gap: 12px;
+    min-height: 48px;
+    padding: 0 16px;
+    border-radius: var(--radius);
     font-size: 1rem;
   }
 
   main {
+    min-width: 0;
     padding: 36px 32px 56px;
   }
 

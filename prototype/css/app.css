@@ -1,0 +1,56 @@
+/* Logged in pages: the dashboard shortcuts, the empty placeholder pages and Forbidden Action. */
+.lead {
+  margin-top: 8px;
+  color: var(--ink-2);
+}
+
+.tiles {
+  display: grid;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.tile {
+  display: grid;
+  gap: 4px;
+  padding: 18px;
+  border: var(--border) solid var(--ink);
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  text-decoration: none;
+}
+
+.tile .icon {
+  width: 28px;
+  height: 28px;
+  margin-bottom: 6px;
+  color: var(--green);
+}
+
+.layout-librarian .tile .icon {
+  color: var(--ink);
+}
+
+.tile h2 {
+  font-size: var(--text-lg);
+}
+
+.tile p {
+  color: var(--ink-2);
+}
+
+.tile:hover {
+  background: var(--cream);
+}
+
+@media (min-width: 600px) {
+  .tiles {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .tiles {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

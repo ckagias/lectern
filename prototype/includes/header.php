@@ -4,6 +4,10 @@
 // A page can also set $styles, a list of extra stylesheet paths like 'css/home.css', and $bodyClass for an extra class on <body>.
 $lang = $_SESSION['lang'];
 $current = 'aria-current="page"';
+$home = 'index.php';
+if ($layout !== 'public') {
+    $home = 'dashboard.php';
+}
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo $lang; ?>">
@@ -28,14 +32,8 @@ $current = 'aria-current="page"';
     <a class="skip" href="#main"><?php echo t('skip_link'); ?></a>
 
     <header class="top">
-        <a class="brand" href="<?php echo $base; ?>index.php"><svg class="icon brand-mark" aria-hidden="true"><use href="#ic-library"/></svg>AchaiaReads</a>
+        <a class="brand" href="<?php echo $base . $home; ?>"><svg class="icon brand-mark" aria-hidden="true"><use href="#ic-library"/></svg>AchaiaReads</a>
         <div class="top-actions">
-            <?php if ($layout === 'librarian') { ?>
-                <span class="staff-tag"><?php echo t('staff_tag'); ?></span>
-            <?php } ?>
-            <?php if ($layout !== 'public' && isset($_SESSION['username'])) { ?>
-                <span class="who"><?php echo e($_SESSION['username']); ?> · <?php echo t('role_' . $layout); ?></span>
-            <?php } ?>
             <div class="lang" role="group" aria-label="<?php echo t('lang_label'); ?>">
                 <?php if ($lang === 'el') { ?>
                     <a href="?lang=el" lang="el" aria-current="true">EL</a>
@@ -70,6 +68,10 @@ $current = 'aria-current="page"';
             <a href="<?php echo $base; ?>member/history.php" <?php if ($active === 'history') { echo $current; } ?>>
                 <svg class="icon" aria-hidden="true"><use href="#ic-history"/></svg><span><?php echo t('nav_history'); ?></span>
             </a>
+            <div class="nav-user">
+                <span class="who"><?php echo e($_SESSION['username']); ?></span>
+                <span class="role"><?php echo t('role_' . $layout); ?></span>
+            </div>
         </nav>
     <?php } ?>
 
@@ -87,6 +89,13 @@ $current = 'aria-current="page"';
             <a href="<?php echo $base; ?>librarian/returns.php" <?php if ($active === 'returns') { echo $current; } ?>>
                 <svg class="icon" aria-hidden="true"><use href="#ic-undo"/></svg><span><?php echo t('nav_returns'); ?></span>
             </a>
+            <div class="nav-user">
+                <?php if ($layout === 'librarian') { ?>
+                    <span class="staff-tag"><?php echo t('staff_tag'); ?></span>
+                <?php } ?>
+                <span class="who"><?php echo e($_SESSION['username']); ?></span>
+                <span class="role"><?php echo t('role_' . $layout); ?></span>
+            </div>
         </nav>
     <?php } ?>
 
