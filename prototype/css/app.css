@@ -1,0 +1,97 @@
+/* Logged in pages: the dashboard shortcuts, the empty placeholder pages and Forbidden Action. */
+.lead {
+  margin-top: 8px;
+  color: var(--ink-2);
+}
+
+.tiles {
+  display: grid;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.tile {
+  display: grid;
+  gap: 4px;
+  padding: 18px;
+  border: var(--border) solid var(--ink);
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  text-decoration: none;
+}
+
+.tile .icon {
+  width: 28px;
+  height: 28px;
+  margin-bottom: 6px;
+  color: var(--green);
+}
+
+.layout-librarian .tile .icon {
+  color: var(--ink);
+}
+
+.tile h2 {
+  font-size: var(--text-lg);
+}
+
+.tile p {
+  color: var(--ink-2);
+}
+
+.tile:hover {
+  background: var(--cream);
+}
+
+.empty {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  padding: 40px 20px;
+  border: var(--border) dashed var(--line);
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+
+.empty .icon {
+  width: 36px;
+  height: 36px;
+  color: var(--ink-2);
+}
+
+.empty p {
+  color: var(--ink-2);
+}
+
+.forbidden {
+  max-width: 32rem;
+  margin-inline: auto;
+  border-style: solid;
+  border-color: var(--error);
+  background: var(--error-bg);
+}
+
+.forbidden .icon {
+  color: var(--error);
+}
+
+.forbidden p {
+  color: var(--ink);
+}
+
+.forbidden .btn {
+  margin-top: 12px;
+}
+
+@media (min-width: 600px) {
+  .tiles {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .tiles {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
