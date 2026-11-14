@@ -43,6 +43,47 @@
   background: var(--cream);
 }
 
+.empty {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  padding: 40px 20px;
+  border: var(--border) dashed var(--line);
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+
+.empty .icon {
+  width: 36px;
+  height: 36px;
+  color: var(--ink-2);
+}
+
+.empty p {
+  color: var(--ink-2);
+}
+
+.forbidden {
+  max-width: 32rem;
+  margin-inline: auto;
+  border-style: solid;
+  border-color: var(--error);
+  background: var(--error-bg);
+}
+
+.forbidden .icon {
+  color: var(--error);
+}
+
+.forbidden p {
+  color: var(--ink);
+}
+
+.forbidden .btn {
+  margin-top: 12px;
+}
+
 @media (min-width: 600px) {
   .tiles {
     grid-template-columns: repeat(2, 1fr);
