@@ -56,11 +56,13 @@ class Validator
             return 'err_code';
         }
         $right = CODE_MEMBER;
+        $wrong = 'err_code_wrong_member';
         if ($role === 'librarian') {
             $right = CODE_LIBRARIAN;
+            $wrong = 'err_code_wrong_librarian';
         }
         if (!hash_equals($right, $code)) {
-            return 'err_code_wrong';
+            return $wrong;
         }
         return '';
     }
