@@ -135,7 +135,6 @@
 }
 
 .nav a[aria-current="page"] {
-  background: var(--green-tint);
   color: var(--green);
   font-weight: 700;
 }
@@ -278,6 +277,10 @@ main {
   }
 
   .nav a:hover {
+    background: var(--green-tint);
+  }
+
+  .nav a[aria-current="page"] {
     background: var(--green-tint);
   }
 
