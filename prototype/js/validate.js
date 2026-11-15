@@ -24,7 +24,12 @@ var rules = {
     }
 };
 
-/** Shows or clears the error under one field and returns true when the value is fine. */
+/**
+ * Shows or clears the error under one field.
+ *
+ * @param {HTMLInputElement} field The field to check, its data-rule names the rule.
+ * @returns {boolean} True when the value is fine.
+ */
 function check(field) {
     var ok = rules[field.dataset.rule](field.value);
     document.getElementById(field.id + '-error').textContent = ok ? '' : field.dataset.error;

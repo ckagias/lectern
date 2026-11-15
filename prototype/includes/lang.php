@@ -16,7 +16,12 @@ if (!isset($_SESSION['lang'])) {
     }
 }
 
-/** Returns the text for this key in the current language. */
+/**
+ * Returns the text for this key in the current language.
+ *
+ * @param string $key The key of the text in the language files.
+ * @return string The text, or the key itself when the text does not exist.
+ */
 function t($key)
 {
     global $lang_el, $lang_en;
