@@ -5,6 +5,9 @@ define('DB_USER', 'root');
 define('DB_PASS', '');
 define('DB_NAME', 'lectern');
 
+// The library is in Patras, so dates and the opening hours of today use Greek time.
+date_default_timezone_set('Europe/Athens');
+
 // The role ids stored in the roles table.
 define('ROLE_MEMBER', 1);
 define('ROLE_LIBRARIAN', 2);

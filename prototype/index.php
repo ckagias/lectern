@@ -60,10 +60,10 @@ require $base . 'includes/header.php';
         <p class="text"><?php echo t('about_p1'); ?></p>
         <h3 class="sub"><?php echo t('services_title'); ?></h3>
         <ul class="services">
-            <li><svg class="icon" aria-hidden="true"><use href="#ic-check"/></svg><?php echo t('service_1'); ?></li>
-            <li><svg class="icon" aria-hidden="true"><use href="#ic-check"/></svg><?php echo t('service_2'); ?></li>
-            <li><svg class="icon" aria-hidden="true"><use href="#ic-check"/></svg><?php echo t('service_3'); ?></li>
-            <li><svg class="icon" aria-hidden="true"><use href="#ic-check"/></svg><?php echo t('service_4'); ?></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#ic-check-line"/></svg><?php echo t('service_1'); ?></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#ic-check-line"/></svg><?php echo t('service_2'); ?></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#ic-check-line"/></svg><?php echo t('service_3'); ?></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#ic-check-line"/></svg><?php echo t('service_4'); ?></li>
         </ul>
     </div>
     <figure class="photo">

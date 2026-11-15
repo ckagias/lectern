@@ -1,4 +1,4 @@
-/* Reusable parts. Buttons for now, form fields are added later. */
+/* Reusable parts: the buttons. */
 .btn {
   display: inline-flex;
   align-items: center;
