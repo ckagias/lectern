@@ -39,58 +39,6 @@ A copy is available when it has no active reservation and no open loan. The code
 
 ## ER diagram
 
-```mermaid
-erDiagram
-    roles ||--o{ users : "has"
-    users ||--o{ reservations : "makes"
-    books ||--o{ reservations : "is reserved in"
-    users ||--o{ loans : "borrows"
-    books ||--o{ loans : "is lent in"
-    reservations |o--o| loans : "becomes"
-    users ||--o{ loans : "loaned_by"
-    users |o--o{ loans : "returned_to"
+![ER diagram of the lectern database](er-diagram.png)
 
-    roles {
-        int id PK
-        varchar name
-    }
-    users {
-        int id PK
-        varchar username UK
-        varchar email UK
-        varchar password_hash
-        int role_id FK
-        datetime created_at
-    }
-    books {
-        int id PK
-        varchar title
-        varchar author
-        varchar call_number
-        varchar category
-        int published_year
-        text description
-        varchar cover_path
-        datetime created_at
-        datetime updated_at
-    }
-    reservations {
-        int id PK
-        int book_id FK
-        int user_id FK
-        varchar status
-        datetime reserved_at
-        datetime ended_at
-    }
-    loans {
-        int id PK
-        int book_id FK
-        int user_id FK
-        int reservation_id FK
-        int loaned_by FK
-        datetime loaned_at
-        date due_date
-        datetime returned_at
-        int returned_to FK
-    }
-```
+The same diagram as a vector file is `er-diagram.svg`. A line from `users` to `loans` is drawn three times because `loans` points to a user in three columns: `user_id` (who borrows), `loaned_by` (the librarian who handed the copy over) and `returned_to` (the librarian who took it back, empty while the loan is open).
