@@ -44,6 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 $layout = 'public';
 $title = t('login');
+$active = 'login';
 $styles = ['css/auth.css'];
 $bodyClass = 'layout-auth';
 $scripts = ['js/validate.js'];
