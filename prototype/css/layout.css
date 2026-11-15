@@ -5,7 +5,7 @@
   justify-content: space-between;
   gap: 4px;
   min-height: 60px;
-  padding: 6px 12px;
+  padding: 6px 8px;
   background: var(--green);
   color: var(--on-dark);
 }
@@ -14,6 +14,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  min-height: 44px;
   text-decoration: none;
   font-family: var(--font-heading);
   font-weight: 800;
@@ -62,7 +63,7 @@
 .lang a {
   display: grid;
   place-items: center;
-  min-width: 30px;
+  min-width: 40px;
   min-height: 44px;
   text-decoration: none;
   font-weight: 600;
@@ -112,6 +113,7 @@
   text-decoration: none;
   font-weight: 500;
   font-size: 0.8125rem;
+  transition: background-color 0.15s, color 0.15s;
 }
 
 /* Every menu icon has an outline and a solid version. The current page shows the solid one. */
@@ -162,7 +164,7 @@ main {
   padding: 22px 16px 30px;
   background: var(--foot-bg);
   color: var(--foot-fg);
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 500;
 }
 
@@ -197,7 +199,7 @@ main {
   }
 
   .lang a {
-    min-width: 40px;
+    min-width: 44px;
   }
 }
 
@@ -217,6 +219,14 @@ main {
     padding: 6px 32px;
   }
 
+  /* The header stays on top and the side menu stays in view while the page scrolls. */
+  .layout-member .top,
+  .layout-librarian .top {
+    position: sticky;
+    top: 0;
+    z-index: 6;
+  }
+
   .brand {
     font-size: 1.5rem;
   }
@@ -230,6 +240,10 @@ main {
     border-top: 0;
     border-right: 1px solid var(--line);
     background: var(--bg);
+    position: sticky;
+    top: 68px;
+    align-self: start;
+    height: calc(100vh - 68px);
   }
 
   .nav-user {

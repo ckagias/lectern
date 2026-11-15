@@ -1,14 +1,13 @@
 /* Design tokens. Every colour in the site comes from this file. */
 :root {
   /* surfaces and text */
-  --bg: #e5d5b2;
-  --card: #eee0c3;
+  --bg: #f0e6cb;
+  --card: #f8f1de;
+  --panel: #fcf8ec;
   --ink: #2a2118;
   --ink-2: #5b4a38;
-  --line: #c9b68b;
+  --line: #d2c094;
   --cream: #f7ecd3;
-  --surface: #f7ecd3;
-  --shadow: 0 3px 6px rgba(42, 33, 24, 0.16), 0 3px 6px rgba(42, 33, 24, 0.23);
 
   /* library green, used for the header, nav and main actions */
   --green: #2f5740;

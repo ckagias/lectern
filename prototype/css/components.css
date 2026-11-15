@@ -13,6 +13,7 @@
   font: 800 1rem var(--font);
   text-decoration: none;
   cursor: pointer;
+  transition: filter 0.15s, background-color 0.15s;
 }
 
 .btn:hover {

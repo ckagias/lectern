@@ -2,7 +2,7 @@
 .hero {
   overflow: hidden;
   background-color: var(--green);
-  background-image: linear-gradient(var(--veil-left), var(--veil-left)), url("../pictures/hero-library-960.jpg");
+  background-image: linear-gradient(var(--veil-left), var(--veil-middle)), url("../pictures/hero-library-960.jpg");
   background-position: center;
   background-size: cover;
   color: var(--on-dark);
@@ -36,6 +36,7 @@
   font-size: 2.75rem;
   line-height: 1.02;
   letter-spacing: -0.035em;
+  text-wrap: balance;
 }
 
 .hero .lead {
@@ -367,6 +368,10 @@
   background: var(--card);
 }
 
+.map .leaflet-tile-pane {
+  filter: sepia(0.35) saturate(0.85);
+}
+
 .map.leaflet-container .leaflet-bar {
   border-radius: 8px;
 }
@@ -440,6 +445,13 @@
 
   .map {
     height: 360px;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-in,
+  .section {
+    padding-inline: 32px;
   }
 }
 

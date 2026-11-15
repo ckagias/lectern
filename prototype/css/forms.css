@@ -4,9 +4,9 @@
   max-width: 30rem;
   margin-inline: auto;
   padding: 22px 18px;
-  border: var(--border) solid var(--ink);
+  border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  background: var(--card);
+  background: var(--panel);
 }
 
 .panel > * + * {
