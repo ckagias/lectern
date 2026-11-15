@@ -12,12 +12,13 @@ if (hasRole(ROLE_LIBRARIAN)) {
 $title = 'Forbidden Action';
 $active = '';
 $styles = ['css/app.css'];
+$bodyClass = 'empty-page';
 require $base . 'includes/header.php';
 ?>
+<h1>Forbidden Action</h1>
 <div class="empty forbidden" role="alert">
-    <svg class="icon" aria-hidden="true"><use href="#ic-alert"/></svg>
-    <h1>Forbidden Action</h1>
-    <p><?php echo t('forbidden_text'); ?></p>
+    <span class="tile"><svg class="icon" aria-hidden="true"><use href="#ic-alert"/></svg></span>
+    <h2><?php echo t('forbidden_text'); ?></h2>
     <a class="btn action" href="dashboard.php"><?php echo t('forbidden_back'); ?></a>
 </div>
 <?php require $base . 'includes/footer.php'; ?>
