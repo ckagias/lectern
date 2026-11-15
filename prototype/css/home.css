@@ -247,37 +247,15 @@
 
 .catalogue li {
   display: grid;
-  grid-template-columns: 56px 1fr;
-  gap: 4px 16px;
-  align-items: center;
-  padding: 14px 0;
+  gap: 6px 24px;
+  padding: 16px 0;
   border-bottom: 1.5px solid var(--line);
 }
 
-.catalogue .tab {
-  grid-row: span 2;
-  padding: 10px 0;
-  border-radius: 3px;
-  text-align: center;
-  font-size: var(--text-sm);
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  color: var(--cream);
-}
-
-.catalogue .cobalt { background: var(--cobalt); }
-.catalogue .terra { background: var(--terra); }
-.catalogue .plum { background: var(--plum); }
-.catalogue .teal { background: var(--teal); }
-
-.catalogue .ochre {
-  background: var(--ochre);
-  color: var(--on-ochre);
-}
-
 .catalogue b {
+  font-family: var(--font-heading);
   font-size: var(--text-lg);
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .catalogue .titles {
@@ -404,16 +382,12 @@
   }
 
   .catalogue li {
-    grid-template-columns: 72px 200px 1fr;
-    gap: 20px;
+    grid-template-columns: 200px 1fr;
+    align-items: baseline;
   }
 
   .book:nth-child(n + 13) {
     display: block;
-  }
-
-  .catalogue .tab {
-    grid-row: auto;
   }
 }
 

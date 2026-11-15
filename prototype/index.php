@@ -33,27 +33,22 @@ require $base . 'includes/header.php';
     <?php require $base . 'includes/shelf.php'; ?>
     <ul class="catalogue">
         <li>
-            <span class="tab cobalt">FIC</span>
             <b><?php echo t('cat_fiction'); ?></b>
             <span class="titles">Pride and Prejudice, Jane Eyre, Wuthering Heights, Crime and Punishment, Don Quixote, The Picture of Dorian Gray, The Metamorphosis, The Murderess</span>
         </li>
         <li>
-            <span class="tab terra">ADV</span>
             <b><?php echo t('cat_adventure'); ?></b>
             <span class="titles">Treasure Island, Moby-Dick, The Adventures of Sherlock Holmes, Dracula, Frankenstein, Alice's Adventures in Wonderland</span>
         </li>
         <li>
-            <span class="tab plum">POE</span>
             <b><?php echo t('cat_poetry'); ?></b>
             <span class="titles">The Odyssey, The Iliad, The Divine Comedy, Leaves of Grass</span>
         </li>
         <li>
-            <span class="tab ochre">PHI</span>
             <b><?php echo t('cat_philosophy'); ?></b>
             <span class="titles">The Republic, The Prince, Meditations, Nicomachean Ethics, Beyond Good and Evil</span>
         </li>
         <li>
-            <span class="tab teal">SCI</span>
             <b><?php echo t('cat_science'); ?></b>
             <span class="titles">On the Origin of Species, Relativity: The Special and General Theory, Euclid's Elements, Opticks</span>
         </li>

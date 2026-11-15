@@ -14,12 +14,7 @@
   --green-tint: rgba(47, 87, 64, 0.1);
   --action: var(--green);
 
-  /* one spine colour per book category */
-  --cobalt: #1c50b5;
-  --terra: #ad4120;
-  --plum: #6f2563;
   --ochre: #f0bb3b;
-  --teal: #006e74;
 
   /* cloth colours of the book spines, gilt lettering, the shelf board and the scrollbar */
   --cloth-cobalt: #1d4aa3;
