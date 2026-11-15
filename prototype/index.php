@@ -5,6 +5,8 @@ require_once $base . 'includes/init.php';
 require_once $base . 'includes/books.php';
 
 $layout = 'public';
+$weekdays = openingHours(1);
+$saturday = openingHours(6);
 $bodyClass = 'has-hero';
 $title = t('home_title');
 $styles = ['css/home.css', 'css/book.css', 'js/leaflet/leaflet.css'];
@@ -75,8 +77,8 @@ require $base . 'includes/header.php';
     <div>
         <h2><?php echo t('hours_title'); ?></h2>
         <dl class="hours">
-            <div><dt><?php echo t('hours_weekdays'); ?></dt><dd>09:00–21:00</dd></div>
-            <div><dt><?php echo t('hours_saturday'); ?></dt><dd>09:00–14:00</dd></div>
+            <div><dt><?php echo t('hours_weekdays'); ?></dt><dd><?php echo $weekdays['open'] . '–' . $weekdays['close']; ?></dd></div>
+            <div><dt><?php echo t('hours_saturday'); ?></dt><dd><?php echo $saturday['open'] . '–' . $saturday['close']; ?></dd></div>
             <div><dt><?php echo t('hours_sunday'); ?></dt><dd><?php echo t('hours_closed'); ?></dd></div>
         </dl>
         <h3 class="sub"><?php echo t('contact_title'); ?></h3>

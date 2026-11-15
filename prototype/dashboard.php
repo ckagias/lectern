@@ -12,19 +12,7 @@ $title = t('dashboard_title');
 $active = 'home';
 $styles = ['css/app.css'];
 $bodyClass = 'dashboard';
-// The opening hours of today, the same as on the home page.
-$day = date('N');
-$hours = '09:00–21:00';
-if ($day == 6) {
-    $hours = '09:00–14:00';
-}
-if ($day == 7) {
-    $hours = '';
-}
-$status = t('dashboard_open') . ' ' . $hours;
-if ($hours === '') {
-    $status = t('dashboard_closed') . ' · ' . t('dashboard_next');
-}
+$status = openingStatus(date('N'), date('H:i'));
 require $base . 'includes/header.php';
 ?>
 <h1><?php echo t('dashboard_welcome') . ' ' . e($_SESSION['username']); ?></h1>

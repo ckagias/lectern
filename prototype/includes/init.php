@@ -10,3 +10,4 @@ require_once $base . 'includes/User.php';
 require_once $base . 'includes/Validator.php';
 require_once $base . 'includes/lang.php';
 require_once $base . 'includes/auth.php';
+require_once $base . 'includes/menus.php';

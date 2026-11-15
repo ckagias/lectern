@@ -60,47 +60,16 @@ if ($layout !== 'public') {
         </div>
     </header>
 
-    <?php if ($layout === 'member') { ?>
+    <?php if ($layout !== 'public') { ?>
         <nav class="nav" aria-label="<?php echo t('nav_label'); ?>">
             <a href="<?php echo $base; ?>dashboard.php" <?php if ($active === 'home') { echo $current; } ?>>
                 <svg class="icon icon-off" aria-hidden="true"><use href="#ic-home-o"/></svg><svg class="icon icon-on" aria-hidden="true"><use href="#ic-home"/></svg><span><?php echo t('nav_home'); ?></span>
             </a>
-            <a href="<?php echo $base; ?>member/catalogue.php" <?php if ($active === 'catalogue') { echo $current; } ?>>
-                <svg class="icon icon-off" aria-hidden="true"><use href="#ic-search-o"/></svg><svg class="icon icon-on" aria-hidden="true"><use href="#ic-search"/></svg><span><?php echo t('nav_catalogue'); ?></span>
-            </a>
-            <a href="<?php echo $base; ?>member/reservations.php" <?php if ($active === 'reservations') { echo $current; } ?>>
-                <svg class="icon icon-off" aria-hidden="true"><use href="#ic-bookmarks-o"/></svg><svg class="icon icon-on" aria-hidden="true"><use href="#ic-bookmarks"/></svg><span><?php echo t('nav_reservations'); ?></span>
-            </a>
-            <a href="<?php echo $base; ?>member/loans.php" <?php if ($active === 'loans') { echo $current; } ?>>
-                <svg class="icon icon-off" aria-hidden="true"><use href="#ic-loan-o"/></svg><svg class="icon icon-on" aria-hidden="true"><use href="#ic-loan"/></svg><span><?php echo t('nav_loans'); ?></span>
-            </a>
-            <a href="<?php echo $base; ?>member/history.php" <?php if ($active === 'history') { echo $current; } ?>>
-                <svg class="icon icon-off" aria-hidden="true"><use href="#ic-history-o"/></svg><svg class="icon icon-on" aria-hidden="true"><use href="#ic-history"/></svg><span><?php echo t('nav_history'); ?></span>
-            </a>
-            <div class="nav-user">
-                <span class="who"><?php echo e($_SESSION['username']); ?></span>
-                <span class="role"><?php echo t('role_' . $layout); ?></span>
-            </div>
-        </nav>
-    <?php } ?>
-
-    <?php if ($layout === 'librarian') { ?>
-        <nav class="nav" aria-label="<?php echo t('nav_label'); ?>">
-            <a href="<?php echo $base; ?>dashboard.php" <?php if ($active === 'home') { echo $current; } ?>>
-                <svg class="icon icon-off" aria-hidden="true"><use href="#ic-home-o"/></svg><svg class="icon icon-on" aria-hidden="true"><use href="#ic-home"/></svg><span><?php echo t('nav_home'); ?></span>
-            </a>
-            <a href="<?php echo $base; ?>librarian/books.php" <?php if ($active === 'books') { echo $current; } ?>>
-                <svg class="icon icon-off" aria-hidden="true"><use href="#ic-books-o"/></svg><svg class="icon icon-on" aria-hidden="true"><use href="#ic-books"/></svg><span><?php echo t('nav_books'); ?></span>
-            </a>
-            <a href="<?php echo $base; ?>librarian/reservations.php" <?php if ($active === 'reservations') { echo $current; } ?>>
-                <svg class="icon icon-off" aria-hidden="true"><use href="#ic-bookmarks-o"/></svg><svg class="icon icon-on" aria-hidden="true"><use href="#ic-bookmarks"/></svg><span><?php echo t('nav_reservations'); ?></span>
-            </a>
-            <a href="<?php echo $base; ?>librarian/loans.php" <?php if ($active === 'loans') { echo $current; } ?>>
-                <svg class="icon icon-off" aria-hidden="true"><use href="#ic-loan-o"/></svg><svg class="icon icon-on" aria-hidden="true"><use href="#ic-loan"/></svg><span><?php echo t('nav_loans'); ?></span>
-            </a>
-            <a href="<?php echo $base; ?>librarian/returns.php" <?php if ($active === 'returns') { echo $current; } ?>>
-                <svg class="icon icon-off" aria-hidden="true"><use href="#ic-undo-o"/></svg><svg class="icon icon-on" aria-hidden="true"><use href="#ic-undo"/></svg><span><?php echo t('nav_returns'); ?></span>
-            </a>
+            <?php foreach ($menus[$layout] as $item) { ?>
+                <a href="<?php echo $base . $item['page']; ?>" <?php if ($active === $item['key']) { echo $current; } ?>>
+                    <svg class="icon icon-off" aria-hidden="true"><use href="#ic-<?php echo $item['icon']; ?>-o"/></svg><svg class="icon icon-on" aria-hidden="true"><use href="#ic-<?php echo $item['icon']; ?>"/></svg><span><?php echo t($item['label']); ?></span>
+                </a>
+            <?php } ?>
             <div class="nav-user">
                 <span class="who"><?php echo e($_SESSION['username']); ?></span>
                 <span class="role"><?php echo t('role_' . $layout); ?></span>
