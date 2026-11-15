@@ -18,8 +18,12 @@ require $base . 'includes/header.php';
         <h1><?php echo t('home_h1'); ?></h1>
         <p class="lead"><?php echo t('home_lead'); ?></p>
         <div class="cta">
-            <a class="btn ochre" href="login.php"><?php echo t('login'); ?></a>
-            <a class="btn line" href="register.php"><?php echo t('register'); ?></a>
+            <?php if (isLoggedIn()) { ?>
+                <a class="btn ochre" href="dashboard.php"><?php echo t('go_dashboard'); ?></a>
+            <?php } else { ?>
+                <a class="btn ochre" href="login.php"><?php echo t('login'); ?></a>
+                <a class="btn line" href="register.php"><?php echo t('register'); ?></a>
+            <?php } ?>
         </div>
     </div>
 </section>

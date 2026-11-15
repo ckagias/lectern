@@ -45,12 +45,11 @@ if ($layout !== 'public') {
                     <a href="?lang=en" lang="en" aria-current="true">EN</a>
                 <?php } ?>
             </div>
-            <?php if ($layout !== 'public') { ?>
+            <?php if ($layout !== 'public' || isLoggedIn()) { ?>
                 <form action="<?php echo $base; ?>logout.php" method="post">
                     <button class="btn line" type="submit"><?php echo t('logout'); ?></button>
                 </form>
-            <?php } ?>
-            <?php if ($layout === 'public') { ?>
+            <?php } else { ?>
                 <?php if (isset($active) && $active === 'login') { ?>
                     <a class="btn line" href="<?php echo $base; ?>register.php"><?php echo t('register'); ?></a>
                 <?php } else { ?>

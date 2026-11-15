@@ -69,6 +69,7 @@ $lang_en = [
     'home_title' => 'Patras Municipal Library',
     'home_h1' => 'Find your next book.',
     'home_lead' => 'See what is available, reserve a copy from your phone and stop by to pick it up.',
+    'go_dashboard' => 'Go to the dashboard',
     'shelves_title' => 'On our shelves',
     'cat_fiction' => 'Fiction',
     'cat_adventure' => 'Adventure',
