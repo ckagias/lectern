@@ -22,7 +22,7 @@ Literata, by TypeTogether, and Source Sans 3, by Paul D. Hunt (Adobe), both unde
 
 ## Icons
 
-Icon shapes are from [Lucide](https://lucide.dev), ISC licence, drawn inline in `prototype/includes/icons.php`.
+Icon shapes are from [Phosphor Icons](https://phosphoricons.com), MIT licence, drawn inline in `prototype/includes/icons.php`.
 
 ## Code
 

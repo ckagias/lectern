@@ -10,10 +10,6 @@
   color: var(--on-dark);
 }
 
-.layout-librarian .top {
-  background: var(--staff-bg);
-}
-
 .brand {
   display: inline-flex;
   align-items: center;
@@ -24,9 +20,26 @@
   font-size: 1.25rem;
 }
 
+/* The log out button is quieter than the Log in button of the public pages. */
+.top form .btn {
+  border-width: 1px;
+  border-color: rgba(247, 236, 211, 0.45);
+  background: transparent;
+  font-weight: 600;
+}
+
+.top form .btn:hover {
+  background: var(--glass);
+  filter: none;
+}
+
 @media (max-width: 359px) {
   .brand {
     font-size: 1.0625rem;
+  }
+
+  .brand-mark {
+    display: none;
   }
 }
 
@@ -65,26 +78,16 @@
   text-underline-offset: 6px;
 }
 
-.staff-tag {
-  padding: 4px 7px;
-  border-radius: 3px;
-  background: var(--ochre);
-  color: var(--on-ochre);
-  font-weight: 800;
-  font-size: 0.8125rem;
-}
-
 .brand-mark {
-  display: none;
   color: var(--ochre);
 }
 
-/* The user block at the top of the side menu. Phones have no side menu, so it is hidden there. */
+/* The user block at the bottom of the side menu. Phones have no side menu, so it is hidden there. */
 .nav-user {
   display: none;
 }
 
-/* Navigation: fixed to the bottom on phones. */
+/* Navigation: a light tab bar fixed to the bottom on phones. */
 .nav {
   position: fixed;
   left: 0;
@@ -92,36 +95,47 @@
   bottom: 0;
   z-index: 5;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  background: var(--green);
-  color: var(--on-dark);
+  grid-template-columns: repeat(5, 1fr);
+  border-top: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--ink-2);
 }
 
 .nav a {
   display: grid;
   justify-items: center;
   gap: 2px;
-  min-height: 62px;
-  padding: 8px 2px 10px;
+  min-height: 54px;
+  margin: 4px 0;
+  padding: 6px 2px 8px;
+  border-radius: 12px;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 0.8125rem;
-  opacity: 0.8;
+}
+
+/* Every menu icon has an outline and a solid version. The current page shows the solid one. */
+.nav .icon-on,
+.nav a[aria-current="page"] .icon-off {
+  display: none;
+}
+
+.nav a[aria-current="page"] .icon-on {
+  display: block;
+}
+
+.nav a:hover {
+  color: var(--ink);
+}
+
+.nav a:focus-visible {
+  outline-offset: -3px;
 }
 
 .nav a[aria-current="page"] {
-  background: var(--cream);
+  background: var(--green-tint);
   color: var(--green);
-  opacity: 1;
-}
-
-.layout-librarian .nav {
-  background: var(--staff-bg);
-}
-
-.layout-librarian .nav a[aria-current="page"] {
-  background: var(--ochre);
-  color: var(--on-ochre);
+  font-weight: 700;
 }
 
 main {
@@ -187,13 +201,7 @@ main {
   }
 }
 
-@media (min-width: 480px) {
-  .brand-mark {
-    display: block;
-  }
-}
-
-@media (min-width: 900px) {
+@media (min-width: 768px) {
   /* The same nav markup becomes a menu on the left, under the header. */
   .layout-member,
   .layout-librarian {
@@ -217,13 +225,11 @@ main {
     position: static;
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    padding: 20px 12px;
-    background: var(--green-2);
-  }
-
-  .layout-librarian .nav {
-    background: var(--staff-nav);
+    gap: 2px;
+    padding: 20px 0 0;
+    border-top: 0;
+    border-right: 1px solid var(--line);
+    background: var(--bg);
   }
 
   .nav-user {
@@ -231,22 +237,18 @@ main {
     justify-items: start;
     gap: 2px;
     margin-top: auto;
-    padding: 18px 16px 4px;
-    border-top: 1px solid var(--glass);
+    padding: 16px 20px 18px;
+    border-top: 1px solid var(--line);
     overflow-wrap: anywhere;
   }
 
-  .nav-user .staff-tag {
-    margin-bottom: 8px;
-  }
-
   .who {
-    font-weight: 700;
+    color: var(--ink);
+    font-weight: 600;
   }
 
   .role {
     font-size: var(--text-sm);
-    opacity: 0.8;
   }
 
   .nav a {
@@ -255,13 +257,19 @@ main {
     align-items: center;
     gap: 12px;
     min-height: 48px;
-    padding: 0 16px;
-    border-radius: var(--radius);
+    margin: 0 12px;
+    padding: 0 20px;
+    border-radius: var(--radius-lg);
     font-size: 1rem;
+  }
+
+  .nav a:hover {
+    background: var(--green-tint);
   }
 
   main {
     min-width: 0;
+    margin-inline: 0;
     padding: 36px 32px 56px;
   }
 

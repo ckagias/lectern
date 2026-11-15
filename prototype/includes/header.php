@@ -1,6 +1,7 @@
 <?php
 // Opens every page: head, header, menu and the start of <main>.
 // The page sets $base, $title, $layout (public, member or librarian) and $active (the menu item to highlight) first.
+// On the login page $active is 'login', so the header offers Register there instead of Log in.
 // A page can also set $styles, a list of extra stylesheet paths like 'css/home.css', and $bodyClass for an extra class on <body>.
 $lang = $_SESSION['lang'];
 $current = 'aria-current="page"';
@@ -16,6 +17,7 @@ if ($layout !== 'public') {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="only light">
     <title><?php echo $title; ?> · AchaiaReads</title>
+    <link rel="icon" href="<?php echo $base; ?>pictures/favicon.png" type="image/png">
     <link rel="stylesheet" href="<?php echo $base; ?>css/fonts.css">
     <link rel="stylesheet" href="<?php echo $base; ?>css/tokens.css">
     <link rel="stylesheet" href="<?php echo $base; ?>css/base.css">
@@ -32,7 +34,7 @@ if ($layout !== 'public') {
     <a class="skip" href="#main"><?php echo t('skip_link'); ?></a>
 
     <header class="top">
-        <a class="brand" href="<?php echo $base . $home; ?>"><svg class="icon brand-mark" aria-hidden="true"><use href="#ic-library"/></svg>AchaiaReads</a>
+        <a class="brand" href="<?php echo $base . $home; ?>"><svg class="icon brand-mark" aria-hidden="true"><use href="#ic-books"/></svg>AchaiaReads</a>
         <div class="top-actions">
             <div class="lang" role="group" aria-label="<?php echo t('lang_label'); ?>">
                 <?php if ($lang === 'el') { ?>
@@ -49,24 +51,31 @@ if ($layout !== 'public') {
                 </form>
             <?php } ?>
             <?php if ($layout === 'public') { ?>
-                <a class="btn line" href="<?php echo $base; ?>login.php"><?php echo t('login'); ?></a>
+                <?php if (isset($active) && $active === 'login') { ?>
+                    <a class="btn line" href="<?php echo $base; ?>register.php"><?php echo t('register'); ?></a>
+                <?php } else { ?>
+                    <a class="btn line" href="<?php echo $base; ?>login.php"><?php echo t('login'); ?></a>
+                <?php } ?>
             <?php } ?>
         </div>
     </header>
 
     <?php if ($layout === 'member') { ?>
         <nav class="nav" aria-label="<?php echo t('nav_label'); ?>">
+            <a href="<?php echo $base; ?>dashboard.php" <?php if ($active === 'home') { echo $current; } ?>>
+                <svg class="icon icon-off" aria-hidden="true"><use href="#ic-home-o"/></svg><svg class="icon icon-on" aria-hidden="true"><use href="#ic-home"/></svg><span><?php echo t('nav_home'); ?></span>
+            </a>
             <a href="<?php echo $base; ?>member/catalogue.php" <?php if ($active === 'catalogue') { echo $current; } ?>>
-                <svg class="icon" aria-hidden="true"><use href="#ic-library"/></svg><span><?php echo t('nav_catalogue'); ?></span>
+                <svg class="icon icon-off" aria-hidden="true"><use href="#ic-search-o"/></svg><svg class="icon icon-on" aria-hidden="true"><use href="#ic-search"/></svg><span><?php echo t('nav_catalogue'); ?></span>
             </a>
             <a href="<?php echo $base; ?>member/reservations.php" <?php if ($active === 'reservations') { echo $current; } ?>>
-                <svg class="icon" aria-hidden="true"><use href="#ic-bookmark"/></svg><span><?php echo t('nav_reservations'); ?></span>
+                <svg class="icon icon-off" aria-hidden="true"><use href="#ic-bookmarks-o"/></svg><svg class="icon icon-on" aria-hidden="true"><use href="#ic-bookmarks"/></svg><span><?php echo t('nav_reservations'); ?></span>
             </a>
             <a href="<?php echo $base; ?>member/loans.php" <?php if ($active === 'loans') { echo $current; } ?>>
-                <svg class="icon" aria-hidden="true"><use href="#ic-clock"/></svg><span><?php echo t('nav_loans'); ?></span>
+                <svg class="icon icon-off" aria-hidden="true"><use href="#ic-loan-o"/></svg><svg class="icon icon-on" aria-hidden="true"><use href="#ic-loan"/></svg><span><?php echo t('nav_loans'); ?></span>
             </a>
             <a href="<?php echo $base; ?>member/history.php" <?php if ($active === 'history') { echo $current; } ?>>
-                <svg class="icon" aria-hidden="true"><use href="#ic-history"/></svg><span><?php echo t('nav_history'); ?></span>
+                <svg class="icon icon-off" aria-hidden="true"><use href="#ic-history-o"/></svg><svg class="icon icon-on" aria-hidden="true"><use href="#ic-history"/></svg><span><?php echo t('nav_history'); ?></span>
             </a>
             <div class="nav-user">
                 <span class="who"><?php echo e($_SESSION['username']); ?></span>
@@ -77,22 +86,22 @@ if ($layout !== 'public') {
 
     <?php if ($layout === 'librarian') { ?>
         <nav class="nav" aria-label="<?php echo t('nav_label'); ?>">
+            <a href="<?php echo $base; ?>dashboard.php" <?php if ($active === 'home') { echo $current; } ?>>
+                <svg class="icon icon-off" aria-hidden="true"><use href="#ic-home-o"/></svg><svg class="icon icon-on" aria-hidden="true"><use href="#ic-home"/></svg><span><?php echo t('nav_home'); ?></span>
+            </a>
             <a href="<?php echo $base; ?>librarian/books.php" <?php if ($active === 'books') { echo $current; } ?>>
-                <svg class="icon" aria-hidden="true"><use href="#ic-book"/></svg><span><?php echo t('nav_books'); ?></span>
+                <svg class="icon icon-off" aria-hidden="true"><use href="#ic-books-o"/></svg><svg class="icon icon-on" aria-hidden="true"><use href="#ic-books"/></svg><span><?php echo t('nav_books'); ?></span>
             </a>
             <a href="<?php echo $base; ?>librarian/reservations.php" <?php if ($active === 'reservations') { echo $current; } ?>>
-                <svg class="icon" aria-hidden="true"><use href="#ic-bookmark"/></svg><span><?php echo t('nav_reservations'); ?></span>
+                <svg class="icon icon-off" aria-hidden="true"><use href="#ic-bookmarks-o"/></svg><svg class="icon icon-on" aria-hidden="true"><use href="#ic-bookmarks"/></svg><span><?php echo t('nav_reservations'); ?></span>
             </a>
             <a href="<?php echo $base; ?>librarian/loans.php" <?php if ($active === 'loans') { echo $current; } ?>>
-                <svg class="icon" aria-hidden="true"><use href="#ic-clock"/></svg><span><?php echo t('nav_loans'); ?></span>
+                <svg class="icon icon-off" aria-hidden="true"><use href="#ic-loan-o"/></svg><svg class="icon icon-on" aria-hidden="true"><use href="#ic-loan"/></svg><span><?php echo t('nav_loans'); ?></span>
             </a>
             <a href="<?php echo $base; ?>librarian/returns.php" <?php if ($active === 'returns') { echo $current; } ?>>
-                <svg class="icon" aria-hidden="true"><use href="#ic-undo"/></svg><span><?php echo t('nav_returns'); ?></span>
+                <svg class="icon icon-off" aria-hidden="true"><use href="#ic-undo-o"/></svg><svg class="icon icon-on" aria-hidden="true"><use href="#ic-undo"/></svg><span><?php echo t('nav_returns'); ?></span>
             </a>
             <div class="nav-user">
-                <?php if ($layout === 'librarian') { ?>
-                    <span class="staff-tag"><?php echo t('staff_tag'); ?></span>
-                <?php } ?>
                 <span class="who"><?php echo e($_SESSION['username']); ?></span>
                 <span class="role"><?php echo t('role_' . $layout); ?></span>
             </div>

@@ -7,10 +7,12 @@
   --ink-2: #5b4a38;
   --line: #c9b68b;
   --cream: #f7ecd3;
+  --surface: #f7ecd3;
+  --shadow: 0 3px 6px rgba(42, 33, 24, 0.16), 0 3px 6px rgba(42, 33, 24, 0.23);
 
   /* library green, used for the header, nav and main actions */
   --green: #2f5740;
-  --green-2: #1f3f2d;
+  --green-tint: rgba(47, 87, 64, 0.1);
   --action: var(--green);
 
   /* one spine colour per book category */
@@ -66,8 +68,6 @@
   --error-bg: #ffe5e0;
   --success: #004b32;
   --success-bg: #d2f5e1;
-  --staff-bg: var(--ink);
-  --staff-nav: #3a2e22;
   --foot-bg: var(--ink);
   --foot-fg: #e3d6bb;
 

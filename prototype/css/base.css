@@ -5,7 +5,6 @@
 
 html {
   -webkit-text-size-adjust: 100%;
-  scrollbar-gutter: stable;
 }
 
 ::-webkit-scrollbar       { width: 5px; }
@@ -102,11 +101,7 @@ svg {
   flex: none;
   width: 24px;
   height: 24px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2.2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  fill: currentColor;
 }
 
 @media (min-width: 900px) {
