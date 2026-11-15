@@ -2,7 +2,8 @@
 var lat = 38.2457;
 var lng = 21.7350;
 
-var map = L.map('map').setView([lat, lng], 16);
+// On a phone one finger scrolls the page, and two fingers zoom the map.
+var map = L.map('map', {dragging: !L.Browser.mobile}).setView([lat, lng], 16);
 
 var tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
@@ -15,4 +16,8 @@ tiles.on('tileerror', function () {
     document.getElementById('map-note').hidden = false;
 });
 
-L.marker([lat, lng]).addTo(map).bindPopup('<b>AchaiaReads</b><br>Korinthou 100, Patras').openPopup();
+var address = 'Korinthou 100, Patras';
+if (document.documentElement.lang === 'el') {
+    address = 'Κορίνθου 100, Πάτρα';
+}
+L.marker([lat, lng]).addTo(map).bindPopup('<b>AchaiaReads</b><br>' + address).openPopup();
