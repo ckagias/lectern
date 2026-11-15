@@ -10,7 +10,7 @@ if (isLoggedIn()) {
 $username = '';
 $email = '';
 $role = 'member';
-$errors = ['username' => '', 'email' => '', 'password' => '', 'confirm' => '', 'role' => '', 'code' => ''];
+$errors = ['username' => '', 'email' => '', 'password' => '', 'confirm' => '', 'role' => '', 'code' => '', 'form' => ''];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim(post('username'));
@@ -26,25 +26,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $errors['role'] = $validator->role($role);
     $errors['code'] = $validator->code($role, post('code'));
 
-    // A username or email that is already used is only looked up when its format is fine.
-    $users = new User(new Database());
-    if ($errors['username'] === '' && $users->findByUsername($username) !== null) {
-        $errors['username'] = 'err_username_taken';
-    }
-    if ($errors['email'] === '' && $users->findByEmail($email) !== null) {
-        $errors['email'] = 'err_email_taken';
+    try {
+        // A username or email that is already used is only looked up when its format is fine.
+        $users = new User(new Database());
+        if ($errors['username'] === '' && $users->findByUsername($username) !== null) {
+            $errors['username'] = 'err_username_taken';
+        }
+        if ($errors['email'] === '' && $users->findByEmail($email) !== null) {
+            $errors['email'] = 'err_email_taken';
+        }
+
+        if (implode('', $errors) === '') {
+            // The role id comes from the checked role, never from the form.
+            $roleId = ROLE_MEMBER;
+            if ($role === 'librarian') {
+                $roleId = ROLE_LIBRARIAN;
+            }
+            $users->create($username, $email, $password, $roleId);
+            $_SESSION['flash'] = 'flash_registered';
+            redirect('login.php');
+        }
+    } catch (Exception $e) {
+        $errors['form'] = 'err_database';
     }
 
-    if (implode('', $errors) === '') {
-        // The role id comes from the checked role, never from the form.
-        $roleId = ROLE_MEMBER;
-        if ($role === 'librarian') {
-            $roleId = ROLE_LIBRARIAN;
-        }
-        $users->create($username, $email, $password, $roleId);
-        $_SESSION['flash'] = 'flash_registered';
-        redirect('login.php');
-    }
 }
 
 if ($role !== 'librarian') {
@@ -63,6 +68,9 @@ $scripts = ['js/validate.js'];
 require $base . 'includes/header.php';
 ?>
 <div class="auth">
+    <?php if ($errors['form'] !== '') { ?>
+        <div class="flash flash-error" role="alert"><svg class="icon" aria-hidden="true"><use href="#ic-alert"/></svg><p><?php echo t($errors['form']); ?></p></div>
+    <?php } ?>
     <div class="auth-head">
         <h1><?php echo t('reg_title'); ?></h1>
     </div>

@@ -1,8 +1,9 @@
 <?php
-// Dev-only page that shows the design system. It is not part of the shipped site.
+// Dev-only page that shows the design system. It is not part of the shipped site, and only logged in users can open it.
 // Add ?layout=member or ?layout=librarian to the address to see the other shells.
 $base = '../';
 require_once $base . 'includes/init.php';
+requireLogin($base);
 
 $layout = 'public';
 $active = 'catalogue';
@@ -15,7 +16,6 @@ if (isset($_GET['layout']) && $_GET['layout'] === 'librarian') {
 }
 $title = 'Style guide';
 $styles = ['css/styleguide.css'];
-$_SESSION['username'] = 'maria';
 require $base . 'includes/header.php';
 ?>
 <div class="guide">
@@ -84,7 +84,4 @@ require $base . 'includes/header.php';
         <li><span class="chip-color swatch-teal"></span><b>teal</b></li>
     </ul>
 </div>
-<?php
-unset($_SESSION['username']);
-require $base . 'includes/footer.php';
-?>
+<?php require $base . 'includes/footer.php'; ?>

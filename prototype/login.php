@@ -26,18 +26,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $errors['password'] = $validator->loginPassword($password);
 
     if (implode('', $errors) === '') {
-        $users = new User(new Database());
-        $user = $users->checkLogin($email, $password);
-        if ($user === null) {
-            // One message for a wrong email and a wrong password, so it does not tell which one was wrong.
-            $errors['login'] = 'err_login';
-        } else {
-            // A new session id, so an id someone else knew before the login is no longer valid.
-            session_regenerate_id(true);
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['username'] = $user['username'];
-            $_SESSION['role_id'] = $user['role_id'];
-            redirect('dashboard.php');
+        try {
+            $users = new User(new Database());
+            $user = $users->checkLogin($email, $password);
+            if ($user === null) {
+                // One message for a wrong email and a wrong password, so it does not tell which one was wrong.
+                $errors['login'] = 'err_login';
+            } else {
+                // A new session id, so an id someone else knew before the login is no longer valid.
+                session_regenerate_id(true);
+                $_SESSION['user_id'] = $user['id'];
+                $_SESSION['username'] = $user['username'];
+                $_SESSION['role_id'] = $user['role_id'];
+                redirect('dashboard.php');
+            }
+        } catch (Exception $e) {
+            $errors['login'] = 'err_database';
         }
     }
 }
