@@ -58,7 +58,7 @@ require $base . 'includes/header.php';
     <?php if ($errors['login'] !== '') { ?>
         <div class="flash flash-error" role="alert"><svg class="icon" aria-hidden="true"><use href="#ic-alert"/></svg><p><?php echo t($errors['login']); ?></p></div>
     <?php } elseif ($flash !== '') { ?>
-        <div class="flash flash-success"><svg class="icon" aria-hidden="true"><use href="#ic-check"/></svg><p><?php echo t($flash); ?></p></div>
+        <div class="flash flash-success"><svg class="icon" aria-hidden="true"><use href="#ic-check-line"/></svg><p><?php echo t($flash); ?></p></div>
     <?php } ?>
     <div class="auth-head">
         <h1><?php echo t('login'); ?></h1>
