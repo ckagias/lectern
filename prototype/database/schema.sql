@@ -1,4 +1,4 @@
--- Lectern database. Import this file first, then seed.sql.
+-- Lectern database with the two roles. Import this file first, then seed.sql for the sample data.
 
 DROP DATABASE IF EXISTS lectern;
 CREATE DATABASE lectern CHARACTER SET utf8mb4;
@@ -9,6 +9,10 @@ CREATE TABLE roles (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(20) NOT NULL
 );
+
+INSERT INTO roles (id, name) VALUES
+    (1, 'member'),
+    (2, 'librarian');
 
 -- Registered accounts, the password is stored as a hash
 CREATE TABLE users (

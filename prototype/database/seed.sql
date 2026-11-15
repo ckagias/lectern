@@ -3,10 +3,6 @@
 SET NAMES utf8mb4;
 USE lectern;
 
-INSERT INTO roles (id, name) VALUES
-    (1, 'member'),
-    (2, 'librarian');
-
 -- Demo accounts, the passwords are in notes/database.md
 INSERT INTO users (id, username, email, password_hash, role_id, created_at) VALUES
     (1, 'member_demo', 'member@lectern.test', '$2y$12$ZXuwqQZUiL.nQo5pcQUNUuBqvCXTH6d7NHBwstBx9V/S/R3mHm0py', 1, '2026-11-01 09:00:00'),
