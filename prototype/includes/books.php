@@ -77,7 +77,7 @@ $shelfBooks = array(
         'category' => 'adventure',
         'call' => 'ADV-002-A',
         'summary' => 'Ishmael joins the whaling ship Pequod, whose captain, Ahab, is obsessed with killing the white whale that took his leg. The novel mixes adventure, detailed chapters about whaling and a study of obsession. The hunt ends in disaster for almost everyone on board.',
-        'summary_el' => 'Ο Ισμαήλ επιβιβάζεται στο φαλαινοθηρικό Πέκουοντ, με καπετάνιο τον Αχαάβ, που είναι εμμονικός με το να σκοτώσει τη λευκή φάλαινα που του πήρε το πόδι. Το μυθιστόρημα συνδυάζει περιπέτεια, αναλυτικά κεφάλαια για τη φαλαινοθηρία και μια μελέτη της εμμονής. Το κυνήγι καταλήγει σε καταστροφή για σχεδόν όλους στο πλοίο.'
+        'summary_el' => 'Ο Ισμαήλ επιβιβάζεται στο φαλαινοθηρικό Πέκουοντ, με καπετάνιο τον Αχαάβ, ο οποίος έχει εμμονή να σκοτώσει τη λευκή φάλαινα που του πήρε το πόδι. Το μυθιστόρημα συνδυάζει περιπέτεια, αναλυτικά κεφάλαια για τη φαλαινοθηρία και μια μελέτη της εμμονής. Το κυνήγι καταλήγει σε καταστροφή για σχεδόν όλους στο πλοίο.'
     ),
     array(
         'class' => 'terra stairs',
@@ -90,7 +90,7 @@ $shelfBooks = array(
         'category' => 'fiction',
         'call' => 'FIC-003-A',
         'summary' => 'On the Yorkshire moors, Heathcliff, an orphan taken in by the Earnshaw family, falls in love with Catherine. When she marries someone else, he spends years taking revenge on both families. Two narrators tell the story, which makes it hard to know whom to trust.',
-        'summary_el' => 'Στα ανεμοδαρμένα υψίπεδα του Γιορκσάιρ, ο Χήθκλιφ, ένα ορφανό που το δέχτηκε η οικογένεια Έρνσο, ερωτεύεται την Κάθριν. Όταν εκείνη παντρεύεται κάποιον άλλον, περνά χρόνια παίρνοντας εκδίκηση από τις δύο οικογένειες. Την ιστορία αφηγούνται δύο αφηγητές, κι έτσι είναι δύσκολο να ξέρεις σε ποιον να εμπιστευτείς.'
+        'summary_el' => 'Στα ανεμοδαρμένα υψίπεδα του Γιορκσάιρ, ο Χήθκλιφ, ένα ορφανό που το δέχτηκε η οικογένεια Έρνσο, ερωτεύεται την Κάθριν. Όταν εκείνη παντρεύεται κάποιον άλλον, περνά χρόνια παίρνοντας εκδίκηση από τις δύο οικογένειες. Δύο αφηγητές λένε την ιστορία, κι έτσι είναι δύσκολο να ξέρεις ποιον να εμπιστευτείς.'
     ),
     array(
         'class' => 'teal pyramid',
@@ -130,7 +130,7 @@ $shelfBooks = array(
         'category' => 'philosophy',
         'call' => 'PHI-002-A',
         'summary' => 'Machiavelli, a former Florentine official, writes a short guide for rulers on how to win and keep power. He argues that a prince must sometimes act against ordinary morals to protect the state, a view that gave the word Machiavellian its meaning.',
-        'summary_el' => 'Ο Μακιαβέλι, πρώην αξιωματούχος της Φλωρεντίας, γράφει έναν σύντομο οδηγό για τους ηγεμόνες για το πώς κερδίζεται και διατηρείται η εξουσία. Υποστηρίζει ότι ένας ηγεμόνας πρέπει κάποιες φορές να πάει ενάντια στην κοινή ηθική για να προστατεύσει το κράτος, άποψη που έδωσε στη λέξη μακιαβελικός το νόημά της.'
+        'summary_el' => 'Ο Μακιαβέλι, πρώην αξιωματούχος της Φλωρεντίας, γράφει έναν σύντομο οδηγό για τους ηγεμόνες, με θέμα το πώς κερδίζεται και διατηρείται η εξουσία. Υποστηρίζει ότι ένας ηγεμόνας πρέπει κάποιες φορές να πάει ενάντια στην κοινή ηθική για να προστατεύσει το κράτος, άποψη που έδωσε στη λέξη μακιαβελικός το νόημά της.'
     ),
     array(
         'class' => 'olive stairs',
@@ -143,7 +143,7 @@ $shelfBooks = array(
         'category' => 'fiction',
         'call' => 'FIC-007-A',
         'summary' => 'Gregor Samsa, a travelling salesman, wakes one morning changed into a giant insect. His family, who depended on his wages, slowly move from shock to disgust to neglect. The short story is about duty, isolation and how quickly people can stop seeing one of their own.',
-        'summary_el' => 'Ο Γκρέγκορ Σάμσα, ένας πλανόδιος πωλητής, ξυπνά ένα πρωί μεταμορφωμένος σε γιγάντιο έντομο. Η οικογένειά του, που εξαρτιόταν από τον μισθό του, περνά σιγά σιγά από το σοκ στην αποστροφή και μετά στην αδιαφορία. Το διήγημα μιλά για το καθήκον, την απομόνωση και το πόσο γρήγορα οι άνθρωποι μπορούν να πάψουν να βλέπουν έναν δικό τους.'
+        'summary_el' => 'Ο Γκρέγκορ Σάμσα, ένας εμπορικός αντιπρόσωπος, ξυπνά ένα πρωί μεταμορφωμένος σε γιγάντιο έντομο. Η οικογένειά του, που εξαρτιόταν από τον μισθό του, περνά σιγά σιγά από το σοκ στην αποστροφή και μετά στην αδιαφορία. Το διήγημα μιλά για το καθήκον, την απομόνωση και το πόσο γρήγορα οι άνθρωποι μπορούν να πάψουν να βλέπουν έναν δικό τους.'
     ),
     array(
         'class' => 'cobalt linen',
@@ -197,7 +197,7 @@ $shelfBooks = array(
         'category' => 'fiction',
         'call' => 'FIC-004-A',
         'summary' => 'Raskolnikov, a poor student in Saint Petersburg, murders a pawnbroker, convinced that his act is justified. He cannot escape his guilt while a police investigator slowly closes in. The novel follows his fear, his conscience and his struggle toward confession.',
-        'summary_el' => 'Ο Ρασκόλνικοφ, ένας φτωχός φοιτητής στην Αγία Πετρούπολη, σκοτώνει μια ενεχυροδανείστρια, πεπεισμένος ότι η πράξη του δικαιολογείται. Δεν μπορεί να ξεφύγει από την ενοχή του ενώ ένας ανακριτής τον πλησιάζει σιγά σιγά. Το μυθιστόρημα ακολουθεί τον φόβο του, τη συνείδησή του και την πάλη του προς την ομολογία.'
+        'summary_el' => 'Ο Ρασκόλνικοφ, ένας φτωχός φοιτητής στην Αγία Πετρούπολη, σκοτώνει μια ενεχυροδανείστρια, πεπεισμένος ότι η πράξη του δικαιολογείται. Δεν μπορεί να ξεφύγει από την ενοχή του ενώ ένας ανακριτής τον πλησιάζει σιγά σιγά. Το μυθιστόρημα ακολουθεί τον φόβο του, τη συνείδησή του και τον αγώνα του να ομολογήσει.'
     ),
     array(
         'class' => 'ochre linen',
