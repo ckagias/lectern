@@ -23,7 +23,7 @@ class User
      */
     public function findByEmail($email)
     {
-        $rows = $this->db->select('SELECT * FROM users WHERE email = ?', 's', [$email]);
+        $rows = $this->db->select('SELECT * FROM users WHERE email = ?', [$email]);
         if (isset($rows[0])) {
             return $rows[0];
         }
@@ -38,7 +38,7 @@ class User
      */
     public function findByUsername($username)
     {
-        $rows = $this->db->select('SELECT * FROM users WHERE username = ?', 's', [$username]);
+        $rows = $this->db->select('SELECT * FROM users WHERE username = ?', [$username]);
         if (isset($rows[0])) {
             return $rows[0];
         }
@@ -58,7 +58,7 @@ class User
     {
         $hash = password_hash($password, PASSWORD_DEFAULT);
         $sql = 'INSERT INTO users (username, email, password_hash, role_id, created_at) VALUES (?, ?, ?, ?, ?)';
-        return $this->db->execute($sql, 'sssis', [$username, $email, $hash, $roleId, date('Y-m-d H:i:s')]);
+        return $this->db->execute($sql, [$username, $email, $hash, $roleId, date('Y-m-d H:i:s')]);
     }
 
     /**

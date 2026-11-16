@@ -21,13 +21,12 @@ class Database
      * Runs a SELECT and returns all rows as an array.
      *
      * @param string $sql The query, with a ? for every value.
-     * @param string $types One letter per value: s for text, i for a whole number.
-     * @param array $params The values for the ? marks.
+     * @param array $params The values for the ? marks, in the same order.
      * @return array The rows, each one an array of column values.
      */
-    public function select($sql, $types = '', $params = [])
+    public function select($sql, $params)
     {
-        $stmt = $this->run($sql, $types, $params);
+        $stmt = $this->run($sql, $params);
         $result = $stmt->get_result();
         $rows = [];
         while ($row = $result->fetch_assoc()) {
@@ -41,33 +40,28 @@ class Database
      * Runs an INSERT, UPDATE or DELETE and returns the id of the new row.
      *
      * @param string $sql The query, with a ? for every value.
-     * @param string $types One letter per value: s for text, i for a whole number.
-     * @param array $params The values for the ? marks.
+     * @param array $params The values for the ? marks, in the same order.
      * @return int The id of the inserted row, or 0 for an UPDATE or DELETE.
      */
-    public function execute($sql, $types = '', $params = [])
+    public function execute($sql, $params)
     {
-        $stmt = $this->run($sql, $types, $params);
+        $stmt = $this->run($sql, $params);
         $id = $stmt->insert_id;
         $stmt->close();
         return $id;
     }
 
     /**
-     * Prepares the query, binds the values to the ? marks and runs it.
+     * Prepares the query and runs it with the values for the ? marks.
      *
      * @param string $sql The query, with a ? for every value.
-     * @param string $types One letter per value.
-     * @param array $params The values for the ? marks.
+     * @param array $params The values for the ? marks, in the same order.
      * @return mysqli_stmt The statement after it has run.
      */
-    private function run($sql, $types, $params)
+    private function run($sql, $params)
     {
         $stmt = $this->conn->prepare($sql);
-        if ($types !== '') {
-            $stmt->bind_param($types, ...$params);
-        }
-        $stmt->execute();
+        $stmt->execute($params);
         return $stmt;
     }
 }
