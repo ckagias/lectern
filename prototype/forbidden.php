@@ -13,7 +13,7 @@ $title = 'Forbidden Action';
 $active = '';
 $styles = ['css/app.css'];
 $bodyClass = 'empty-page';
-require $base . 'includes/header.php';
+require $base . 'templates/header.php';
 ?>
 <h1>Forbidden Action</h1>
 <div class="empty forbidden" role="alert">
@@ -21,4 +21,4 @@ require $base . 'includes/header.php';
     <h2><?php echo t('forbidden_text'); ?></h2>
     <a class="btn action" href="dashboard.php"><?php echo t('forbidden_back'); ?></a>
 </div>
-<?php require $base . 'includes/footer.php'; ?>
+<?php require $base . 'templates/footer.php'; ?>

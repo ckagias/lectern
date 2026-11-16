@@ -7,7 +7,7 @@
         </footer>
     <?php } ?>
 
-    <?php require $base . 'includes/icons.php'; ?>
+    <?php require $base . 'templates/icons.php'; ?>
     <?php
     if (isset($scripts)) {
         foreach ($scripts as $script) {

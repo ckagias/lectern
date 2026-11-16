@@ -22,10 +22,10 @@ Literata, by TypeTogether, and Source Sans 3, by Paul D. Hunt (Adobe), both unde
 
 ## Icons
 
-Icon shapes are from [Phosphor Icons](https://phosphoricons.com), MIT licence, drawn inline in `prototype/includes/icons.php`.
+Icon shapes are from [Phosphor Icons](https://phosphoricons.com), MIT licence, drawn inline in `prototype/templates/icons.php`.
 
 ## Code
 
-The hero bookshelf (`prototype/includes/shelf.php` and its rules in `prototype/css/home.css`) is built with the idea of [virtual-bookshelf](https://github.com/iwishiwasaneagle/virtual-bookshelf) by iwishiwasaneagle, released under the Unlicense (public domain): each book is a spine and a cover, and hovering turns the book. The code is rewritten for this project, and the "stairs" and "pyramid" spine patterns come from that repository (originally from Lea Verou's CSS3 patterns).
+The hero bookshelf (`prototype/templates/shelf.php` and its rules in `prototype/css/home.css`) is built with the idea of [virtual-bookshelf](https://github.com/iwishiwasaneagle/virtual-bookshelf) by iwishiwasaneagle, released under the Unlicense (public domain): each book is a spine and a cover, and hovering turns the book. The code is rewritten for this project, and the "stairs" and "pyramid" spine patterns come from that repository (originally from Lea Verou's CSS3 patterns).
 
 The board under the books (top, front edge and shadow) follows the look of the CodePen bookshelf by ekfuhrmann (https://codepen.io/ekfuhrmann/pen/OJmRVPj). The CSS is rewritten for this project and only the idea and the shape are taken.

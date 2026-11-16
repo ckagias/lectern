@@ -52,7 +52,7 @@ $active = 'login';
 $styles = ['css/auth.css'];
 $bodyClass = 'layout-auth';
 $scripts = ['js/validate.js'];
-require $base . 'includes/header.php';
+require $base . 'templates/header.php';
 ?>
 <div class="auth">
     <?php if ($errors['login'] !== '') { ?>
@@ -82,4 +82,4 @@ require $base . 'includes/header.php';
         <p class="switch"><?php echo t('log_no_account'); ?> <a href="register.php"><?php echo t('register'); ?></a></p>
     </form>
 </div>
-<?php require $base . 'includes/footer.php'; ?>
+<?php require $base . 'templates/footer.php'; ?>

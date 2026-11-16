@@ -2,7 +2,7 @@
 // Public library page: information about the library, with log in and register links.
 $base = '';
 require_once $base . 'includes/init.php';
-require_once $base . 'includes/shelf_books.php';
+require_once $base . 'templates/shelf_books.php';
 
 $layout = 'public';
 $weekdays = openingHours(1);
@@ -11,7 +11,7 @@ $bodyClass = 'has-hero';
 $title = t('home_title');
 $styles = ['css/home.css', 'css/book.css', 'js/leaflet/leaflet.css'];
 $scripts = ['js/leaflet/leaflet.js', 'js/map.js', 'js/book.js'];
-require $base . 'includes/header.php';
+require $base . 'templates/header.php';
 ?>
 <section class="hero">
     <div class="hero-in">
@@ -30,7 +30,7 @@ require $base . 'includes/header.php';
 
 <section class="section">
     <h2><?php echo t('shelves_title'); ?></h2>
-    <?php require $base . 'includes/shelf.php'; ?>
+    <?php require $base . 'templates/shelf.php'; ?>
     <ul class="catalogue">
         <li>
             <b><?php echo t('cat_fiction'); ?></b>
@@ -113,4 +113,4 @@ require $base . 'includes/header.php';
         </section>
     </div>
 </dialog>
-<?php require $base . 'includes/footer.php'; ?>
+<?php require $base . 'templates/footer.php'; ?>

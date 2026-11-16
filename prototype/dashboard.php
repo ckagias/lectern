@@ -12,7 +12,7 @@ $title = t('dashboard_title');
 $active = 'home';
 $styles = ['css/app.css'];
 $status = openingStatus(date('N'), date('H:i'));
-require $base . 'includes/header.php';
+require $base . 'templates/header.php';
 ?>
 <h1><?php echo t('dashboard_welcome') . ' ' . e($_SESSION['username']); ?></h1>
 <p class="status"><?php echo t('role_' . $layout); ?> · <?php echo $status; ?></p>
@@ -31,4 +31,4 @@ require $base . 'includes/header.php';
         </li>
     <?php } ?>
 </ul>
-<?php require $base . 'includes/footer.php'; ?>
+<?php require $base . 'templates/footer.php'; ?>

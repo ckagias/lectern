@@ -9,7 +9,7 @@ $title = t('nav_catalogue');
 $active = 'catalogue';
 $styles = ['css/app.css'];
 $bodyClass = 'empty-page';
-require $base . 'includes/header.php';
+require $base . 'templates/header.php';
 ?>
 <h1><?php echo t('nav_catalogue'); ?></h1>
 <div class="empty">
@@ -18,4 +18,4 @@ require $base . 'includes/header.php';
     <p><?php echo t('empty_catalogue_text'); ?></p>
     <a class="btn action" href="<?php echo $base; ?>dashboard.php"><?php echo t('empty_home'); ?></a>
 </div>
-<?php require $base . 'includes/footer.php'; ?>
+<?php require $base . 'templates/footer.php'; ?>
