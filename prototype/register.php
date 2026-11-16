@@ -69,35 +69,35 @@ $scripts = ['js/validate.js'];
 require $base . 'templates/header.php';
 ?>
 <div class="auth">
-    <?php if ($errors['form'] !== '') { ?>
-        <div class="flash flash-error" role="alert"><svg class="icon" aria-hidden="true"><use href="#ic-alert"/></svg><p><?php echo t($errors['form']); ?></p></div>
-    <?php } ?>
     <div class="auth-head">
         <h1><?php echo t('reg_title'); ?></h1>
     </div>
+    <?php if ($errors['form'] !== '') { ?>
+        <div class="flash flash-error" role="alert"><svg class="icon" aria-hidden="true"><use href="#ic-alert"/></svg><p><?php echo t($errors['form']); ?></p></div>
+    <?php } ?>
 
     <form class="panel" id="register-form" action="register.php" method="post" novalidate>
         <div class="field">
             <label for="username"><?php echo t('reg_username'); ?></label>
-            <input class="input" id="username" name="username" type="text" autocomplete="username" required aria-describedby="username-error" data-rule="username" data-error="<?php echo e(t('err_username')); ?>" value="<?php echo e($username); ?>">
+            <input class="input" id="username" name="username" type="text" autocomplete="username" required aria-describedby="username-error" data-rule="username" data-error="<?php echo e(t('err_username')); ?>"<?php if ($errors['username'] !== '') { echo ' aria-invalid="true"'; } ?> value="<?php echo e($username); ?>">
             <p class="error" id="username-error" aria-live="polite"><?php echo t($errors['username']); ?></p>
         </div>
 
         <div class="field">
             <label for="email"><?php echo t('reg_email'); ?></label>
-            <input class="input" id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-error" data-rule="email" data-error="<?php echo e(t('err_email')); ?>" value="<?php echo e($email); ?>">
+            <input class="input" id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-error" data-rule="email" data-error="<?php echo e(t('err_email')); ?>"<?php if ($errors['email'] !== '') { echo ' aria-invalid="true"'; } ?> value="<?php echo e($email); ?>">
             <p class="error" id="email-error" aria-live="polite"><?php echo t($errors['email']); ?></p>
         </div>
 
         <div class="field">
             <label for="password"><?php echo t('reg_password'); ?></label>
-            <input class="input" id="password" name="password" type="password" autocomplete="new-password" required aria-describedby="password-error" data-rule="password" data-error="<?php echo e(t('err_password')); ?>">
+            <input class="input" id="password" name="password" type="password" autocomplete="new-password" required aria-describedby="password-error" data-rule="password" data-error="<?php echo e(t('err_password')); ?>"<?php if ($errors['password'] !== '') { echo ' aria-invalid="true"'; } ?>>
             <p class="error" id="password-error" aria-live="polite"><?php echo t($errors['password']); ?></p>
         </div>
 
         <div class="field">
             <label for="confirm"><?php echo t('reg_confirm'); ?></label>
-            <input class="input" id="confirm" name="confirm" type="password" autocomplete="new-password" required aria-describedby="confirm-error" data-rule="confirm" data-error="<?php echo e(t('err_password_match')); ?>">
+            <input class="input" id="confirm" name="confirm" type="password" autocomplete="new-password" required aria-describedby="confirm-error" data-rule="confirm" data-error="<?php echo e(t('err_password_match')); ?>"<?php if ($errors['confirm'] !== '') { echo ' aria-invalid="true"'; } ?>>
             <p class="error" id="confirm-error" aria-live="polite"><?php echo t($errors['confirm']); ?></p>
         </div>
 
@@ -112,7 +112,7 @@ require $base . 'templates/header.php';
 
         <div class="field">
             <label for="code" id="code-label"><?php echo t($codeLabel); ?></label>
-            <input class="input" id="code" name="code" type="text" autocomplete="off" required aria-describedby="code-error" data-rule="code" data-error="<?php echo e(t('err_code')); ?>">
+            <input class="input" id="code" name="code" type="text" autocomplete="off" required aria-describedby="code-error" data-rule="code" data-error="<?php echo e(t('err_code')); ?>"<?php if ($errors['code'] !== '') { echo ' aria-invalid="true"'; } ?>>
             <p class="error" id="code-error" aria-live="polite"><?php echo t($errors['code']); ?></p>
         </div>
 

@@ -55,25 +55,25 @@ $scripts = ['js/validate.js'];
 require $base . 'templates/header.php';
 ?>
 <div class="auth">
+    <div class="auth-head">
+        <h1><?php echo t('login'); ?></h1>
+    </div>
     <?php if ($errors['login'] !== '') { ?>
         <div class="flash flash-error" role="alert"><svg class="icon" aria-hidden="true"><use href="#ic-alert"/></svg><p><?php echo t($errors['login']); ?></p></div>
     <?php } elseif ($flash !== '') { ?>
         <div class="flash flash-success"><svg class="icon" aria-hidden="true"><use href="#ic-check-line"/></svg><p><?php echo t($flash); ?></p></div>
     <?php } ?>
-    <div class="auth-head">
-        <h1><?php echo t('login'); ?></h1>
-    </div>
 
     <form class="panel" id="login-form" action="login.php" method="post" novalidate>
         <div class="field">
             <label for="email"><?php echo t('reg_email'); ?></label>
-            <input class="input" id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-error" data-rule="email" data-error="<?php echo e(t('err_email')); ?>" value="<?php echo e($email); ?>">
+            <input class="input" id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-error" data-rule="email" data-error="<?php echo e(t('err_email')); ?>"<?php if ($errors['email'] !== '') { echo ' aria-invalid="true"'; } ?> value="<?php echo e($email); ?>">
             <p class="error" id="email-error" aria-live="polite"><?php echo t($errors['email']); ?></p>
         </div>
 
         <div class="field">
             <label for="password"><?php echo t('reg_password'); ?></label>
-            <input class="input" id="password" name="password" type="password" autocomplete="current-password" required aria-describedby="password-error" data-rule="filled" data-error="<?php echo e(t('err_password_empty')); ?>">
+            <input class="input" id="password" name="password" type="password" autocomplete="current-password" required aria-describedby="password-error" data-rule="filled" data-error="<?php echo e(t('err_password_empty')); ?>"<?php if ($errors['password'] !== '') { echo ' aria-invalid="true"'; } ?>>
             <p class="error" id="password-error" aria-live="polite"><?php echo t($errors['password']); ?></p>
         </div>
 

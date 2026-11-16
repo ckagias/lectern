@@ -1,4 +1,4 @@
-// Checks the registration and login forms while the user types. The rules are the same as in the Validator class in PHP.
+// Checks the registration and login forms when they are sent, then again while the user fixes a wrong field. The rules are the same as in the Validator class in PHP.
 var form = document.querySelector('form.panel');
 var fields = form.querySelectorAll('[data-rule]');
 var roles = form.querySelectorAll('input[name="role"]');
@@ -44,17 +44,12 @@ function check(field) {
 }
 
 fields.forEach(function (field) {
-    field.addEventListener('blur', function () {
-        field.dataset.touched = 'yes';
-        check(field);
-    });
-
     field.addEventListener('input', function () {
-        if (field.dataset.touched === 'yes') {
+        if (field.getAttribute('aria-invalid') === 'true') {
             check(field);
         }
         var confirm = document.getElementById('confirm');
-        if (field.id === 'password' && confirm !== null && confirm.dataset.touched === 'yes') {
+        if (field.id === 'password' && confirm !== null && confirm.getAttribute('aria-invalid') === 'true') {
             check(confirm);
         }
     });
@@ -69,7 +64,6 @@ roles.forEach(function (role) {
 form.addEventListener('submit', function (event) {
     var firstWrong = null;
     fields.forEach(function (field) {
-        field.dataset.touched = 'yes';
         if (!check(field) && firstWrong === null) {
             firstWrong = field;
         }
