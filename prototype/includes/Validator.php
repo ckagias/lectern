@@ -87,14 +87,11 @@ class Validator
         if ($code === '') {
             return 'err_code';
         }
-        $right = CODE_MEMBER;
-        $wrong = 'err_code_wrong_member';
-        if ($role === 'librarian') {
-            $right = CODE_LIBRARIAN;
-            $wrong = 'err_code_wrong_librarian';
+        if ($role === 'member' && $code !== CODE_MEMBER) {
+            return 'err_code_wrong_member';
         }
-        if (!hash_equals($right, $code)) {
-            return $wrong;
+        if ($role === 'librarian' && $code !== CODE_LIBRARIAN) {
+            return 'err_code_wrong_librarian';
         }
         return '';
     }

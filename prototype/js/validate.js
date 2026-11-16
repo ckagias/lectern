@@ -31,10 +31,16 @@ var rules = {
  * @returns {boolean} True when the value is fine.
  */
 function check(field) {
-    var ok = rules[field.dataset.rule](field.value);
-    document.getElementById(field.id + '-error').textContent = ok ? '' : field.dataset.error;
-    field.setAttribute('aria-invalid', ok ? 'false' : 'true');
-    return ok;
+    var valid = rules[field.dataset.rule](field.value);
+    var message = document.getElementById(field.id + '-error');
+    if (valid) {
+        message.textContent = '';
+        field.setAttribute('aria-invalid', 'false');
+    } else {
+        message.textContent = field.dataset.error;
+        field.setAttribute('aria-invalid', 'true');
+    }
+    return valid;
 }
 
 fields.forEach(function (field) {

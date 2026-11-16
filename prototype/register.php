@@ -10,7 +10,6 @@ if (isLoggedIn()) {
 $username = '';
 $email = '';
 $role = 'member';
-$focus = '';
 $errors = ['username' => '', 'email' => '', 'password' => '', 'confirm' => '', 'role' => '', 'code' => '', 'form' => ''];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -37,7 +36,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $errors['email'] = 'err_email_taken';
         }
 
-        if (implode('', $errors) === '') {
+        $ok = true;
+        foreach ($errors as $message) {
+            if ($message !== '') {
+                $ok = false;
+            }
+        }
+        if ($ok) {
             // The role id comes from the checked role, never from the form.
             $roleId = ROLE_MEMBER;
             if ($role === 'librarian') {
@@ -50,25 +55,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } catch (Exception $e) {
         $errors['form'] = 'err_database';
     }
-
-    // After a rejected form the page shows a summary on top and puts the cursor in the first wrong field.
-    if ($errors['form'] === '' && implode('', $errors) !== '') {
-        $errors['form'] = 'err_form';
-    }
-    foreach ($errors as $name => $message) {
-        if ($message !== '' && $focus === '') {
-            $focus = $name;
-        }
-    }
 }
-
 if ($role !== 'librarian') {
     $role = 'member';
 }
-$codeLabel = 'reg_code_member';
-if ($role === 'librarian') {
-    $codeLabel = 'reg_code_librarian';
-}
+$codeLabel = 'reg_code_' . $role;
 
 $layout = 'public';
 $title = t('reg_title');
@@ -88,25 +79,25 @@ require $base . 'includes/header.php';
     <form class="panel" id="register-form" action="register.php" method="post" novalidate>
         <div class="field">
             <label for="username"><?php echo t('reg_username'); ?></label>
-            <input class="input" id="username" name="username" type="text" autocomplete="username" autocapitalize="none" spellcheck="false" required aria-describedby="username-error" data-rule="username" data-error="<?php echo e(t('err_username')); ?>" value="<?php echo e($username); ?>"<?php if ($errors['username'] !== '') { echo ' aria-invalid="true"'; } ?><?php if ($focus === 'username') { echo ' autofocus'; } ?>>
+            <input class="input" id="username" name="username" type="text" autocomplete="username" required aria-describedby="username-error" data-rule="username" data-error="<?php echo e(t('err_username')); ?>" value="<?php echo e($username); ?>">
             <p class="error" id="username-error" aria-live="polite"><?php echo t($errors['username']); ?></p>
         </div>
 
         <div class="field">
             <label for="email"><?php echo t('reg_email'); ?></label>
-            <input class="input" id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-error" data-rule="email" data-error="<?php echo e(t('err_email')); ?>" value="<?php echo e($email); ?>"<?php if ($errors['email'] !== '') { echo ' aria-invalid="true"'; } ?><?php if ($focus === 'email') { echo ' autofocus'; } ?>>
+            <input class="input" id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-error" data-rule="email" data-error="<?php echo e(t('err_email')); ?>" value="<?php echo e($email); ?>">
             <p class="error" id="email-error" aria-live="polite"><?php echo t($errors['email']); ?></p>
         </div>
 
         <div class="field">
             <label for="password"><?php echo t('reg_password'); ?></label>
-            <input class="input" id="password" name="password" type="password" autocomplete="new-password" required aria-describedby="password-error" data-rule="password" data-error="<?php echo e(t('err_password')); ?>"<?php if ($errors['password'] !== '') { echo ' aria-invalid="true"'; } ?><?php if ($focus === 'password') { echo ' autofocus'; } ?>>
+            <input class="input" id="password" name="password" type="password" autocomplete="new-password" required aria-describedby="password-error" data-rule="password" data-error="<?php echo e(t('err_password')); ?>">
             <p class="error" id="password-error" aria-live="polite"><?php echo t($errors['password']); ?></p>
         </div>
 
         <div class="field">
             <label for="confirm"><?php echo t('reg_confirm'); ?></label>
-            <input class="input" id="confirm" name="confirm" type="password" autocomplete="new-password" required aria-describedby="confirm-error" data-rule="confirm" data-error="<?php echo e(t('err_password_match')); ?>"<?php if ($errors['confirm'] !== '') { echo ' aria-invalid="true"'; } ?><?php if ($focus === 'confirm') { echo ' autofocus'; } ?>>
+            <input class="input" id="confirm" name="confirm" type="password" autocomplete="new-password" required aria-describedby="confirm-error" data-rule="confirm" data-error="<?php echo e(t('err_password_match')); ?>">
             <p class="error" id="confirm-error" aria-live="polite"><?php echo t($errors['confirm']); ?></p>
         </div>
 
@@ -121,7 +112,7 @@ require $base . 'includes/header.php';
 
         <div class="field">
             <label for="code" id="code-label"><?php echo t($codeLabel); ?></label>
-            <input class="input" id="code" name="code" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" required aria-describedby="code-error" data-rule="code" data-error="<?php echo e(t('err_code')); ?>"<?php if ($errors['code'] !== '') { echo ' aria-invalid="true"'; } ?><?php if ($focus === 'code') { echo ' autofocus'; } ?>>
+            <input class="input" id="code" name="code" type="text" autocomplete="off" required aria-describedby="code-error" data-rule="code" data-error="<?php echo e(t('err_code')); ?>">
             <p class="error" id="code-error" aria-live="polite"><?php echo t($errors['code']); ?></p>
         </div>
 

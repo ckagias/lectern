@@ -6,7 +6,6 @@ $lang_en = [
     'err_password' => 'The password must have 8 to 72 characters, with at least one Latin letter (A to Z) and one number.',
     'err_password_match' => 'The two passwords do not match.',
     'err_database' => 'The library system is not available right now. Please try again in a few minutes.',
-    'err_form' => 'Some details need fixing. Check the messages below.',
     'err_username_taken' => 'This username is already taken.',
     'err_email_taken' => 'An account with this email already exists.',
     'err_code_wrong_member' => 'This is not the right member code.',

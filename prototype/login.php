@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $errors['email'] = $validator->email($email);
     $errors['password'] = $validator->loginPassword($password);
 
-    if (implode('', $errors) === '') {
+    if ($errors['email'] === '' && $errors['password'] === '') {
         try {
             $users = new User(new Database());
             $user = $users->checkLogin($email, $password);
@@ -67,13 +67,13 @@ require $base . 'includes/header.php';
     <form class="panel" id="login-form" action="login.php" method="post" novalidate>
         <div class="field">
             <label for="email"><?php echo t('reg_email'); ?></label>
-            <input class="input" id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-error" data-rule="email" data-error="<?php echo e(t('err_email')); ?>" value="<?php echo e($email); ?>"<?php if ($errors['email'] !== '') { echo ' aria-invalid="true"'; } ?>>
+            <input class="input" id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-error" data-rule="email" data-error="<?php echo e(t('err_email')); ?>" value="<?php echo e($email); ?>">
             <p class="error" id="email-error" aria-live="polite"><?php echo t($errors['email']); ?></p>
         </div>
 
         <div class="field">
             <label for="password"><?php echo t('reg_password'); ?></label>
-            <input class="input" id="password" name="password" type="password" autocomplete="current-password" required aria-describedby="password-error" data-rule="filled" data-error="<?php echo e(t('err_password_empty')); ?>"<?php if ($errors['password'] !== '') { echo ' aria-invalid="true"'; } ?>>
+            <input class="input" id="password" name="password" type="password" autocomplete="current-password" required aria-describedby="password-error" data-rule="filled" data-error="<?php echo e(t('err_password_empty')); ?>">
             <p class="error" id="password-error" aria-live="polite"><?php echo t($errors['password']); ?></p>
         </div>
 
