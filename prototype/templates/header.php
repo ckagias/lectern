@@ -39,13 +39,8 @@ if ($layout !== 'public') {
         <a class="brand" href="<?php echo $base . $home; ?>"><svg class="icon brand-mark" aria-hidden="true"><use href="#ic-books"/></svg>AchaiaReads</a>
         <div class="top-actions">
             <div class="lang" role="group" aria-label="<?php echo t('lang_label'); ?>">
-                <?php if ($lang === 'el') { ?>
-                    <a href="?lang=el" lang="el" aria-current="true">EL</a>
-                    <a href="?lang=en" lang="en">EN</a>
-                <?php } else { ?>
-                    <a href="?lang=el" lang="el">EL</a>
-                    <a href="?lang=en" lang="en" aria-current="true">EN</a>
-                <?php } ?>
+                <a href="?lang=el" lang="el"<?php if ($lang === 'el') { echo ' aria-current="true"'; } ?>>EL</a>
+                <a href="?lang=en" lang="en"<?php if ($lang === 'en') { echo ' aria-current="true"'; } ?>>EN</a>
             </div>
             <?php if ($layout !== 'public' || isLoggedIn()) { ?>
                 <form action="<?php echo $base; ?>logout.php" method="post">

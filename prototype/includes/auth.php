@@ -21,6 +21,19 @@ function hasRole($roleId)
 }
 
 /**
+ * Returns the name of the logged in user's role, which is also the name of the layout.
+ *
+ * @return string 'librarian' for a librarian and 'member' for everyone else.
+ */
+function roleName()
+{
+    if (hasRole(ROLE_LIBRARIAN)) {
+        return 'librarian';
+    }
+    return 'member';
+}
+
+/**
  * Sends visitors who are not logged in to the login page. The browser is told not to keep the page, so the Back button after logout shows nothing private.
  *
  * @param string $base The path from the current page to the main folder.

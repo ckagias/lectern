@@ -5,10 +5,7 @@ require_once $base . 'includes/init.php';
 requireLogin($base);
 http_response_code(403);
 
-$layout = 'member';
-if (hasRole(ROLE_LIBRARIAN)) {
-    $layout = 'librarian';
-}
+$layout = roleName();
 $title = 'Forbidden Action';
 $active = '';
 $styles = ['css/app.css'];

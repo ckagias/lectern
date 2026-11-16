@@ -4,10 +4,7 @@ $base = '';
 require_once $base . 'includes/init.php';
 requireLogin($base);
 
-$layout = 'member';
-if (hasRole(ROLE_LIBRARIAN)) {
-    $layout = 'librarian';
-}
+$layout = roleName();
 $title = t('dashboard_title');
 $active = 'home';
 $styles = ['css/app.css'];
