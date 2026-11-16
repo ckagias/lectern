@@ -177,6 +177,26 @@ main {
   margin-top: 6px;
 }
 
+@media (min-width: 360px) {
+  .nav a {
+    font-size: 0.875rem;
+  }
+
+  .lang a {
+    min-width: 44px;
+  }
+}
+
+@media (min-width: 360px) and (max-width: 419px) {
+  .brand {
+    font-size: 1.125rem;
+  }
+
+  .top .btn {
+    padding: 0 6px;
+  }
+}
+
 @media (min-width: 420px) {
   .top {
     gap: 8px;
