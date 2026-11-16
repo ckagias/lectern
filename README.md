@@ -35,6 +35,20 @@ The database login is set in `prototype/config.php` and defaults to the XAMPP va
 
 Demo accounts are listed in [`notes/database.md`](notes/database.md).
 
+## Structure
+
+```
+prototype/
+  index.php, login.php, register.php, logout.php, dashboard.php, forbidden.php, config.php
+  member/, librarian/   the pages of each role
+  classes/              Database, User and Validator, one class per file
+  includes/             startup, sessions and role checks, helpers, languages, menus
+  templates/            header, footer, icons and the home page shelf
+  css/, js/             styles and scripts, Leaflet is in js/leaflet/
+  pictures/, fonts/     images and self-hosted fonts
+  database/             schema.sql and seed.sql
+```
+
 ## Credits
 
 Pictures, fonts, icons and libraries are credited in [`notes/credits.md`](notes/credits.md). The library itself is fictional.
