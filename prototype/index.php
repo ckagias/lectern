@@ -68,7 +68,7 @@ require $base . 'templates/header.php';
         </ul>
     </div>
     <figure class="photo">
-        <img src="pictures/library-reading-1400.jpg" srcset="pictures/library-reading-800.jpg 800w, pictures/library-reading-1400.jpg 1400w" sizes="(min-width: 900px) 540px, 100vw" width="1400" height="934" loading="lazy" alt="<?php echo t('about_photo_alt'); ?>">
+        <img src="pictures/about-library-interior-1400.jpg" srcset="pictures/about-library-interior-800.jpg 800w, pictures/about-library-interior-1400.jpg 1400w" sizes="(min-width: 900px) 540px, 100vw" width="1400" height="934" loading="lazy" alt="<?php echo t('about_photo_alt'); ?>">
     </figure>
 </section>
 

@@ -2,7 +2,7 @@
 .hero {
   overflow: hidden;
   background-color: var(--green);
-  background-image: linear-gradient(var(--veil-left), var(--veil-middle)), url("../pictures/hero-library-960.jpg");
+  background-image: linear-gradient(var(--veil-left), var(--veil-middle)), url("../pictures/hero-reading-room-960.jpg");
   background-position: center;
   background-size: cover;
   color: var(--on-dark);
@@ -11,7 +11,7 @@
 /* The photo is a reading room, with a green tint on top so the text stays readable. */
 @media (min-width: 700px) {
   .hero {
-    background-image: linear-gradient(90deg, var(--veil-left), var(--veil-middle) 50%, var(--veil-right)), url("../pictures/hero-library-1920.jpg");
+    background-image: linear-gradient(90deg, var(--veil-left), var(--veil-middle) 50%, var(--veil-right)), url("../pictures/hero-reading-room-1920.jpg");
   }
 }
 
@@ -116,9 +116,9 @@
   display: none;
 }
 
-.book { --tex: url("../pictures/spine-cloth.jpg"); }
-.book.leather, .book.burgundy, .book.brick, .book.aubergine, .book.terra, .book.rose { --tex: url("../pictures/spine-leather.jpg"); }
-.book.ivory, .book.sand, .book.ochre { --tex: url("../pictures/spine-linen.jpg"); }
+.book { --tex: url("../pictures/texture-book-cloth.jpg"); }
+.book.leather, .book.burgundy, .book.brick, .book.aubergine, .book.terra, .book.rose { --tex: url("../pictures/texture-leather.jpg"); }
+.book.ivory, .book.sand, .book.ochre { --tex: url("../pictures/texture-linen.jpg"); }
 
 .book.cobalt { --cloth: var(--cloth-cobalt); --ink-gilt: var(--gilt); }
 .book.terra { --cloth: var(--cloth-terra); --ink-gilt: var(--gilt); }
