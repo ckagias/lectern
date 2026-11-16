@@ -24,11 +24,13 @@ if ($layout !== 'public') {
     <link rel="stylesheet" href="<?php echo $base; ?>css/layout.css">
     <link rel="stylesheet" href="<?php echo $base; ?>css/components.css">
     <link rel="stylesheet" href="<?php echo $base; ?>css/forms.css">
-    <?php if (isset($styles)) { ?>
-        <?php foreach ($styles as $style) { ?>
-            <link rel="stylesheet" href="<?php echo $base . $style; ?>">
-        <?php } ?>
-    <?php } ?>
+    <?php
+    if (isset($styles)) {
+        foreach ($styles as $style) {
+            echo '<link rel="stylesheet" href="' . $base . $style . '">';
+        }
+    }
+    ?>
 </head>
 <body class="layout-<?php echo $layout; ?><?php if (isset($bodyClass)) { echo ' ' . $bodyClass; } ?>">
     <a class="skip" href="#main"><?php echo t('skip_link'); ?></a>

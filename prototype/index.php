@@ -2,7 +2,7 @@
 // Public library page: information about the library, with log in and register links.
 $base = '';
 require_once $base . 'includes/init.php';
-require_once $base . 'includes/books.php';
+require_once $base . 'includes/shelf_books.php';
 
 $layout = 'public';
 $weekdays = openingHours(1);

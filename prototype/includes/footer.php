@@ -8,10 +8,12 @@
     <?php } ?>
 
     <?php require $base . 'includes/icons.php'; ?>
-    <?php if (isset($scripts)) { ?>
-        <?php foreach ($scripts as $script) { ?>
-            <script src="<?php echo $base . $script; ?>"></script>
-        <?php } ?>
-    <?php } ?>
+    <?php
+    if (isset($scripts)) {
+        foreach ($scripts as $script) {
+            echo '<script src="' . $base . $script . '"></script>';
+        }
+    }
+    ?>
 </body>
 </html>
