@@ -41,4 +41,4 @@ A copy is available when it has no active reservation and no open loan. The code
 
 ![ER diagram of the lectern database](er-diagram.png)
 
-The same diagram as a vector file is `er-diagram.svg`. A line from `users` to `loans` is drawn three times because `loans` points to a user in three columns: `user_id` (who borrows), `loaned_by` (the librarian who handed the copy over) and `returned_to` (the librarian who took it back, empty while the loan is open).
+The same diagram as a vector file is `er-diagram.svg`. Types are shown without `UNSIGNED`, and every id column is an unsigned `INT` in the schema. `loans` points to `users` in three columns, so there are three lines between them: `user_id` (who borrows), `loaned_by` (the librarian who handed the copy over) and `returned_to` (the librarian who took it back, empty while the loan is open). Each line leaves `loans` at the row of its column.
