@@ -54,11 +54,11 @@ function openingHours($day)
 }
 
 /**
- * Returns a sentence about the opening of the library at this moment, in the current language.
+ * Returns a sentence that tells whether the library is open at this moment, in the current language.
  *
  * @param int $day The weekday, 1 for Monday to 7 for Sunday.
  * @param string $now The time as hours and minutes, for example 18:30.
- * @return string For example "Open until 21:00" or "Closed now · Opens tomorrow at 09:00".
+ * @return string For example "Open until 21:00" or "Closed now".
  */
 function openingStatus($day, $now)
 {
@@ -66,16 +66,5 @@ function openingStatus($day, $now)
     if ($hours !== [] && $now >= $hours['open'] && $now < $hours['close']) {
         return t('dashboard_open') . ' ' . $hours['close'];
     }
-    if ($hours !== [] && $now < $hours['open']) {
-        return t('dashboard_closed') . ' · ' . t('dashboard_opens_today') . ' ' . $hours['open'];
-    }
-    // The day is over or the library is closed all day, so the next opening is tomorrow, or Monday when tomorrow is Sunday.
-    $next = $day + 1;
-    $key = 'dashboard_opens_tomorrow';
-    if ($next >= 7) {
-        $next = 1;
-        $key = 'dashboard_opens_monday';
-    }
-    $nextHours = openingHours($next);
-    return t('dashboard_closed') . ' · ' . t($key) . ' ' . $nextHours['open'];
+    return t('dashboard_closed');
 }
