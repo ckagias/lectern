@@ -1,0 +1,73 @@
+/* Text pages: About us and Privacy. One readable column under the header. */
+.text-page {
+  max-width: 46rem;
+  margin-inline: auto;
+  padding: 48px 16px 0;
+}
+
+.text-page h1 {
+  font-size: 2.25rem;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+}
+
+.text-page .lead {
+  margin-top: 16px;
+  color: var(--ink-2);
+  font-size: var(--text-lg);
+}
+
+.text-page h2 {
+  margin-top: 44px;
+  font-size: var(--text-xl);
+  font-weight: 500;
+}
+
+.text-page h2 + p,
+.text-page h2 + .steps {
+  margin-top: 12px;
+}
+
+.text-page figure {
+  margin: 32px 0 0;
+}
+
+.text-page img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+}
+
+.steps {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.steps li::marker {
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+
+.steps li {
+  padding-left: 4px;
+}
+
+.text-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 40px;
+}
+
+@media (min-width: 768px) {
+  .text-page {
+    padding: 80px 32px 0;
+  }
+
+  .text-page h1 {
+    font-size: 3rem;
+  }
+}
