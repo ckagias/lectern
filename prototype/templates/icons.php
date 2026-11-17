@@ -1,6 +1,7 @@
 <?php // The icon sprite. Icons are used with <use href="#ic-name"/>. ?>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <defs>
+        <symbol id="ic-logo" viewBox="0 0 32 32"><g transform="translate(7.5 30) rotate(15)"><rect x="-2.0" y="-26" width="4" height="21.4" rx="1"/><rect x="-2.0" y="-3.4" width="4" height="3.4" rx="1"/></g><g transform="translate(24.5 30) rotate(-15)"><rect x="-2.0" y="-26" width="4" height="21.4" rx="1"/><rect x="-2.0" y="-3.4" width="4" height="3.4" rx="1"/></g><rect x="12.8" y="18.6" width="6.4" height="3.4" rx="0.8"/></symbol>
         <symbol id="ic-home" viewBox="0 0 256 256"><path d="M224,120v96a8,8,0,0,1-8,8H160a8,8,0,0,1-8-8V164a4,4,0,0,0-4-4H108a4,4,0,0,0-4,4v52a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V120a16,16,0,0,1,4.69-11.31l80-80a16,16,0,0,1,22.62,0l80,80A16,16,0,0,1,224,120Z"/></symbol>
         <symbol id="ic-search" viewBox="0 0 256 256"><path d="M232.49,215.51,185,168a92.12,92.12,0,1,0-17,17l47.53,47.54a12,12,0,0,0,17-17ZM44,112a68,68,0,1,1,68,68A68.07,68.07,0,0,1,44,112Z"/></symbol>
         <symbol id="ic-bookmarks" viewBox="0 0 256 256"><path d="M192,24H96A16,16,0,0,0,80,40V56H64A16,16,0,0,0,48,72V224a8,8,0,0,0,12.65,6.51L112,193.83l51.36,36.68A8,8,0,0,0,176,224V184.69l19.35,13.82A8,8,0,0,0,208,192V40A16,16,0,0,0,192,24Zm0,152.46L176,165V72a16,16,0,0,0-16-16H96V40h96Z"/></symbol>

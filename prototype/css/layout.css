@@ -1,4 +1,4 @@
-/* Page shell: header, language switch, bottom nav (tab bar on desktop), main area and footer. */
+/* Page shell: header, language switch, menu (tab bar on phones, side menu on desktop), main area and footer. */
 .top {
   display: flex;
   align-items: center;
@@ -6,8 +6,9 @@
   gap: 4px;
   min-height: 60px;
   padding: 6px 8px;
-  background: var(--green);
-  color: var(--on-dark);
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--ink);
 }
 
 .brand {
@@ -17,21 +18,15 @@
   min-height: 44px;
   text-decoration: none;
   font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: 1.25rem;
-}
-
-/* The log out button is quieter than the Log in button of the public pages. */
-.top form .btn {
-  border-width: 1px;
-  border-color: rgba(247, 236, 211, 0.45);
-  background: transparent;
   font-weight: 600;
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
 }
 
-.top form .btn:hover {
-  background: var(--glass);
-  filter: none;
+.brand-mark {
+  width: 0.85em;
+  height: 0.85em;
+  color: var(--ink);
 }
 
 @media (max-width: 359px) {
@@ -68,19 +63,14 @@
   text-decoration: none;
   font-weight: 600;
   font-size: var(--text-sm);
-  opacity: 0.75;
+  opacity: 0.7;
 }
 
 .lang a[aria-current="true"] {
   opacity: 1;
   text-decoration: underline;
-  text-decoration-color: var(--ochre);
   text-decoration-thickness: 2px;
   text-underline-offset: 6px;
-}
-
-.brand-mark {
-  color: var(--ochre);
 }
 
 /* The user block at the bottom of the side menu. Phones have no side menu, so it is hidden there. */
@@ -88,7 +78,7 @@
   display: none;
 }
 
-/* Navigation: a light tab bar fixed to the bottom on phones. */
+/* Menu: a dark tab bar fixed to the bottom on phones. */
 .nav {
   position: fixed;
   left: 0;
@@ -97,9 +87,8 @@
   z-index: 5;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  border-top: 1px solid var(--line);
-  background: var(--bg);
-  color: var(--ink-2);
+  background: var(--side);
+  color: oklch(1 0 0 / 0.62);
 }
 
 .nav a {
@@ -113,7 +102,7 @@
   text-decoration: none;
   font-weight: 500;
   font-size: 0.8125rem;
-  transition: background-color 0.15s, color 0.15s;
+  transition: background-color 0.2s var(--ease), color 0.2s var(--ease);
 }
 
 /* Every menu icon has an outline and a solid version. The current page shows the solid one. */
@@ -127,16 +116,17 @@
 }
 
 .nav a:hover {
-  color: var(--ink);
+  color: var(--on-dark);
 }
 
 .nav a:focus-visible {
+  outline-color: var(--on-dark);
   outline-offset: -3px;
 }
 
 .nav a[aria-current="page"] {
-  color: var(--green);
-  font-weight: 700;
+  color: var(--on-dark);
+  font-weight: 600;
 }
 
 main {
@@ -159,22 +149,104 @@ main {
 }
 
 .foot {
-  margin-top: 56px;
-  padding: 22px 16px 30px;
+  margin-top: 72px;
+  padding: 40px 16px 28px;
   background: var(--foot-bg);
   color: var(--foot-fg);
   font-size: 1rem;
-  font-weight: 500;
 }
 
-.foot p {
+.foot-top,
+.foot-bottom {
   max-width: var(--page-width);
   margin-inline: auto;
-  text-align: center;
 }
 
-.foot p + p {
-  margin-top: 6px;
+.foot-top {
+  display: grid;
+  gap: 28px;
+}
+
+.foot .brand {
+  color: var(--on-dark);
+}
+
+.foot .brand-mark {
+  color: var(--on-dark);
+}
+
+
+.foot h2 {
+  margin-bottom: 10px;
+  color: var(--on-dark);
+  font-family: var(--font);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.foot-list {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.foot-list li {
+  display: flex;
+  align-items: center;
+  min-height: 32px;
+}
+
+/* On phones the explore links stand in two columns to save height. */
+.foot-explore {
+  grid-template-columns: 1fr 1fr;
+  column-gap: 16px;
+}
+
+
+
+.foot-list a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  text-decoration: none;
+}
+
+.foot-list a:hover,
+.foot-list a:focus-visible {
+  color: var(--on-dark);
+}
+
+.foot-hours {
+  margin: 0;
+}
+
+.foot-hours div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 9px 0;
+  border-bottom: 1px solid oklch(1 0 0 / 0.1);
+}
+
+.foot-hours div:last-child {
+  border-bottom: 0;
+}
+
+.foot-hours dd {
+  margin: 0;
+}
+
+.foot-bottom {
+  display: grid;
+  gap: 4px;
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid oklch(1 0 0 / 0.12);
+  font-size: var(--text-sm);
+  opacity: 0.75;
 }
 
 @media (min-width: 360px) {
@@ -215,53 +287,86 @@ main {
     padding: 0 14px;
     font-size: 1rem;
   }
+}
 
-  .lang a {
-    min-width: 44px;
+@media (min-width: 600px) {
+  .foot-top {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .foot-brand {
+    grid-column: 1 / -1;
+  }
+
+  .foot-hours div {
+    display: grid;
+    gap: 2px;
+    padding: 0 0 10px;
+    border-bottom: 0;
+  }
+
+  .foot-list li {
+    min-height: 40px;
+  }
+
+  .foot-explore {
+    grid-template-columns: 1fr;
   }
 }
 
 @media (min-width: 768px) {
-  /* The same nav markup becomes a menu on the left, under the header. */
+  /* The same markup becomes a dark side menu with the brand on top, and a light strip with the language and log out. */
   .layout-member,
   .layout-librarian {
     display: grid;
-    grid-template-columns: 15rem 1fr;
-    grid-template-rows: auto 1fr;
+    grid-template-columns: 16rem 1fr;
+    grid-template-rows: 72px 1fr;
     min-height: 100vh;
+    background: linear-gradient(90deg, var(--side) 16rem, var(--bg) 16rem);
   }
 
-  .top {
-    grid-column: 1 / -1;
-    min-height: 68px;
-    padding: 6px 32px;
-  }
-
-  /* The header stays on top and the side menu stays in view while the page scrolls. */
   .layout-member .top,
   .layout-librarian .top {
+    display: contents;
+  }
+
+  .layout-member .brand,
+  .layout-librarian .brand {
     position: sticky;
     top: 0;
     z-index: 6;
+    grid-column: 1;
+    grid-row: 1;
+    padding: 0 28px;
+    background: var(--side);
+    color: var(--on-dark);
+    font-size: 1.375rem;
   }
 
-  .brand {
-    font-size: 1.5rem;
+  .layout-member .brand-mark,
+  .layout-librarian .brand-mark {
+    color: var(--on-dark);
+  }
+
+  .layout-member .top-actions,
+  .layout-librarian .top-actions {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    padding-right: 40px;
+    gap: 8px;
   }
 
   .nav {
-    position: static;
+    position: sticky;
+    top: 72px;
     display: flex;
     flex-direction: column;
     gap: 2px;
-    padding: 20px 0 0;
-    border-top: 0;
-    border-right: 1px solid var(--line);
-    background: var(--bg);
-    position: sticky;
-    top: 68px;
     align-self: start;
-    height: calc(100vh - 68px);
+    height: calc(100vh - 72px);
+    padding: 12px 0 0;
   }
 
   .nav-user {
@@ -269,13 +374,13 @@ main {
     justify-items: start;
     gap: 2px;
     margin-top: auto;
-    padding: 16px 20px 18px;
-    border-top: 1px solid var(--line);
+    padding: 18px 28px 22px;
+    border-top: 1px solid oklch(1 0 0 / 0.1);
     overflow-wrap: anywhere;
   }
 
   .who {
-    color: var(--ink);
+    color: var(--on-dark);
     font-weight: 600;
   }
 
@@ -287,26 +392,26 @@ main {
     grid-auto-flow: column;
     justify-content: start;
     align-items: center;
-    gap: 12px;
-    min-height: 48px;
-    margin: 0 12px;
-    padding: 0 20px;
-    border-radius: var(--radius-lg);
+    gap: 14px;
+    min-height: 46px;
+    margin: 0 14px;
+    padding: 0 14px;
+    border-radius: var(--radius);
     font-size: 1rem;
   }
 
   .nav a:hover {
-    background: var(--green-tint);
+    background: oklch(1 0 0 / 0.06);
   }
 
   .nav a[aria-current="page"] {
-    background: var(--green-tint);
+    background: oklch(1 0 0 / 0.1);
   }
 
   main {
     min-width: 0;
     margin-inline: 0;
-    padding: 36px 32px 56px;
+    padding: 8px 40px 72px;
   }
 
   .layout-public main {
@@ -314,6 +419,21 @@ main {
   }
 
   .foot {
-    padding: 24px 32px 32px;
+    padding: 72px 32px 36px;
   }
+
+}
+
+@media (min-width: 900px) {
+  .foot-top {
+    grid-template-columns: 1.3fr repeat(3, 1fr);
+  }
+
+  .foot-brand {
+    grid-column: auto;
+  }
+}
+
+.foot :focus-visible {
+  outline-color: var(--on-dark);
 }

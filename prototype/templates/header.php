@@ -36,7 +36,7 @@ if ($layout !== 'public') {
     <a class="skip" href="#main"><?php echo t('skip_link'); ?></a>
 
     <header class="top">
-        <a class="brand" href="<?php echo $base . $home; ?>"><svg class="icon brand-mark" aria-hidden="true"><use href="#ic-books"/></svg>AchaiaReads</a>
+        <a class="brand" href="<?php echo $base . $home; ?>"><svg class="icon brand-mark" aria-hidden="true"><use href="#ic-logo"/></svg>AchaiaReads</a>
         <div class="top-actions">
             <div class="lang" role="group" aria-label="<?php echo t('lang_label'); ?>">
                 <a href="?lang=el" lang="el"<?php if ($lang === 'el') { echo ' aria-current="true"'; } ?>>EL</a>
