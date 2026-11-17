@@ -7,7 +7,7 @@
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   background: var(--panel);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-raised);
 }
 
 .panel > * + * {
@@ -84,22 +84,24 @@
   padding: 0 8px;
   border: var(--border) solid var(--edge);
   border-radius: var(--radius);
-  background: var(--card);
+  background: var(--tile);
   font-size: 0.9375rem;
   font-weight: 500;
   cursor: pointer;
-  transition: border-color 0.2s var(--ease), background-color 0.2s var(--ease);
+  transition: border-color 0.2s var(--ease), background-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
 }
 
 .choice:hover {
   border-color: var(--ink-2);
+  background: var(--panel);
+  box-shadow: var(--shadow-raised);
 }
 
 /* The chosen answer is outlined in the action colour. */
 .choice:has(input:checked) {
   border-color: var(--action);
-  background: var(--green-tint);
-  box-shadow: 0 0 0 1px var(--action);
+  background: var(--panel);
+  box-shadow: 0 0 0 1px var(--action), var(--shadow-raised);
 }
 
 .choice + .choice {

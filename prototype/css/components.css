@@ -25,11 +25,15 @@
   transform: scale(0.98);
 }
 
-/* Main action, in ink like every button. */
+/* Main action, in ink like every button. It lifts on hover. */
 .btn.action {
   border-color: var(--action);
   background: var(--action);
   color: var(--cream);
+}
+
+.btn.action:hover {
+  box-shadow: var(--shadow-raised);
 }
 
 /* White button for photos and dark backgrounds, like the hero. */
@@ -43,15 +47,23 @@
   filter: brightness(0.93);
 }
 
+/* Over the photo the white button gets a thin ring with a small gap, like the outline of the second button. */
+.hero .btn.ochre {
+  box-shadow: 0 0 0 1px oklch(0.17 0.006 250 / 0.5), 0 0 0 2px oklch(1 0 0 / 0.5);
+}
+
 /* Second button: an ink outline on light backgrounds, a white outline over photos and dark backgrounds. */
 .btn.line {
   border-color: var(--edge);
-  background: transparent;
+  background: var(--tile);
   color: var(--ink);
 }
 
+/* Flat and grey at rest, white and lifted on hover. Cards, tabs and choices follow the same rule. */
 .btn.line:hover {
-  border-color: var(--ink);
+  border-color: var(--ink-2);
+  background: var(--panel);
+  box-shadow: var(--shadow-raised);
   filter: none;
 }
 
@@ -65,4 +77,5 @@
 .has-hero .btn.line:hover,
 .hero .btn.line:hover {
   border-color: var(--cream);
+  box-shadow: none;
 }

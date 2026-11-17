@@ -290,33 +290,34 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 4px 28px;
+  gap: 10px;
   margin: 32px 0 0;
-  padding: 16px 0 0;
-  border-top: 1px solid var(--line);
+  padding: 0;
   list-style: none;
 }
 
+/* Flat grey tabs. A hovered or chosen category is white and lifted. */
 .category {
   min-height: 44px;
-  padding: 0 4px;
-  border: 0;
-  border-bottom: 2px solid transparent;
-  background: none;
+  padding: 0 18px;
+  border: 1px solid var(--edge);
+  border-radius: var(--radius);
+  background: var(--tile);
   color: var(--ink-2);
-  font-family: var(--font-heading);
-  font-size: var(--text-lg);
+  font: 600 1rem var(--font);
   cursor: pointer;
-  transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease), background-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
 }
 
 .category:hover,
 .category[aria-pressed="true"] {
+  background: var(--panel);
+  box-shadow: var(--shadow-raised);
   color: var(--ink);
 }
 
 .category[aria-pressed="true"] {
-  border-bottom-color: var(--ink);
+  border-color: var(--ink-2);
 }
 
 .text {
@@ -353,9 +354,10 @@
   z-index: 0;
   height: 300px;
   margin-top: 16px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--edge);
   border-radius: var(--radius-lg);
   background: var(--card);
+  box-shadow: var(--shadow-raised);
 }
 
 /* The map keeps its colours for water and parks, turned down so it sits quietly on the page. */
@@ -421,11 +423,6 @@
   .hero-in,
   .section {
     padding-inline: 32px;
-  }
-
-  /* The header lines up with the page content on wide screens. */
-  .has-hero .top {
-    padding-inline: max(32px, calc(50% - 35rem + 32px));
   }
 }
 

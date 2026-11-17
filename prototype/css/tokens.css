@@ -6,9 +6,12 @@
   --side: oklch(0.17 0.006 250);
   --card: oklch(0.994 0.002 250);
   --panel: oklch(1 0 0);
+  --tile: oklch(0.96 0.004 250);
   --ink: oklch(0.17 0.006 250);
   --ink-2: oklch(0.45 0.008 250);
   --line: oklch(0.91 0.004 250);
+  --link: oklch(0.5 0.16 258);
+  --link-hover: oklch(0.4 0.16 258);
   --cream: oklch(0.985 0.002 250);
 
   /* Structure: ink for the side menu and icons, a faint ink wash for hovered and current rows. Links and main buttons are ink too. */
@@ -87,6 +90,8 @@
   --edge: color-mix(in oklch, var(--ink) 18%, transparent);
   --shadow-sm: 0 1px 2px oklch(0 0 0 / 0.06), 0 1px 1px oklch(0 0 0 / 0.04);
   --shadow-md: 0 8px 24px -8px oklch(0 0 0 / 0.16), 0 2px 4px oklch(0 0 0 / 0.05);
+  /* One raised shadow for every card and every hovered button: two layers, one tight and one wider. */
+  --shadow-raised: 0 3px 6px oklch(0.17 0.006 250 / 0.16), 0 3px 6px oklch(0.17 0.006 250 / 0.23);
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --page-width: 70rem;
 }
