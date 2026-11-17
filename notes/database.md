@@ -22,8 +22,8 @@ mysql -u root < prototype/database/seed.sql
 
 | Role | Email | Password |
 |---|---|---|
-| Member | `member@lectern.test` | `Demo-Member-2026` |
-| Librarian | `librarian@lectern.test` | `Demo-Librarian-2026` |
+| Member | `member@lectern.test` | `member` |
+| Librarian | `librarian@lectern.test` | `librarian` |
 
 ## Tables
 

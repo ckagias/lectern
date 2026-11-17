@@ -114,8 +114,8 @@ The sample data has two accounts. New accounts need the registration code of the
 
 | Role | Email | Password | Registration code |
 |---|---|---|---|
-| Member | `member@lectern.test` | `Demo-Member-2026` | `MEMB2026` |
-| Librarian | `librarian@lectern.test` | `Demo-Librarian-2026` | `LIBR2026` |
+| Member | `member@lectern.test` | `member` | `MEMB2026` |
+| Librarian | `librarian@lectern.test` | `librarian` | `LIBR2026` |
 
 ## Credits
 

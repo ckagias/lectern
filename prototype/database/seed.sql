@@ -5,8 +5,8 @@ USE lectern;
 
 -- Demo accounts, the passwords are in notes/database.md
 INSERT INTO users (id, username, email, password_hash, role_id, created_at) VALUES
-    (1, 'member_demo', 'member@lectern.test', '$2y$12$ZXuwqQZUiL.nQo5pcQUNUuBqvCXTH6d7NHBwstBx9V/S/R3mHm0py', 1, '2026-11-01 09:00:00'),
-    (2, 'librarian_demo', 'librarian@lectern.test', '$2y$12$zcQ93k0wzAnnocSncgU3peihDRTKJPEapy9gr0WbScRtF4aKNtney', 2, '2026-11-01 09:00:00');
+    (1, 'member_demo', 'member@lectern.test', '$2y$12$0.Q4p.9yj19EmXmAzkcQPuePrZJjILooKuwXi1sEiVLV2EUu2ERQa', 1, '2026-11-01 09:00:00'),
+    (2, 'librarian_demo', 'librarian@lectern.test', '$2y$12$OSTouY0h7MWd.GwHTGM4vuKfDsQc.oWp0mxAXSlV/hdxyDJrbOB62', 2, '2026-11-01 09:00:00');
 
 -- Two rows with the same title are two copies
 INSERT INTO books (id, title, author, call_number, category, published_year, description, created_at, updated_at) VALUES
