@@ -5,6 +5,10 @@
 // A page can also set $styles, a list of extra stylesheet paths like 'css/home.css', and $bodyClass for an extra class on <body>.
 $lang = $_SESSION['lang'];
 $current = 'aria-current="page"';
+$other = 'en';
+if ($lang === 'en') {
+    $other = 'el';
+}
 $home = 'index.php';
 if ($layout !== 'public') {
     $home = 'dashboard.php';
@@ -38,10 +42,9 @@ if ($layout !== 'public') {
     <header class="top">
         <a class="brand" href="<?php echo $base . $home; ?>"><svg class="icon brand-mark" aria-hidden="true"><use href="#ic-logo"/></svg>AchaiaReads</a>
         <div class="top-actions">
-            <div class="lang" role="group" aria-label="<?php echo t('lang_label'); ?>">
-                <a href="?lang=el" lang="el"<?php if ($lang === 'el') { echo ' aria-current="true"'; } ?>>EL</a>
-                <a href="?lang=en" lang="en"<?php if ($lang === 'en') { echo ' aria-current="true"'; } ?>>EN</a>
-            </div>
+            <a class="lang" href="?lang=<?php echo $other; ?>" title="<?php echo t('lang_to_' . $other); ?>">
+                <svg class="flag" aria-hidden="true"><use href="#flag-<?php echo $lang; ?>"/></svg><span aria-hidden="true"><?php echo strtoupper($lang); ?></span><span class="visually-hidden"><?php echo strtoupper($lang) . ', ' . t('lang_to_' . $other); ?></span>
+            </a>
             <?php if ($layout !== 'public' || isLoggedIn()) { ?>
                 <form action="<?php echo $base; ?>logout.php" method="post">
                     <button class="btn line" type="submit"><?php echo t('logout'); ?></button>

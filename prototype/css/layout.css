@@ -53,24 +53,26 @@
 
 .lang {
   display: flex;
-}
-
-.lang a {
-  display: grid;
-  place-items: center;
-  min-width: 40px;
+  align-items: center;
+  gap: 8px;
   min-height: 44px;
+  padding: 0 8px;
   text-decoration: none;
   font-weight: 600;
   font-size: var(--text-sm);
-  opacity: 0.7;
 }
 
-.lang a[aria-current="true"] {
-  opacity: 1;
+.lang:hover span {
   text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 6px;
+  text-underline-offset: 4px;
+}
+
+.flag {
+  flex: none;
+  width: 22px;
+  height: 15px;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px oklch(0.17 0.006 250 / 0.18);
 }
 
 /* The user block at the bottom of the side menu. Phones have no side menu, so it is hidden there. */
@@ -252,10 +254,6 @@ main {
 @media (min-width: 360px) {
   .nav a {
     font-size: 0.875rem;
-  }
-
-  .lang a {
-    min-width: 44px;
   }
 }
 

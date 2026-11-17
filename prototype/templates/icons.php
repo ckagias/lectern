@@ -23,5 +23,7 @@
         <symbol id="ic-mail" viewBox="0 0 256 256"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM203.43,64,128,133.15,52.57,64ZM216,192H40V74.19l82.59,75.71a8,8,0,0,0,10.82,0L216,74.19V192Z"/></symbol>
         <symbol id="ic-check-line" viewBox="0 0 256 256"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/></symbol>
         <symbol id="ic-arrow-right" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></symbol>
+        <symbol id="flag-el" viewBox="0 0 24 16"><rect width="24" height="16" fill="#0d5eaf"/><rect y="1.778" width="24" height="1.778" fill="#fff"/><rect y="5.333" width="24" height="1.778" fill="#fff"/><rect y="8.889" width="24" height="1.778" fill="#fff"/><rect y="12.444" width="24" height="1.778" fill="#fff"/><rect width="8.889" height="8.889" fill="#0d5eaf"/><rect x="3.556" width="1.778" height="8.889" fill="#fff"/><rect y="3.556" width="8.889" height="1.778" fill="#fff"/></symbol>
+        <symbol id="flag-en" viewBox="0 0 24 16"><rect width="24" height="16" fill="#1c2f6e"/><path d="M0 0L24 16M24 0L0 16" stroke="#fff" stroke-width="3.2"/><path d="M0 0L24 16M24 0L0 16" stroke="#c8102e" stroke-width="1.1"/><path d="M12 0V16M0 8H24" stroke="#fff" stroke-width="5.3"/><path d="M12 0V16M0 8H24" stroke="#c8102e" stroke-width="3.2"/></symbol>
     </defs>
 </svg>
