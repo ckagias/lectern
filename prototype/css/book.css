@@ -162,7 +162,7 @@
   place-items: center;
   width: 36px;
   height: 36px;
-  border: 2px solid var(--ink);
+  border: 1px solid var(--edge);
   border-radius: 50%;
   background: var(--paper);
   color: var(--ink);

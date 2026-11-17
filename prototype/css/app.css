@@ -1,11 +1,7 @@
 /* Logged in pages: the dashboard, the empty placeholder pages and Forbidden Action. */
 main h1 {
   overflow-wrap: anywhere;
-}
-
-.status {
-  margin-top: 6px;
-  color: var(--ink-2);
+  font-size: 2rem;
 }
 
 .empty-page main {
@@ -14,12 +10,37 @@ main h1 {
   max-width: none;
 }
 
+/* The welcome on the dashboard: a photograph of the reading room with the greeting on it. */
+.welcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  max-width: 60rem;
+  min-height: 12rem;
+  padding: 24px 20px;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background-color: var(--side);
+  background-image: linear-gradient(0deg, var(--veil-left), transparent 75%), linear-gradient(var(--veil-middle), var(--veil-middle)), url("../pictures/hero-reading-room-960.jpg");
+  background-position: center 65%;
+  background-size: cover;
+  color: var(--hero-fg);
+}
+
+.welcome h1 {
+  font-weight: 500;
+}
+
+.status {
+  margin-top: 6px;
+  opacity: 0.85;
+}
+
 /* The shortcuts on the dashboard are ruled rows, one for every item of the menu. */
 .rows {
-  max-width: 56rem;
-  margin: 20px 0 0;
+  max-width: 60rem;
+  margin: 16px 0 0;
   padding: 0;
-  border-top: 1px solid var(--line);
   list-style: none;
 }
 
@@ -31,14 +52,9 @@ main h1 {
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  gap: 16px;
-  padding: 20px 8px;
+  gap: 18px;
+  padding: 22px 0;
   text-decoration: none;
-  transition: background-color 0.15s;
-}
-
-.row:hover {
-  background: var(--green-tint);
 }
 
 .row:focus-visible {
@@ -47,7 +63,7 @@ main h1 {
 
 .row h2 {
   font-size: var(--text-lg);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .row p {
@@ -55,12 +71,24 @@ main h1 {
   color: var(--ink-2);
 }
 
+.row .tile {
+  width: auto;
+  height: auto;
+  background: none;
+}
+
+.row .tile .icon {
+  width: 28px;
+  height: 28px;
+}
+
 .row-arrow {
-  color: var(--green);
-  transition: transform 0.15s;
+  color: var(--ink-2);
+  transition: transform 0.2s var(--ease);
 }
 
 .row:hover .row-arrow {
+  color: var(--ink);
   transform: translateX(4px);
 }
 
@@ -68,9 +96,9 @@ main h1 {
   display: grid;
   flex: none;
   place-items: center;
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius-lg);
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius);
   background: var(--green-tint);
   color: var(--green);
 }
@@ -121,5 +149,21 @@ main h1 {
 @media (max-width: 767px) {
   .empty-page main {
     min-height: calc(100vh - 60px);
+  }
+}
+
+@media (min-width: 900px) {
+  main h1 {
+    font-size: 2.5rem;
+  }
+
+  .row h2 {
+    font-size: var(--text-xl);
+  }
+
+  .welcome {
+    min-height: 15rem;
+    padding: 36px 40px;
+    background-image: linear-gradient(0deg, var(--veil-left), transparent 75%), linear-gradient(var(--veil-middle), var(--veil-middle)), url("../pictures/hero-reading-room-1920.jpg");
   }
 }

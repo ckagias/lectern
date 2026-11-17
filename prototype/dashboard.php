@@ -11,8 +11,10 @@ $styles = ['css/app.css'];
 $status = openingStatus(date('N'), date('H:i'));
 require $base . 'templates/header.php';
 ?>
-<h1><?php echo t('dashboard_welcome') . ' ' . e($_SESSION['username']); ?></h1>
-<p class="status"><?php echo t('role_' . $layout); ?> · <?php echo $status; ?></p>
+<section class="welcome">
+    <h1><?php echo t('dashboard_welcome') . ' ' . e($_SESSION['username']); ?></h1>
+    <p class="status"><?php echo t('role_' . $layout); ?> · <?php echo $status; ?></p>
+</section>
 
 <ul class="rows">
     <?php foreach ($menus[$layout] as $item) { ?>
