@@ -12,7 +12,7 @@ This repository holds **Part A** of the CN5006 Web and Mobile Application Develo
 | Database | MySQL or MariaDB |
 | Client | HTML, CSS and JavaScript, no build step |
 | Map | Leaflet with OpenStreetMap tiles |
-| Languages | Greek and English, chosen with the EL and EN links |
+| Languages | Greek and English, switched with the language link in the header |
 
 ## Screens
 
