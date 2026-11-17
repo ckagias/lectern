@@ -12,10 +12,11 @@ $bodyClass = 'empty-page';
 require $base . 'templates/header.php';
 ?>
 <h1><?php echo t('nav_history'); ?></h1>
+<p class="page-lead"><?php echo t('dashboard_history'); ?></p>
 <div class="empty">
-    <span class="tile"><svg class="icon" aria-hidden="true"><use href="#ic-history"/></svg></span>
+    <div class="empty-shelf" aria-hidden="true"><span></span><span></span><span></span></div>
     <h2><?php echo t('empty_history_title'); ?></h2>
     <p><?php echo t('empty_history_text'); ?></p>
-    <a class="btn action" href="<?php echo $base; ?>member/catalogue.php"><?php echo t('empty_browse'); ?></a>
+    <a class="btn line" href="<?php echo $base; ?>member/catalogue.php"><?php echo t('empty_browse'); ?></a>
 </div>
 <?php require $base . 'templates/footer.php'; ?>
