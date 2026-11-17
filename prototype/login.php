@@ -54,6 +54,7 @@ $bodyClass = 'layout-auth';
 $scripts = ['js/validate.js'];
 require $base . 'templates/header.php';
 ?>
+<p class="auth-quote"><?php echo t('home_h1'); ?></p>
 <div class="auth">
     <div class="auth-head">
         <h1><?php echo t('login'); ?></h1>

@@ -1,34 +1,45 @@
-/* Login and registration: a heading and one form card in a centred column. */
-.layout-auth main {
-  display: flex;
+/* Login and registration: the form on one side and a photograph of the reading room on the other. Phones show the form only. */
+/* On phones the photograph is a band above the form. */
+.layout-auth main::before {
+  content: "";
+  display: block;
+  height: 9rem;
+  background-color: var(--side);
+  background-image: linear-gradient(var(--veil-middle), var(--veil-middle)), url("../pictures/hero-reading-room-960.jpg");
+  background-position: center 70%;
+  background-size: cover;
 }
 
 .auth {
   width: 100%;
-  max-width: 32rem;
+  max-width: 27rem;
   margin: auto;
-  padding: 20px 16px;
+  padding: 32px 16px 56px;
+}
+
+.auth-quote {
+  display: none;
 }
 
 .auth .flash {
   width: auto;
-  margin: 16px 0 0;
+  margin: 20px 0 0;
 }
 
 .auth-head h1 {
-  font-size: 2rem;
-  letter-spacing: -0.02em;
+  font-size: 2.25rem;
+  font-weight: 500;
+  letter-spacing: -0.035em;
 }
 
+/* The form sits straight on the page, without a card. */
 .auth .panel {
   max-width: none;
-  margin-top: 24px;
-}
-
-.auth-note {
-  color: var(--ink-2);
-  font-size: var(--text-sm);
-  text-align: center;
+  margin-top: 28px;
+  padding: 0;
+  border: 0;
+  background: none;
+  box-shadow: none;
 }
 
 .auth .choices {
@@ -46,21 +57,90 @@
 }
 
 .switch {
+  color: var(--ink-2);
   text-align: center;
-  font-weight: 600;
 }
 
 .switch a {
-  color: var(--green);
-  font-weight: 700;
+  color: var(--ink);
+  font-weight: 600;
 }
 
-@media (min-width: 600px) {
-  .auth {
-    padding-block: 28px;
+@media (min-width: 900px) {
+  .layout-auth main {
+    position: relative;
+    display: grid;
+    grid-template-columns: 46fr 54fr;
+    max-width: none;
+    padding: 0;
   }
 
-  .auth .panel {
-    padding: 28px 32px;
+  /* The photograph takes the left column. A dark fade at the bottom holds the line of text. */
+  .layout-auth main::before {
+    content: "";
+    grid-column: 1;
+    grid-row: 1;
+    height: auto;
+    background-color: var(--side);
+    background-image: linear-gradient(0deg, var(--veil-left), transparent 60%), linear-gradient(var(--veil-middle), var(--veil-middle)), url("../pictures/hero-reading-room-1920.jpg");
+    background-position: center;
+    background-size: cover;
   }
+
+  .auth {
+    grid-column: 2;
+    grid-row: 1;
+    padding: 120px 48px 72px;
+  }
+
+  .auth-quote {
+    position: absolute;
+    top: calc(100vh - 16rem);
+    left: 56px;
+    display: block;
+    width: calc(46% - 112px);
+    color: var(--hero-fg);
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+
+  /* The header floats over both columns: the brand is white on the photo, the language and the button are ink on the page. */
+  .layout-auth .top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    min-height: 80px;
+    padding-inline: 56px;
+    border-bottom: 0;
+    background: none;
+  }
+
+  .layout-auth .brand {
+    color: var(--hero-fg);
+  }
+
+  .layout-auth .brand-mark {
+    color: var(--hero-fg);
+  }
+}
+
+.layout-auth .foot {
+  margin-top: 0;
+  padding-top: 28px;
+}
+
+.layout-auth .foot-top {
+  display: none;
+}
+
+.layout-auth .foot-bottom {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
 }

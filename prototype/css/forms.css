@@ -3,10 +3,11 @@
   width: 100%;
   max-width: 30rem;
   margin-inline: auto;
-  padding: 22px 18px;
+  padding: 26px 20px;
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   background: var(--panel);
+  box-shadow: var(--shadow-md);
 }
 
 .panel > * + * {
@@ -27,18 +28,24 @@
 
 .input {
   width: 100%;
-  min-height: 48px;
-  padding: 0 14px;
-  border: var(--border) solid var(--ink);
-  border-radius: var(--radius-lg);
+  min-height: 50px;
+  padding: 0 16px;
+  border: var(--border) solid var(--edge);
+  border-radius: var(--radius);
   background: var(--card);
   color: var(--ink);
-  font: 600 var(--text-sm) var(--font);
+  font: 500 var(--text-sm) var(--font);
+  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+.input:hover {
+  border-color: var(--ink-2);
 }
 
 .input:focus-visible {
-  outline: 3px solid var(--focus);
-  outline-offset: 2px;
+  border-color: var(--focus);
+  outline: 2px solid var(--focus);
+  outline-offset: 1px;
 }
 
 .input[aria-invalid="true"] {
@@ -73,14 +80,26 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  min-height: 46px;
+  min-height: 48px;
   padding: 0 8px;
-  border: var(--border) solid var(--ink);
-  border-radius: var(--radius-lg);
+  border: var(--border) solid var(--edge);
+  border-radius: var(--radius);
   background: var(--card);
   font-size: 0.9375rem;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
+  transition: border-color 0.2s var(--ease), background-color 0.2s var(--ease);
+}
+
+.choice:hover {
+  border-color: var(--ink-2);
+}
+
+/* The chosen answer is outlined in the action colour. */
+.choice:has(input:checked) {
+  border-color: var(--action);
+  background: var(--green-tint);
+  box-shadow: 0 0 0 1px var(--action);
 }
 
 .choice + .choice {
@@ -107,10 +126,10 @@
   gap: 12px;
   margin-bottom: 20px;
   padding: 14px 16px;
-  border: var(--border) solid var(--ink);
-  border-radius: var(--radius-lg);
+  border: var(--border) solid var(--edge);
+  border-radius: var(--radius);
   background: var(--card);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .flash .icon {
