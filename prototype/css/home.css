@@ -438,7 +438,7 @@
 @media (min-width: 900px) {
   .hero {
     align-items: center;
-    min-height: clamp(26rem, 60vh, 34rem);
+    min-height: clamp(24rem, 50vh, 28rem);
   }
 
   .hero-in {
