@@ -1,82 +1,92 @@
-/* Design tokens. Every colour in the site comes from this file. */
+/* Design tokens. Every colour in the site comes from this file, in OKLCH: lightness, chroma, hue. */
 :root {
-  /* surfaces and text */
-  --bg: #f0e6cb;
-  --card: #f8f1de;
-  --panel: #fcf8ec;
-  --ink: #2a2118;
-  --ink-2: #5b4a38;
-  --line: #d2c094;
-  --cream: #f7ecd3;
+  /* Almost no hue in the interface. The colour on the pages comes from the books and the photographs.
+     Light surfaces: page, panels, hairlines, text. Ink is the one dark, used for text, the side menu, buttons and the footer. */
+  --bg: oklch(0.987 0.002 250);
+  --side: oklch(0.17 0.006 250);
+  --card: oklch(0.994 0.002 250);
+  --panel: oklch(1 0 0);
+  --ink: oklch(0.17 0.006 250);
+  --ink-2: oklch(0.45 0.008 250);
+  --line: oklch(0.91 0.004 250);
+  --cream: oklch(0.985 0.002 250);
 
-  /* library green, used for the header, nav and main actions */
-  --green: #2f5740;
-  --green-tint: rgba(47, 87, 64, 0.1);
-  --action: var(--green);
+  /* Structure: ink for the side menu and icons, a faint ink wash for hovered and current rows. Links and main buttons are ink too. */
+  --green: oklch(0.17 0.006 250);
+  --green-tint: oklch(0.17 0.006 250 / 0.06);
+  --action: oklch(0.17 0.006 250);
 
-  --ochre: #f0bb3b;
+  /* White, for the logo mark and the hero button on photographs and dark surfaces */
+  --ochre: oklch(1 0 0);
 
-  /* cloth colours of the book spines, gilt lettering, the shelf board and the scrollbar */
-  --cloth-cobalt: #1d4aa3;
-  --cloth-terra: #853319;
-  --cloth-plum: #64225a;
-  --cloth-ochre: #d7a021;
-  --cloth-teal: #0a595e;
-  --cloth-burgundy: #6e1d2b;
-  --cloth-forest: #1f5a3a;
-  --cloth-navy: #1b2a4e;
-  --cloth-charcoal: #2b2b2e;
-  --cloth-leather: #754d2b;
-  --cloth-ivory: #e8dcc0;
-  --cloth-slate: #42535d;
-  --cloth-olive: #4b4a1f;
-  --cloth-rose: #9a3e5c;
-  --cloth-brick: #8f2d1f;
-  --cloth-petrol: #17506b;
-  --cloth-aubergine: #3d1f4a;
-  --cloth-sand: #cbb98a;
-  --gilt: #f6e8b4;
-  --gilt-on-ochre: #3a2a07;
-  --wood: #6f5334;
-  --wood-top: #9b7b52;
-  --paper: #f3e9d0;
-  --paper-edge: #d6c7a0;
-  --scrim: rgba(26, 18, 10, 0.72);
-  --board: #d1bc8e;
-  --board-dark: #b9a273;
+  /* the books: binding cloth of the spines, gilt lettering, shelf, scrollbar */
+  --cloth-cobalt: oklch(0.449 0.153 261);
+  --cloth-terra: oklch(0.408 0.132 17);
+  --cloth-plum: oklch(0.414 0.076 160);
+  --cloth-teal: oklch(0.364 0.1 326);
+  --cloth-burgundy: oklch(0.386 0.063 230);
+  --cloth-forest: oklch(0.468 0.12 41);
+  --cloth-navy: oklch(0.29 0.019 272);
+  --cloth-charcoal: oklch(0.477 0.164 261);
+  --cloth-leather: oklch(0.354 0.112 17);
+  --cloth-slate: oklch(0.42 0.078 160);
+  --cloth-olive: oklch(0.42 0.119 325);
+  --cloth-rose: oklch(0.365 0.06 230);
+  --cloth-brick: oklch(0.428 0.109 40);
+  --cloth-petrol: oklch(0.325 0.022 267);
+  --cloth-aubergine: oklch(0.429 0.144 261);
+  --cloth-ochre: oklch(0.786 0.131 85);
+  --cloth-sand: oklch(0.867 0.023 90);
+  --cloth-ivory: oklch(0.854 0.026 132);
+  --gilt: oklch(0.96 0.03 95);
+  --gilt-on-ochre: var(--ink);
+  --wood: oklch(0.46 0.005 250);
+  --wood-top: oklch(0.63 0.005 250);
+  --paper: oklch(0.985 0.004 250);
+  --paper-edge: oklch(0.9 0.006 250);
+  --board: oklch(0.86 0.004 250);
+  --board-dark: oklch(0.78 0.005 250);
+  --scrim: oklch(0.1 0.01 250 / 0.72);
 
-  /* green tint over the hero photo, stronger on the left where the text is */
-  --veil-left: rgba(52, 78, 56, 0.94);
-  --veil-middle: rgba(52, 78, 56, 0.86);
-  --veil-right: rgba(40, 62, 43, 0.78);
-  --veil-top: rgba(26, 40, 27, 0.88);
-  --glass: rgba(247, 236, 211, 0.10);
+  /* tint over the hero photo, stronger on the left where the text is, and the hero text and button colours */
+  --veil-left: oklch(0.12 0.006 250 / 0.82);
+  --veil-middle: oklch(0.12 0.006 250 / 0.5);
+  --veil-right: oklch(0.12 0.006 250 / 0.15);
+  --veil-top: oklch(0.1 0.006 250 / 0.6);
+  --hero-fg: var(--cream);
+  --hero-btn: oklch(1 0 0);
+  --hero-btn-fg: oklch(0.17 0.006 250);
+  --glass: oklch(1 0 0 / 0.1);
 
   /* state colours, focus ring, buttons and footer */
-  --focus: #3069e0;
-  --on-dark: var(--cream);
-  --btn-bg: var(--ink);
-  --btn-fg: var(--cream);
-  --on-ochre: #2a2118;
-  --error: #a2080c;
-  --error-bg: #ffe5e0;
-  --success: #004b32;
-  --success-bg: #d2f5e1;
-  --foot-bg: var(--ink);
-  --foot-fg: #e3d6bb;
+  --focus: oklch(0.17 0.006 250);
+  --on-dark: oklch(0.985 0.002 250);
+  --btn-bg: oklch(0.17 0.006 250);
+  --btn-fg: oklch(0.985 0.002 250);
+  --on-ochre: oklch(0.17 0.006 250);
+  --error: oklch(0.46 0.16 18);
+  --error-bg: oklch(0.955 0.025 18);
+  --success: oklch(0.42 0.095 155);
+  --success-bg: oklch(0.955 0.04 155);
+  --foot-bg: oklch(0.17 0.006 250);
+  --foot-fg: oklch(0.8 0.004 250);
 
   /* type */
   --font: "Source Sans 3", system-ui, sans-serif;
-  --font-heading: "Literata", Georgia, serif;
+  --font-heading: "Source Serif 4", Georgia, serif;
   --text-sm: 1rem;
   --text-base: 1.125rem;
   --text-lg: 1.25rem;
   --text-xl: 1.5rem;
   --text-2xl: 2rem;
 
-  /* shape */
-  --radius: 6px;
-  --radius-lg: 8px;
-  --border: 2.5px;
+  /* shape: gently rounded corners, hairline edges, two quiet shadows and one easing curve */
+  --radius: 8px;
+  --radius-lg: 14px;
+  --border: 1px;
+  --edge: color-mix(in oklch, var(--ink) 18%, transparent);
+  --shadow-sm: 0 1px 2px oklch(0 0 0 / 0.06), 0 1px 1px oklch(0 0 0 / 0.04);
+  --shadow-md: 0 8px 24px -8px oklch(0 0 0 / 0.16), 0 2px 4px oklch(0 0 0 / 0.05);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --page-width: 70rem;
 }

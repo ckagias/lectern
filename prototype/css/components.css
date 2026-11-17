@@ -4,39 +4,65 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  min-height: 52px;
+  min-height: 46px;
   padding: 0 22px;
-  border: 2px solid var(--btn-bg);
+  border: 1px solid var(--btn-bg);
   border-radius: var(--radius);
   background: var(--btn-bg);
   color: var(--btn-fg);
-  font: 800 1rem var(--font);
+  font: 600 1rem var(--font);
+  letter-spacing: -0.005em;
   text-decoration: none;
   cursor: pointer;
-  transition: filter 0.15s, background-color 0.15s;
+  transition: filter 0.2s var(--ease), background-color 0.2s var(--ease), transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
 }
 
 .btn:hover {
-  filter: brightness(1.08);
+  filter: brightness(1.35);
 }
 
-/* Main action, drawn in library green. */
+.btn:active {
+  transform: scale(0.98);
+}
+
+/* Main action, in ink like every button. */
 .btn.action {
   border-color: var(--action);
   background: var(--action);
   color: var(--cream);
 }
 
-/* Bright button for dark backgrounds, like the hero. */
+/* White button for photos and dark backgrounds, like the hero. */
 .btn.ochre {
   border-color: var(--ochre);
   background: var(--ochre);
   color: var(--on-ochre);
 }
 
-/* Second button for dark backgrounds, like the hero and the header. A light see-through fill with a cream border. */
+.btn.ochre:hover {
+  filter: brightness(0.93);
+}
+
+/* Second button: an ink outline on light backgrounds, a white outline over photos and dark backgrounds. */
 .btn.line {
-  border-color: var(--cream);
+  border-color: var(--edge);
+  background: transparent;
+  color: var(--ink);
+}
+
+.btn.line:hover {
+  border-color: var(--ink);
+  filter: none;
+}
+
+.has-hero .btn.line,
+.hero .btn.line {
+  border-color: color-mix(in oklch, var(--cream) 55%, transparent);
   background: var(--glass);
   color: var(--cream);
+}
+
+.has-hero .btn.line:hover,
+.hero .btn.line:hover {
+  border-color: var(--cream);
 }

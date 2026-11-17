@@ -10,11 +10,11 @@
 | `prototype/pictures/texture-linen.jpg` | [Poly Haven: Rough Linen](https://polyhaven.com/a/rough_linen) | colormass (photography), Rico Cilliers (processing) | CC0 |
 | `prototype/pictures/texture-leather.jpg` | [Poly Haven: Brown Leather](https://polyhaven.com/a/brown_leather) | Rob Tuytel | CC0 |
 
-The three `texture` files are the colour maps of those Poly Haven textures turned to grey and scaled to 256 pixels, so the cloth colour of each spine shows through. The two `about-library-interior` files are the same photo resized to 800 and 1400 pixels wide. The two `hero-reading-room` files are a crop of the lower part of the Beckwith photo at 960 and 1920 pixels wide, used behind a green tint in the hero. The library in this project is fictional, so the photos show real libraries that are not related to it.
+The three `texture` files are the colour maps of those Poly Haven textures turned to grey and scaled to 256 pixels, so the cloth colour of each spine shows through. The two `about-library-interior` files are the same photo resized to 800 and 1400 pixels wide. The two `hero-reading-room` files are a crop of the lower part of the Beckwith photo at 960 and 1920 pixels wide, used on the about section, the login and register pages and the dashboard banner. The hero uses the `about-library-interior` photo. The library in this project is fictional, so the photos show real libraries that are not related to it.
 
 ## Fonts
 
-Literata, by TypeTogether, and Source Sans 3, by Paul D. Hunt (Adobe), both under the SIL Open Font License 1.1. Self-hosted in `prototype/fonts/` (Greek and Latin subsets).
+Source Serif 4 (variable font with an optical size axis) and Source Sans 3, both by Paul D. Hunt (Adobe), both under the SIL Open Font License 1.1. Self-hosted in `prototype/fonts/` (Greek and Latin subsets, Source Serif 4 via the Fontsource packages).
 
 ## Map
 

@@ -7,6 +7,12 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 ::-webkit-scrollbar       { width: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--wood-top); border-radius: 3px; }
@@ -25,6 +31,8 @@ body {
   background: var(--bg);
   color: var(--ink);
   font: 400 var(--text-base) / 1.5 var(--font);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 h1,
@@ -32,12 +40,15 @@ h2,
 h3 {
   margin: 0;
   font-family: var(--font-heading);
-  font-weight: 800;
-  line-height: 1.1;
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
 }
 
 h1 {
   font-size: var(--text-2xl);
+  letter-spacing: -0.03em;
 }
 
 h2 {
@@ -50,6 +61,11 @@ h3 {
 
 p {
   margin: 0;
+  text-wrap: pretty;
+}
+
+::selection {
+  background: color-mix(in oklch, var(--action) 25%, transparent);
 }
 
 a {
@@ -62,8 +78,8 @@ svg {
 }
 
 :focus-visible {
-  outline: 3px solid var(--focus);
-  outline-offset: 2px;
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
 }
 
 .top :focus-visible,
@@ -107,5 +123,14 @@ svg {
 @media (min-width: 900px) {
   h1 {
     font-size: 2.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
   }
 }
