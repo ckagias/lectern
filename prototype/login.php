@@ -54,10 +54,10 @@ $bodyClass = 'layout-auth';
 $scripts = ['js/validate.js'];
 require $base . 'templates/header.php';
 ?>
-<p class="auth-quote"><?php echo t('home_h1'); ?></p>
 <div class="auth">
     <div class="auth-head">
         <h1><?php echo t('login'); ?></h1>
+        <p class="auth-lead"><?php echo t('auth_login_lead'); ?></p>
     </div>
     <?php if ($errors['login'] !== '') { ?>
         <div class="flash flash-error" role="alert"><svg class="icon" aria-hidden="true"><use href="#ic-alert"/></svg><p><?php echo t($errors['login']); ?></p></div>
@@ -79,8 +79,9 @@ require $base . 'templates/header.php';
         </div>
 
         <button class="btn action block" type="submit"><?php echo t('login'); ?></button>
-
-        <p class="switch"><?php echo t('log_no_account'); ?> <a href="register.php"><?php echo t('register'); ?></a></p>
     </form>
+
+    <p class="switch"><?php echo t('log_no_account'); ?> <a href="register.php"><?php echo t('register'); ?></a></p>
+    <p class="auth-legal"><?php echo t('auth_legal_before'); ?><a href="privacy.php"><?php echo t('privacy_link'); ?></a><?php echo t('auth_legal_after'); ?></p>
 </div>
 <?php require $base . 'templates/footer.php'; ?>
