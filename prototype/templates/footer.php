@@ -14,7 +14,6 @@
                     <dl class="foot-hours">
                         <div><dt><?php echo t('hours_weekdays'); ?></dt><dd><?php echo $weekdays['open'] . '–' . $weekdays['close']; ?></dd></div>
                         <div><dt><?php echo t('hours_saturday'); ?></dt><dd><?php echo $saturday['open'] . '–' . $saturday['close']; ?></dd></div>
-                        <div><dt><?php echo t('hours_sunday'); ?></dt><dd><?php echo t('hours_closed'); ?></dd></div>
                     </dl>
                 </section>
                 <section>
@@ -28,8 +27,8 @@
                 <section>
                     <h2><?php echo t('footer_explore'); ?></h2>
                     <ul class="foot-list foot-explore">
-                        <li><a href="<?php echo $base; ?>index.php#shelves"><?php echo t('shelves_title'); ?></a></li>
                         <li><a href="<?php echo $base; ?>about.php"><?php echo t('about_link'); ?></a></li>
+                        <li><a href="<?php echo $base; ?>faq.php"><?php echo t('faq_link'); ?></a></li>
                         <li><a href="<?php echo $base; ?>privacy.php"><?php echo t('privacy_link'); ?></a></li>
                         <?php if (isLoggedIn()) { ?>
                             <li><a href="<?php echo $base; ?>dashboard.php"><?php echo t('go_dashboard'); ?></a></li>
