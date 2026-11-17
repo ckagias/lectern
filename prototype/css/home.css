@@ -290,34 +290,33 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  gap: 4px 28px;
   margin: 32px 0 0;
-  padding: 0;
+  padding: 16px 0 0;
+  border-top: 1px solid var(--line);
   list-style: none;
 }
 
-/* Flat grey tabs. A hovered or chosen category is white and lifted. */
 .category {
   min-height: 44px;
-  padding: 0 18px;
-  border: 1px solid var(--edge);
-  border-radius: var(--radius);
-  background: var(--tile);
+  padding: 0 4px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
   color: var(--ink-2);
-  font: 600 1rem var(--font);
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
   cursor: pointer;
-  transition: color 0.2s var(--ease), border-color 0.2s var(--ease), background-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
 }
 
 .category:hover,
 .category[aria-pressed="true"] {
-  background: var(--panel);
-  box-shadow: var(--shadow-raised);
   color: var(--ink);
 }
 
 .category[aria-pressed="true"] {
-  border-color: var(--ink-2);
+  border-bottom-color: var(--ink);
 }
 
 .text {

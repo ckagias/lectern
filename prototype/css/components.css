@@ -47,9 +47,9 @@
   filter: brightness(0.93);
 }
 
-/* Over the photo the white button gets a thin ring with a small gap, like the outline of the second button. */
+/* Over the photo the white button gets the same thin grey edge as the other buttons. */
 .hero .btn.ochre {
-  box-shadow: 0 0 0 1px oklch(0.17 0.006 250 / 0.5), 0 0 0 2px oklch(1 0 0 / 0.5);
+  border-color: oklch(0.74 0 0);
 }
 
 /* Second button: an ink outline on light backgrounds, a white outline over photos and dark backgrounds. */
