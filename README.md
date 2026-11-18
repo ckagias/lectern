@@ -8,7 +8,7 @@ This repository holds **Part A** of the CN5006 Web and Mobile Application Develo
 
 | | |
 |---|---|
-| Server | PHP 8.1 or newer, no framework |
+| Server | PHP, no framework (tested on 8.5) |
 | Database | MySQL or MariaDB |
 | Client | HTML, CSS and JavaScript, no build step |
 | Map | Leaflet with OpenStreetMap tiles |

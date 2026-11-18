@@ -35,7 +35,7 @@ mysql -u root < prototype/database/seed.sql
 | `reservations` | A member asking for a copy. Status is `active`, `cancelled` or `fulfilled`. |
 | `loans` | A copy handed to a member. It is open until `returned_at` is filled in. |
 
-A copy is available when it has no active reservation and no open loan. The code checks this with a query before it accepts a new reservation. Availability is not stored in `books`, so it cannot get out of date.
+A copy is available when it has no active reservation and no open loan. Part B checks this with a query before it accepts a new reservation. Availability is not stored in `books`, so it cannot get out of date.
 
 ## ER diagram
 
