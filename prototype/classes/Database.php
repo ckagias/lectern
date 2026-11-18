@@ -61,7 +61,8 @@ class Database
     private function run($sql, $params)
     {
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute($params);
+        $stmt->bind_param(str_repeat('s', count($params)), ...$params);
+        $stmt->execute();
         return $stmt;
     }
 }
