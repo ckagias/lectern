@@ -2,7 +2,7 @@
 // Public library page: information about the library, with log in and register links.
 $base = '';
 require_once $base . 'includes/init.php';
-require_once $base . 'templates/shelf_books.php';
+require_once $base . 'includes/shelf_books.php';
 
 $layout = 'public';
 $bodyClass = 'has-hero';
@@ -29,7 +29,22 @@ require $base . 'templates/header.php';
 
 <section class="section" id="shelves">
     <h2><?php echo t('shelves_title'); ?></h2>
-    <?php require $base . 'templates/shelf.php'; ?>
+    <?php // The shelf: a row of book spines on a board. Books marked extra stay hidden until their category is chosen. ?>
+    <div class="shelf">
+        <div class="books" id="books">
+            <?php foreach ($shelfBooks as $book) {
+                $summary = $book['summary'];
+                if ($_SESSION['lang'] === 'el') {
+                    $summary = $book['summary_el'];
+                }
+            ?>
+                <button type="button" class="book <?php echo $book['class']; ?>" style="--cloth: <?php echo $book['color']; ?>; --h: <?php echo $book['h']; ?>px; --w: <?php echo $book['w']; ?>px;<?php if (isset($book['fs'])) { echo ' --fs: ' . $book['fs'] . ';'; } ?>" data-group="<?php echo $book['category']; ?>"<?php if (isset($book['extra'])) { echo ' data-extra="yes" hidden'; } ?> aria-haspopup="dialog" aria-label="<?php echo t('book_open'); ?>: <?php echo e($book['title']); ?>" data-title="<?php echo e($book['title']); ?>" data-author="<?php echo e($book['author']); ?>" data-year="<?php echo $book['year']; ?>" data-category="<?php echo t('cat_' . $book['category']); ?>" data-call="<?php echo e($book['call']); ?>" data-summary="<?php echo e($summary); ?>">
+                    <span class="spine"><span class="spine-title"><?php echo e($book['spine']); ?></span></span>
+                </button>
+            <?php } ?>
+        </div>
+        <div class="board"></div>
+    </div>
     <ul class="categories">
         <li><button type="button" class="category" data-group="fiction" aria-pressed="false"><?php echo t('cat_fiction'); ?></button></li>
         <li><button type="button" class="category" data-group="adventure" aria-pressed="false"><?php echo t('cat_adventure'); ?></button></li>
