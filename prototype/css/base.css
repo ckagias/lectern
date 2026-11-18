@@ -1,4 +1,4 @@
-/* Base styles: reset, type, focus ring, skip link and reduced motion. */
+/* Base styles: reset, type, focus ring, skip link and icons. */
 * {
   box-sizing: border-box;
 }
@@ -7,32 +7,35 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  html {
-    scroll-behavior: smooth;
-  }
+/* A thin scrollbar in the colours of the shelf. */
+::-webkit-scrollbar {
+  width: 5px;
 }
 
-::-webkit-scrollbar       { width: 5px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--wood-top); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover  { background: var(--wood); }
-::-webkit-scrollbar-thumb:active { background: var(--ink); }
+::-webkit-scrollbar-track {
+  background: transparent;
+}
 
-@supports not selector(::-webkit-scrollbar) {
-  html {
-    scrollbar-width: thin;
-    scrollbar-color: var(--wood-top) transparent;
-  }
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-hover);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: var(--text);
 }
 
 body {
   margin: 0;
-  background: var(--bg);
-  color: var(--ink);
   font: 400 var(--text-base) / 1.5 var(--font);
-  -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  color: var(--text);
+  background: var(--page);
 }
 
 h1,
@@ -65,7 +68,7 @@ p {
 }
 
 ::selection {
-  background: color-mix(in oklch, var(--action) 25%, transparent);
+  background: var(--selection);
 }
 
 a {
@@ -78,24 +81,24 @@ svg {
 }
 
 :focus-visible {
-  outline: 2px solid var(--focus);
+  outline: 2px solid var(--dark);
   outline-offset: 3px;
 }
 
 .top :focus-visible,
 .hero :focus-visible {
-  outline-color: var(--cream);
+  outline-color: var(--on-dark);
 }
 
 /* Hidden link that appears on keyboard focus and jumps past the header. */
 .skip {
   position: absolute;
-  left: 8px;
   top: -60px;
+  left: 8px;
   z-index: 10;
   padding: 10px 14px;
-  background: var(--ink);
-  color: var(--cream);
+  color: var(--on-dark);
+  background: var(--text);
 }
 
 .skip:focus {
@@ -108,8 +111,8 @@ svg {
   width: 1px;
   height: 1px;
   overflow: hidden;
-  clip: rect(0 0 0 0);
   white-space: nowrap;
+  clip: rect(0 0 0 0);
 }
 
 /* Inline SVG icons. */
@@ -120,17 +123,9 @@ svg {
   fill: currentColor;
 }
 
+/* From 900px: desktop */
 @media (min-width: 900px) {
   h1 {
     font-size: 2.75rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    transition-duration: 0.01ms !important;
-    animation-duration: 0.01ms !important;
   }
 }

@@ -1,0 +1,486 @@
+/* The bookshelf on the home page: a row of spines on a board, the five categories under it, and the open book that shows one book. Made with CSS only. */
+
+/* Shelf. The board follows the idea of a CodePen bookshelf by ekfuhrmann. The text on the spines cannot be selected. */
+.shelf {
+  isolation: isolate;
+  margin: 8px 0 0;
+  padding-bottom: 36px;
+  user-select: none;
+}
+
+.books {
+  display: flex;
+  position: relative;
+  z-index: 1;
+  gap: 1px;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 17rem;
+  margin-bottom: -10px;
+  padding: 16px 20px 0;
+}
+
+/* The top of the board. The transparent side borders cut its corners at an angle. */
+.board {
+  position: relative;
+  box-sizing: border-box;
+  height: 0;
+  border-right: 20px solid transparent;
+  border-bottom: 16px solid var(--shelf);
+  border-left: 20px solid transparent;
+}
+
+/* The front of the board. */
+.board::before {
+  content: "";
+  position: absolute;
+  top: 16px;
+  left: -20px;
+  z-index: 2;
+  width: calc(100% + 40px);
+  height: 26px;
+  background: linear-gradient(90deg, var(--shelf) 0%, var(--shelf-dark) 100%);
+  box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.05), 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* Book. The colour of the cloth comes from the book itself (--cloth, set in the page). */
+.book {
+  --tex: url("../pictures/texture-book-cloth.jpg");
+  --spine-colour: var(--spine-text);
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: var(--w);
+  height: var(--h);
+  padding: 0;
+  border: 0;
+  font: inherit;
+  color: inherit;
+  background: none;
+  transition: transform 0.25s ease-out;
+  cursor: pointer;
+}
+
+.book[hidden] {
+  display: none;
+}
+
+.book.leather {
+  --tex: url("../pictures/texture-leather.jpg");
+}
+
+.book.linen {
+  --tex: url("../pictures/texture-linen.jpg");
+}
+
+/* Pale cloth has dark lettering. */
+.book.light {
+  --spine-colour: var(--text);
+}
+
+/* Some books have no gilt bands. */
+.book.plain .spine::before {
+  display: none;
+}
+
+/* Books appear with a small rise when a category is chosen. */
+.books.swapped .book {
+  animation: rise 0.45s var(--ease) backwards;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+/* On phones the shelf starts with the first 12 books. A chosen category shows all of its books. */
+@media (max-width: 599px) {
+  .books:not(.filtered) .book:nth-child(n + 13) {
+    display: none;
+  }
+}
+
+/* Spine. The gilt bands are drawn with background layers and the round shading is the ::after layer. */
+.spine {
+  position: absolute;
+  inset: 0;
+  background-color: var(--cloth);
+  background-image: var(--tex);
+  background-size: 128px;
+  background-blend-mode: soft-light;
+  border-radius: 2px 2px 0 0;
+}
+
+.spine::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(var(--spine-colour), var(--spine-colour)) 0 12px / 100% 2px no-repeat,
+    linear-gradient(var(--spine-colour), var(--spine-colour)) 0 18px / 100% 2px no-repeat,
+    linear-gradient(var(--spine-colour), var(--spine-colour)) 0 calc(100% - 20px) / 100% 2px no-repeat,
+    linear-gradient(var(--spine-colour), var(--spine-colour)) 0 calc(100% - 14px) / 100% 2px no-repeat;
+  opacity: 0.85;
+}
+
+.spine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.1) 16%, rgba(255, 255, 255, 0.14) 24%, transparent 38%, rgba(0, 0, 0, 0.22) 88%, rgba(0, 0, 0, 0.5));
+  border-radius: inherit;
+}
+
+.book.stairs .spine {
+  background-image:
+    repeating-linear-gradient(63deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05) 1px, transparent 3px, transparent 0),
+    linear-gradient(127deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05) 90px, transparent 55%, transparent 0),
+    linear-gradient(transparent 51%, rgba(0, 0, 0, 0.1) 170px),
+    var(--tex);
+  background-size: 70px 120px, 70px 120px, 70px 120px, 128px;
+  background-blend-mode: normal, normal, normal, soft-light;
+}
+
+.book.pyramid .spine {
+  background-image:
+    linear-gradient(315deg, transparent 75%, rgba(255, 255, 255, 0.05) 0),
+    linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.05) 0),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.1) 166px, transparent 0),
+    linear-gradient(45deg, rgba(0, 0, 0, 0.1) 75%, transparent 0),
+    var(--tex);
+  background-size: 20px 20px, 20px 20px, 20px 20px, 20px 20px, 128px;
+  background-blend-mode: normal, normal, normal, normal, soft-light;
+}
+
+.spine-title {
+  display: flex;
+  position: absolute;
+  inset: 34px 0;
+  z-index: 1;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs, 0.75rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  writing-mode: vertical-rl;
+  color: var(--spine-colour);
+  pointer-events: none;
+}
+
+/* A focused book, and a hovered one on devices that can hover, pops up a little. */
+.book:focus-visible {
+  transform: translateY(-14px);
+}
+
+.book:focus-visible .spine {
+  box-shadow: var(--shadow-lift);
+}
+
+@media (hover: hover) {
+  .book:hover {
+    transform: translateY(-14px);
+  }
+
+  .book:hover .spine {
+    box-shadow: var(--shadow-lift);
+  }
+}
+
+/* Categories: one press shows that category on the shelf, a second press goes back. */
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 28px;
+  justify-content: center;
+  margin: 32px 0 0;
+  padding: 16px 0 0;
+  border-top: 1px solid var(--line);
+  list-style: none;
+}
+
+.category {
+  min-height: 44px;
+  padding: 0 4px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  color: var(--text-light);
+  background: none;
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
+  cursor: pointer;
+}
+
+.category:hover,
+.category[aria-pressed="true"] {
+  color: var(--text);
+}
+
+.category[aria-pressed="true"] {
+  border-bottom-color: var(--text);
+}
+
+/* Open book: two paper pages on the cloth of the book that was clicked. On phones the pages stand under each other. */
+.open-book {
+  width: min(56rem, calc(100vw - 24px));
+  max-height: none;
+  padding: 0;
+  border: 0;
+  overflow: visible;
+  color: var(--text);
+  background: transparent;
+  transform-origin: 50% 100%;
+}
+
+.open-book[open] {
+  animation: open-book 0.5s cubic-bezier(0.22, 0.9, 0.3, 1);
+}
+
+.open-book::backdrop {
+  background: var(--overlay);
+  animation: fade-in 0.45s ease;
+}
+
+@keyframes open-book {
+  from {
+    opacity: 0;
+    transform: perspective(1400px) translateY(36px) rotateX(14deg) scale(0.94);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+/* The page behind the open book does not scroll. */
+.no-scroll {
+  overflow: hidden;
+}
+
+.spread {
+  position: relative;
+  max-height: calc(100vh - 24px);
+  max-height: calc(100dvh - 24px);
+  padding: 10px;
+  overflow-y: auto;
+  background: var(--cloth);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+  scrollbar-width: none;
+}
+
+.spread::-webkit-scrollbar {
+  display: none;
+}
+
+.page {
+  padding: 28px 24px;
+  background: var(--paper);
+}
+
+.page-left {
+  padding-right: 68px;
+  border-bottom: 1.5px solid var(--line);
+  border-radius: 4px 4px 0 0;
+}
+
+.page-right {
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 2px 0 -1px var(--paper-edge), 0 4px 0 -2px var(--paper), 0 6px 0 -3px var(--paper-edge);
+}
+
+.page-top {
+  margin: 0 0 14px;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+
+.page h2 {
+  font-size: 1.75rem;
+  line-height: 1.15;
+}
+
+.page h3 {
+  margin: 0 0 14px;
+  font-family: var(--font);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+
+.book-author {
+  margin: 8px 0 0;
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-style: italic;
+  color: var(--text-light);
+}
+
+.book-facts {
+  margin: 22px 0 0;
+}
+
+.book-facts div {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-top: 1.5px solid var(--line);
+}
+
+.book-facts div[hidden] {
+  display: none;
+}
+
+.book-facts dt {
+  color: var(--text-light);
+}
+
+.book-facts dd {
+  margin: 0;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.book-summary {
+  margin: 0 0 26px;
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  line-height: 1.65;
+}
+
+.book-close {
+  display: grid;
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 1;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border);
+  color: var(--text);
+  background: var(--paper);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.book-close .icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* From 900px: the two pages stand side by side like an open book. */
+@media (min-width: 900px) {
+  .spread {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-height: calc(100vh - 48px);
+    max-height: calc(100dvh - 48px);
+    padding: 12px 18px 18px;
+  }
+
+  .page {
+    min-height: 420px;
+    padding: 40px 36px;
+  }
+
+  .page-left {
+    padding-right: 36px;
+    border-bottom: 0;
+    background: linear-gradient(90deg, transparent 92%, rgba(0, 0, 0, 0.14)), var(--paper);
+    border-radius: 4px 0 0 4px;
+    box-shadow:
+      0 2px 0 var(--paper-edge), -2px 2px 0 var(--paper-edge),
+      0 4px 0 var(--paper), -4px 4px 0 var(--paper),
+      0 6px 0 var(--paper-edge), -6px 6px 0 var(--paper-edge),
+      0 8px 0 var(--paper), -8px 8px 0 var(--paper);
+  }
+
+  .page-right {
+    padding-top: 56px;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.14), transparent 8%), var(--paper);
+    border-radius: 0 4px 4px 0;
+    box-shadow:
+      0 2px 0 var(--paper-edge), 2px 2px 0 var(--paper-edge),
+      0 4px 0 var(--paper), 4px 4px 0 var(--paper),
+      0 6px 0 var(--paper-edge), 6px 6px 0 var(--paper-edge),
+      0 8px 0 var(--paper), 8px 8px 0 var(--paper);
+  }
+}
+
+/* People who ask for less motion get no animation on the shelf and the open book. */
+@media (prefers-reduced-motion: reduce) {
+  .books.swapped .book,
+  .open-book[open],
+  .open-book::backdrop {
+    animation: none;
+  }
+}
+
+/* Print: only the open book is printed. */
+@media print {
+  .skip,
+  .top,
+  .hero,
+  .section,
+  .foot {
+    display: none;
+  }
+
+  .open-book {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-height: none;
+    outline: 0;
+  }
+
+  .open-book[open] {
+    animation: none;
+  }
+
+  .open-book::backdrop {
+    background: none;
+    animation: none;
+  }
+
+  .spread {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-height: none;
+    padding: 0;
+    overflow: visible;
+    background: none;
+    box-shadow: none;
+  }
+
+  .page {
+    min-height: 0;
+    padding: 24px;
+    border: 1px solid var(--text);
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .page-left {
+    padding-right: 24px;
+  }
+
+  .book-close,
+  #book-print {
+    display: none;
+  }
+}

@@ -7,7 +7,7 @@ require_once $base . 'includes/shelf_books.php';
 $layout = 'public';
 $bodyClass = 'has-hero';
 $title = t('home_title');
-$styles = ['css/home.css', 'css/book.css', 'js/leaflet/leaflet.css'];
+$styles = ['css/home.css', 'css/shelf.css', 'js/leaflet/leaflet.css'];
 $scripts = ['js/leaflet/leaflet.js', 'js/map.js', 'js/book.js', 'js/shelf.js'];
 require $base . 'templates/header.php';
 ?>
@@ -18,9 +18,9 @@ require $base . 'templates/header.php';
         <p class="lead"><?php echo t('home_lead'); ?></p>
         <div class="cta">
             <?php if (isLoggedIn()) { ?>
-                <a class="btn ochre" href="dashboard.php"><?php echo t('go_dashboard'); ?></a>
+                <a class="btn white" href="dashboard.php"><?php echo t('go_dashboard'); ?></a>
             <?php } else { ?>
-                <a class="btn ochre" href="login.php"><?php echo t('login'); ?></a>
+                <a class="btn white" href="login.php"><?php echo t('login'); ?></a>
                 <a class="btn line" href="register.php"><?php echo t('register'); ?></a>
             <?php } ?>
         </div>
@@ -54,11 +54,11 @@ require $base . 'templates/header.php';
     </ul>
 </section>
 
-<section class="section two" id="about">
+<section class="section split" id="about">
     <div>
         <h2><?php echo t('about_title'); ?></h2>
-        <p class="text"><?php echo t('about_p1'); ?></p>
-        <h3 class="sub"><?php echo t('services_title'); ?></h3>
+        <p class="about-text"><?php echo t('about_p1'); ?></p>
+        <h3 class="about-sub"><?php echo t('services_title'); ?></h3>
         <ul class="services">
             <li><svg class="icon" aria-hidden="true"><use href="#ic-check-line"/></svg><?php echo t('service_1'); ?></li>
             <li><svg class="icon" aria-hidden="true"><use href="#ic-check-line"/></svg><?php echo t('service_2'); ?></li>

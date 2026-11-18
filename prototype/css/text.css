@@ -13,14 +13,14 @@
 
 .text-page .lead {
   margin-top: 12px;
-  color: var(--ink-2);
   font-size: var(--text-lg);
+  color: var(--text-light);
 }
 
 .text-page .updated {
   margin-top: 8px;
-  color: var(--ink-2);
   font-size: var(--text-sm);
+  color: var(--text-light);
 }
 
 .text-page h2 {
@@ -37,7 +37,8 @@
   margin-top: 40px;
 }
 
-@media (min-width: 768px) {
+/* From 600px: tablet */
+@media (min-width: 600px) {
   .text-page {
     padding: 72px 32px 0;
   }

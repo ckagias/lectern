@@ -22,7 +22,7 @@
 
 .auth-lead {
   margin-top: 10px;
-  color: var(--ink-2);
+  color: var(--text-light);
 }
 
 .auth .flash {
@@ -34,7 +34,7 @@
   max-width: none;
   margin-top: 28px;
   padding: 24px 20px;
-  background: var(--panel);
+  background: var(--white);
 }
 
 .auth .choices {
@@ -53,35 +53,36 @@
 
 .switch {
   margin-top: 22px;
-  color: var(--ink-2);
   text-align: center;
+  color: var(--text-light);
 }
 
 .switch a {
-  color: var(--ink);
   font-weight: 600;
+  color: var(--text);
 }
 
 .auth-legal {
   margin-top: 14px;
-  color: var(--ink-2);
   font-size: var(--text-sm);
   line-height: 1.5;
   text-align: center;
   text-wrap: balance;
+  color: var(--text-light);
 }
 
 .auth-legal a {
-  color: var(--link);
   text-decoration: underline;
   text-underline-offset: 2px;
+  color: var(--link);
 }
 
 .auth-legal a:hover {
   color: var(--link-hover);
 }
 
-@media (min-width: 768px) {
+/* From 600px: tablet */
+@media (min-width: 600px) {
   .auth {
     padding-top: 88px;
   }
@@ -91,6 +92,6 @@
   }
 
   .auth .panel {
-    padding: 28px 28px;
+    padding: 28px;
   }
 }

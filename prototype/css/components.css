@@ -1,20 +1,20 @@
 /* Reusable parts: the buttons. */
 .btn {
   display: inline-flex;
+  gap: 8px;
   align-items: center;
   justify-content: center;
-  gap: 8px;
   min-height: 46px;
   padding: 0 22px;
-  border: 1px solid var(--btn-bg);
-  border-radius: var(--radius);
-  background: var(--btn-bg);
-  color: var(--btn-fg);
+  border: 1px solid var(--dark);
   font: 600 1rem var(--font);
   letter-spacing: -0.005em;
   text-decoration: none;
-  cursor: pointer;
+  color: var(--on-dark);
+  background: var(--dark);
+  border-radius: var(--radius);
   transition: filter 0.2s var(--ease), background-color 0.2s var(--ease), transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+  cursor: pointer;
 }
 
 .btn:hover {
@@ -27,9 +27,9 @@
 
 /* Main action, in ink like every button. It lifts on hover. */
 .btn.action {
-  border-color: var(--action);
-  background: var(--action);
-  color: var(--cream);
+  border-color: var(--dark);
+  color: var(--on-dark);
+  background: var(--dark);
 }
 
 .btn.action:hover {
@@ -37,45 +37,45 @@
 }
 
 /* White button for photos and dark backgrounds, like the hero. */
-.btn.ochre {
-  border-color: var(--ochre);
-  background: var(--ochre);
-  color: var(--on-ochre);
+.btn.white {
+  border-color: var(--white);
+  color: var(--text);
+  background: var(--white);
 }
 
-.btn.ochre:hover {
+.btn.white:hover {
   filter: brightness(0.93);
 }
 
 /* Over the photo the white button gets the same thin grey edge as the other buttons. */
-.hero .btn.ochre {
-  border-color: oklch(0.74 0 0);
+.hero .btn.white {
+  border-color: var(--border-photo);
 }
 
 /* Second button: an ink outline on light backgrounds, a white outline over photos and dark backgrounds. */
 .btn.line {
-  border-color: var(--edge);
-  background: var(--tile);
-  color: var(--ink);
+  border-color: var(--border);
+  color: var(--text);
+  background: var(--light-grey);
 }
 
 /* Flat and grey at rest, white and lifted on hover. Cards, tabs and choices follow the same rule. */
 .btn.line:hover {
-  border-color: var(--ink-2);
-  background: var(--panel);
+  border-color: var(--text-light);
+  background: var(--white);
   box-shadow: var(--shadow-raised);
   filter: none;
 }
 
 .has-hero .btn.line,
 .hero .btn.line {
-  border-color: color-mix(in oklch, var(--cream) 55%, transparent);
+  border-color: var(--border-on-dark);
+  color: var(--on-dark);
   background: var(--glass);
-  color: var(--cream);
 }
 
 .has-hero .btn.line:hover,
 .hero .btn.line:hover {
-  border-color: var(--cream);
+  border-color: var(--on-dark);
   box-shadow: none;
 }

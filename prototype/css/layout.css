@@ -1,65 +1,57 @@
-/* Page shell: header, language switch, menu (tab bar on phones, side menu on desktop), main area and footer. */
+/* Page shell: header, menu (tab bar on phones, side menu from 900px), main area and footer. Phone styles first, wider screens at the end of the file. */
+
+/* Header */
 .top {
   display: flex;
+  gap: 4px;
   align-items: center;
   justify-content: space-between;
-  gap: 4px;
   min-height: 60px;
   padding: 6px 8px;
   border-bottom: 1px solid var(--line);
-  background: var(--bg);
-  color: var(--ink);
+  color: var(--text);
+  background: var(--page);
 }
 
 .brand {
   display: inline-flex;
-  align-items: center;
   gap: 8px;
+  align-items: center;
   min-height: 44px;
-  text-decoration: none;
   font-family: var(--font-heading);
+  font-size: var(--text-base);
   font-weight: 600;
-  font-size: 1.25rem;
   letter-spacing: -0.01em;
+  text-decoration: none;
 }
 
 .brand-mark {
   width: 0.85em;
   height: 0.85em;
-  color: var(--ink);
-}
-
-@media (max-width: 359px) {
-  .brand {
-    font-size: 1.0625rem;
-  }
-
-  .brand-mark {
-    display: none;
-  }
+  color: var(--text);
 }
 
 .top-actions {
   display: flex;
-  align-items: center;
   gap: 2px;
+  align-items: center;
 }
 
 .top .btn {
   min-height: 44px;
-  padding: 0 8px;
+  padding: 0 6px;
   font-size: var(--text-sm);
 }
 
 .lang {
   display: flex;
-  align-items: center;
   gap: 8px;
+  align-items: center;
   min-height: 44px;
   padding: 0 8px;
-  text-decoration: none;
-  font-weight: 600;
   font-size: var(--text-sm);
+  font-weight: 600;
+  text-decoration: none;
 }
 
 .lang:hover span {
@@ -72,49 +64,42 @@
   width: 22px;
   height: 15px;
   border-radius: 2px;
-  box-shadow: 0 0 0 1px oklch(0.17 0.006 250 / 0.18);
+  box-shadow: 0 0 0 1px var(--border);
 }
 
-/* The user block at the bottom of the side menu. Phones have no side menu, so it is hidden there. */
-.nav-user {
-  display: none;
+/* Very narrow phones (under 360px): the brand mark and the language code give way, so the header fits on one line. */
+@media (max-width: 359px) {
+  .brand-mark,
+  .lang span[aria-hidden] {
+    display: none;
+  }
 }
 
 /* Menu: a dark tab bar fixed to the bottom on phones. */
 .nav {
+  display: grid;
   position: fixed;
-  left: 0;
   right: 0;
   bottom: 0;
+  left: 0;
   z-index: 5;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  background: var(--side);
-  color: oklch(1 0 0 / 0.62);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  color: var(--on-dark-nav);
+  background: var(--dark);
 }
 
 .nav a {
   display: grid;
-  justify-items: center;
   gap: 2px;
+  justify-items: center;
   min-height: 54px;
   margin: 4px 0;
   padding: 6px 2px 8px;
-  border-radius: 12px;
-  text-decoration: none;
-  font-weight: 500;
   font-size: 0.8125rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 12px;
   transition: background-color 0.2s var(--ease), color 0.2s var(--ease);
-}
-
-/* Every menu icon has an outline and a solid version. The current page shows the solid one. */
-.nav .icon-on,
-.nav a[aria-current="page"] .icon-off {
-  display: none;
-}
-
-.nav a[aria-current="page"] .icon-on {
-  display: block;
 }
 
 .nav a:hover {
@@ -127,10 +112,26 @@
 }
 
 .nav a[aria-current="page"] {
-  color: var(--on-dark);
   font-weight: 600;
+  color: var(--on-dark);
 }
 
+/* Every menu icon has an outline and a solid version. The current page shows the solid one. */
+.nav .icon-on,
+.nav a[aria-current="page"] .icon-off {
+  display: none;
+}
+
+.nav a[aria-current="page"] .icon-on {
+  display: block;
+}
+
+/* The user block at the bottom of the side menu. Phones have no side menu, so it is hidden there. */
+.nav-user {
+  display: none;
+}
+
+/* Main area */
 main {
   width: 100%;
   max-width: var(--page-width);
@@ -150,12 +151,17 @@ main {
   padding: 0;
 }
 
+/* Footer */
 .foot {
   margin-top: 72px;
   padding: 40px 16px 28px;
-  background: var(--foot-bg);
-  color: var(--foot-fg);
-  font-size: 1rem;
+  font-size: var(--text-sm);
+  color: var(--on-dark-foot);
+  background: var(--dark);
+}
+
+.foot :focus-visible {
+  outline-color: var(--on-dark);
 }
 
 .foot-top,
@@ -169,22 +175,18 @@ main {
   gap: 28px;
 }
 
-.foot .brand {
-  color: var(--on-dark);
-}
-
+.foot .brand,
 .foot .brand-mark {
   color: var(--on-dark);
 }
 
-
 .foot h2 {
   margin-bottom: 10px;
-  color: var(--on-dark);
   font-family: var(--font);
-  font-size: 1rem;
+  font-size: var(--text-sm);
   font-weight: 600;
   letter-spacing: 0;
+  color: var(--on-dark);
 }
 
 .foot-list {
@@ -201,14 +203,6 @@ main {
   min-height: 28px;
 }
 
-/* On phones the explore links stand in two columns to save height. */
-.foot-explore {
-  grid-template-columns: 1fr 1fr;
-  column-gap: 16px;
-}
-
-
-
 .foot-list a {
   display: inline-flex;
   align-items: center;
@@ -221,16 +215,22 @@ main {
   color: var(--on-dark);
 }
 
+/* On phones the explore links stand in two columns to save height. */
+.foot-explore {
+  grid-template-columns: 1fr 1fr;
+  column-gap: 16px;
+}
+
 .foot-hours {
   margin: 0;
 }
 
 .foot-hours div {
   display: flex;
-  justify-content: space-between;
   gap: 16px;
+  justify-content: space-between;
   padding: 9px 0;
-  border-bottom: 1px solid oklch(1 0 0 / 0.1);
+  border-bottom: 1px solid var(--dark-line);
 }
 
 .foot-hours div:last-child {
@@ -246,28 +246,13 @@ main {
   gap: 4px;
   margin-top: 32px;
   padding-top: 20px;
-  border-top: 1px solid oklch(1 0 0 / 0.12);
+  border-top: 1px solid var(--dark-line);
   font-size: var(--text-sm);
   opacity: 0.75;
 }
 
-@media (min-width: 360px) {
-  .nav a {
-    font-size: 0.875rem;
-  }
-}
-
-@media (min-width: 360px) and (max-width: 419px) {
-  .brand {
-    font-size: 1.125rem;
-  }
-
-  .top .btn {
-    padding: 0 6px;
-  }
-}
-
-@media (min-width: 420px) {
+/* From 600px: tablet */
+@media (min-width: 600px) {
   .top {
     gap: 8px;
     padding-inline: 16px;
@@ -278,16 +263,22 @@ main {
   }
 
   .brand {
-    font-size: 1.25rem;
+    font-size: var(--text-lg);
   }
 
   .top .btn {
     padding: 0 14px;
-    font-size: 1rem;
   }
-}
 
-@media (min-width: 600px) {
+  /* The header of every public page lines up with the page content and the footer. */
+  .layout-public .top {
+    padding-inline: max(32px, calc(50% - 35rem + 32px));
+  }
+
+  .foot {
+    padding: 72px 32px 36px;
+  }
+
   .foot-top {
     grid-template-columns: repeat(3, 1fr);
     gap: 32px;
@@ -297,17 +288,6 @@ main {
     grid-column: 1 / -1;
   }
 
-  .foot-hours div {
-    display: grid;
-    gap: 0;
-    padding: 0 0 8px;
-    border-bottom: 0;
-  }
-
-  .foot-list li {
-    min-height: 28px;
-  }
-
   .foot-list a {
     min-height: 28px;
   }
@@ -315,55 +295,57 @@ main {
   .foot-explore {
     grid-template-columns: 1fr;
   }
+
+  .foot-hours div {
+    display: grid;
+    gap: 0;
+    padding: 0 0 8px;
+    border-bottom: 0;
+  }
 }
 
-@media (min-width: 768px) {
-  /* The same markup becomes a dark side menu with the brand on top, and a light strip with the language and log out. */
-  .layout-member,
-  .layout-librarian {
+/* From 900px: desktop. Logged in pages get a dark side menu with the brand on top, and a light strip with the language and log out. */
+@media (min-width: 900px) {
+  .layout-app {
     display: grid;
     grid-template-columns: 16rem 1fr;
     grid-template-rows: 72px 1fr;
     min-height: 100vh;
-    background: linear-gradient(90deg, var(--side) 16rem, var(--bg) 16rem);
+    background: linear-gradient(90deg, var(--dark) 16rem, var(--page) 16rem);
   }
 
-  .layout-member .top,
-  .layout-librarian .top {
+  .layout-app .top {
     display: contents;
   }
 
-  .layout-member .brand,
-  .layout-librarian .brand {
+  .layout-app .brand {
     position: sticky;
     top: 0;
     z-index: 6;
     grid-column: 1;
     grid-row: 1;
     padding: 0 28px;
-    background: var(--side);
-    color: var(--on-dark);
     font-size: 1.375rem;
+    color: var(--on-dark);
+    background: var(--dark);
   }
 
-  .layout-member .brand-mark,
-  .layout-librarian .brand-mark {
+  .layout-app .brand-mark {
     color: var(--on-dark);
   }
 
-  .layout-member .top-actions,
-  .layout-librarian .top-actions {
+  .layout-app .top-actions {
     grid-column: 2;
     grid-row: 1;
+    gap: 8px;
     justify-self: end;
     padding-right: 40px;
-    gap: 8px;
   }
 
-  .nav {
+  .layout-app .nav {
+    display: flex;
     position: sticky;
     top: 72px;
-    display: flex;
     flex-direction: column;
     gap: 2px;
     align-self: start;
@@ -371,67 +353,51 @@ main {
     padding: 12px 0 0;
   }
 
+  .layout-app .nav a {
+    grid-auto-flow: column;
+    gap: 14px;
+    align-items: center;
+    justify-content: start;
+    min-height: 46px;
+    margin: 0 14px;
+    padding: 0 14px;
+    font-size: var(--text-sm);
+    border-radius: var(--radius);
+  }
+
+  .layout-app .nav a:hover {
+    background: var(--dark-hover);
+  }
+
+  .layout-app .nav a[aria-current="page"] {
+    background: var(--dark-current);
+  }
+
   .nav-user {
     display: grid;
-    justify-items: start;
     gap: 2px;
+    justify-items: start;
     margin-top: auto;
     padding: 18px 28px 22px;
-    border-top: 1px solid oklch(1 0 0 / 0.1);
+    border-top: 1px solid var(--dark-line);
     overflow-wrap: anywhere;
   }
 
   .who {
-    color: var(--on-dark);
     font-weight: 600;
+    color: var(--on-dark);
   }
 
   .role {
     font-size: var(--text-sm);
   }
 
-  .nav a {
-    grid-auto-flow: column;
-    justify-content: start;
-    align-items: center;
-    gap: 14px;
-    min-height: 46px;
-    margin: 0 14px;
-    padding: 0 14px;
-    border-radius: var(--radius);
-    font-size: 1rem;
-  }
-
-  .nav a:hover {
-    background: oklch(1 0 0 / 0.06);
-  }
-
-  .nav a[aria-current="page"] {
-    background: oklch(1 0 0 / 0.1);
-  }
-
-  main {
+  .layout-app main {
     min-width: 0;
     margin-inline: 0;
     padding: 8px 40px 72px;
   }
 
-  .layout-public main {
-    padding: 0;
-  }
-
-  .foot {
-    padding: 72px 32px 36px;
-  }
-
-  /* The header of every public page lines up with the page content and the footer. */
-  .layout-public .top {
-    padding-inline: max(32px, calc(50% - 35rem + 32px));
-  }
-
-}
-
-@media (min-width: 900px) {
   .foot-top {
     grid-template-columns: 1.3fr repeat(3, 1fr);
   }
@@ -439,8 +405,4 @@ main {
   .foot-brand {
     grid-column: auto;
   }
-}
-
-.foot :focus-visible {
-  outline-color: var(--on-dark);
 }

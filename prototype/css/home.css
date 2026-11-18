@@ -1,12 +1,14 @@
-/* Public library page: a photo hero, the shelf of titled spines with its categories, about and the map. */
+/* Public home page: photo hero, about text and map. The bookshelf is in shelf.css. Phone styles first, wider screens at the end of the file. */
+
+/* Hero */
 .hero {
-  position: relative;
   display: flex;
+  position: relative;
   align-items: flex-end;
   min-height: 30rem;
   overflow: hidden;
-  background-color: var(--side);
   color: var(--on-dark);
+  background-color: var(--dark);
 }
 
 /* The photograph fills the hero. A dark fade on top of it keeps the text readable. */
@@ -23,16 +25,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(0deg, var(--veil-left), transparent 65%), linear-gradient(var(--veil-middle), var(--veil-middle));
-}
-
-/* The hero and the header over it use their own text and button colours, set in tokens.css. */
-.hero,
-.has-hero .top {
-  --on-dark: var(--hero-fg);
-  --cream: var(--hero-fg);
-  --ochre: var(--hero-btn);
-  --on-ochre: var(--hero-btn-fg);
+  background: linear-gradient(0deg, var(--hero-fade-left), transparent 65%), linear-gradient(var(--hero-fade-middle), var(--hero-fade-middle));
 }
 
 .hero-in {
@@ -42,22 +35,6 @@
   max-width: var(--page-width);
   margin-inline: auto;
   padding: 120px 16px 56px;
-}
-
-/* On this page the header sits on top of the photo, with a dark fade so the links stay readable. */
-.has-hero .brand-mark {
-  color: var(--hero-fg);
-}
-
-.has-hero .top {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 3;
-  border-bottom: 0;
-  background: linear-gradient(var(--veil-top), transparent);
-  color: var(--hero-fg);
 }
 
 .hero h1 {
@@ -72,7 +49,7 @@
 .hero .lead {
   max-width: 38ch;
   margin-top: 20px;
-  font-size: 1.25rem;
+  font-size: var(--text-lg);
   opacity: 0.86;
 }
 
@@ -82,249 +59,35 @@
   margin-top: 32px;
 }
 
-/* A shelf of books made with CSS only. The row of spines stands on a board, the board is after the idea of
-   a CodePen bookshelf by ekfuhrmann. It sits on the cream page above the list of categories.
-   The text on the spines cannot be selected and a hovered book pops up a little. */
-.shelf {
-  isolation: isolate;
-  margin: 8px 0 0;
-  padding-bottom: 36px;
-  user-select: none;
-}
-
-.books {
-  position: relative;
-  min-height: 17rem;
-  z-index: 1;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  gap: 1px;
-  margin-bottom: -10px;
-  padding: 16px 20px 0;
-}
-
-/* The top of the board. The transparent side borders cut its corners at an angle. */
-.board {
-  position: relative;
-  box-sizing: border-box;
-  height: 0;
-  border-bottom: 16px solid var(--board);
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-}
-
-/* The front of the board. */
-.board::before {
-  content: "";
+/* On this page the header sits on top of the photo, with a dark fade so the links stay readable. */
+.has-hero .top {
   position: absolute;
-  top: 16px;
-  left: -20px;
-  z-index: 2;
-  width: calc(100% + 40px);
-  height: 26px;
-  background: linear-gradient(90deg, var(--board) 0%, var(--board-dark) 100%);
-  box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.05), 0 4px 16px rgba(0, 0, 0, 0.25);
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 3;
+  border-bottom: 0;
+  color: var(--on-dark);
+  background: linear-gradient(var(--hero-fade-top), transparent);
 }
 
-.book {
-  position: relative;
-  flex: 1 1 0;
-  min-width: 0;
-  max-width: var(--w);
-  height: var(--h);
-  padding: 0;
-  border: 0;
-  background: none;
-  color: inherit;
-  font: inherit;
-  cursor: pointer;
-  transition: transform 0.25s ease-out;
+.has-hero .brand-mark {
+  color: var(--on-dark);
 }
 
-.book[hidden] {
-  display: none;
-}
-
-/* Books appear with a small rise when a category is chosen. */
-.books.swapped .book {
-  animation: rise 0.45s var(--ease) backwards;
-}
-
-@keyframes rise {
-  from {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-}
-
-/* On phones the shelf starts with the first 12 books, a chosen category shows all of its books. */
-@media (max-width: 599px) {
-  .books:not(.filtered) .book:nth-child(n + 13) {
-    display: none;
-  }
-}
-
-.book { --tex: url("../pictures/texture-book-cloth.jpg"); }
-.book.leather, .book.burgundy, .book.brick, .book.aubergine, .book.terra, .book.rose { --tex: url("../pictures/texture-leather.jpg"); }
-.book.ivory, .book.sand, .book.ochre { --tex: url("../pictures/texture-linen.jpg"); }
-
-.book.cobalt { --cloth: var(--cloth-cobalt); --ink-gilt: var(--gilt); }
-.book.terra { --cloth: var(--cloth-terra); --ink-gilt: var(--gilt); }
-.book.plum { --cloth: var(--cloth-plum); --ink-gilt: var(--gilt); }
-.book.teal { --cloth: var(--cloth-teal); --ink-gilt: var(--gilt); }
-.book.ochre { --cloth: var(--cloth-ochre); --ink-gilt: var(--gilt-on-ochre); }
-.book.burgundy { --cloth: var(--cloth-burgundy); --ink-gilt: var(--gilt); }
-.book.forest { --cloth: var(--cloth-forest); --ink-gilt: var(--gilt); }
-.book.navy { --cloth: var(--cloth-navy); --ink-gilt: var(--gilt); }
-.book.charcoal { --cloth: var(--cloth-charcoal); --ink-gilt: var(--gilt); }
-.book.leather { --cloth: var(--cloth-leather); --ink-gilt: var(--gilt); }
-.book.slate { --cloth: var(--cloth-slate); --ink-gilt: var(--gilt); }
-.book.olive { --cloth: var(--cloth-olive); --ink-gilt: var(--gilt); }
-.book.rose { --cloth: var(--cloth-rose); --ink-gilt: var(--gilt); }
-.book.brick { --cloth: var(--cloth-brick); --ink-gilt: var(--gilt); }
-.book.petrol { --cloth: var(--cloth-petrol); --ink-gilt: var(--gilt); }
-.book.aubergine { --cloth: var(--cloth-aubergine); --ink-gilt: var(--gilt); }
-.book.sand { --cloth: var(--cloth-sand); --ink-gilt: var(--gilt-on-ochre); }
-.book.ivory { --cloth: var(--cloth-ivory); --ink-gilt: var(--gilt-on-ochre); }
-
-/* Some books have no gilt bands. */
-.book.plain .spine::before {
-  display: none;
-}
-
-/* The spine faces the viewer. The gilt bands are drawn with background layers, the round shading is the ::after layer. */
-.spine {
-  position: absolute;
-  inset: 0;
-  border-radius: 2px 2px 0 0;
-  background-color: var(--cloth);
-  background-image: var(--tex);
-  background-size: 128px;
-  background-blend-mode: soft-light;
-}
-
-.spine::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(var(--ink-gilt), var(--ink-gilt)) 0 12px / 100% 2px no-repeat,
-    linear-gradient(var(--ink-gilt), var(--ink-gilt)) 0 18px / 100% 2px no-repeat,
-    linear-gradient(var(--ink-gilt), var(--ink-gilt)) 0 calc(100% - 20px) / 100% 2px no-repeat,
-    linear-gradient(var(--ink-gilt), var(--ink-gilt)) 0 calc(100% - 14px) / 100% 2px no-repeat;
-  opacity: 0.85;
-}
-
-.spine::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.1) 16%, rgba(255, 255, 255, 0.14) 24%, transparent 38%, rgba(0, 0, 0, 0.22) 88%, rgba(0, 0, 0, 0.5));
-}
-
-.book.stairs .spine {
-  background-image:
-    repeating-linear-gradient(63deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05) 1px, transparent 3px, transparent 0),
-    linear-gradient(127deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05) 90px, transparent 55%, transparent 0),
-    linear-gradient(transparent 51%, rgba(0, 0, 0, 0.1) 170px),
-    var(--tex);
-  background-size: 70px 120px, 70px 120px, 70px 120px, 128px;
-  background-blend-mode: normal, normal, normal, soft-light;
-}
-
-.book.pyramid .spine {
-  background-image:
-    linear-gradient(315deg, transparent 75%, rgba(255, 255, 255, 0.05) 0),
-    linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.05) 0),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.1) 166px, transparent 0),
-    linear-gradient(45deg, rgba(0, 0, 0, 0.1) 75%, transparent 0),
-    var(--tex);
-  background-size: 20px 20px, 20px 20px, 20px 20px, 20px 20px, 128px;
-  background-blend-mode: normal, normal, normal, normal, soft-light;
-}
-
-.spine-title {
-  position: absolute;
-  inset: 34px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1;
-  pointer-events: none;
-  writing-mode: vertical-rl;
-  white-space: nowrap;
-  font-size: var(--fs, 0.75rem);
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  color: var(--ink-gilt);
-}
-
-.book:focus-visible {
-  transform: translateY(-14px);
-}
-
-.book:focus-visible .spine {
-  box-shadow: 0 10px 14px rgba(0, 0, 0, 0.35);
-}
-
-@media (hover: hover) {
-  .book:hover {
-    transform: translateY(-14px);
-  }
-
-  .book:hover .spine {
-    box-shadow: 0 10px 14px rgba(0, 0, 0, 0.35);
-  }
-}
-
+/* Sections under the hero */
 .section {
   max-width: var(--page-width);
   margin-inline: auto;
   padding: 40px 16px 0;
 }
 
-/* The five categories under the shelf are buttons. One press shows that category on the shelf, a second press goes back. */
-.categories {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 4px 28px;
-  margin: 32px 0 0;
-  padding: 16px 0 0;
-  border-top: 1px solid var(--line);
-  list-style: none;
-}
-
-.category {
-  min-height: 44px;
-  padding: 0 4px;
-  border: 0;
-  border-bottom: 2px solid transparent;
-  background: none;
-  color: var(--ink-2);
-  font-family: var(--font-heading);
-  font-size: var(--text-lg);
-  cursor: pointer;
-  transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
-}
-
-.category:hover,
-.category[aria-pressed="true"] {
-  color: var(--ink);
-}
-
-.category[aria-pressed="true"] {
-  border-bottom-color: var(--ink);
-}
-
-.text {
+.about-text {
   max-width: 65ch;
   margin-top: 14px;
 }
 
-.sub {
+.about-sub {
   margin-top: 28px;
 }
 
@@ -333,29 +96,34 @@
   gap: 10px;
   margin: 14px 0 0;
   padding: 0;
-  list-style: none;
   font-weight: 500;
+  list-style: none;
 }
 
 .services li {
   display: flex;
-  align-items: center;
   gap: 10px;
+  align-items: center;
 }
 
 .services .icon {
-  color: var(--action);
+  color: var(--dark);
 }
 
-/* Leaflet map. The box makes its own stacking layer so the map controls stay below the header. */
+/* The about text and the map stand under each other on phones. */
+.split > div + div {
+  margin-top: 40px;
+}
+
+/* Map */
 .map {
   position: relative;
   z-index: 0;
   height: 300px;
   margin-top: 16px;
-  border: 1px solid var(--edge);
+  border: 1px solid var(--border);
+  background: var(--surface);
   border-radius: var(--radius-lg);
-  background: var(--card);
   box-shadow: var(--shadow-raised);
 }
 
@@ -379,62 +147,38 @@
 }
 
 .map.leaflet-container .leaflet-bar a:last-child {
-  border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
 }
 
 .map-note {
   margin-top: 10px;
-  color: var(--error);
-  font-weight: 600;
   font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--error);
 }
 
-.two > div + div {
-  margin-top: 40px;
-}
-
+/* From 600px: tablet */
 @media (min-width: 600px) {
-  .cta {
-    grid-template-columns: repeat(2, max-content);
-  }
-
-}
-
-@media (min-width: 720px) {
-  .two {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
-    align-items: start;
-  }
-
-  .two > div + div {
-    margin-top: 0;
-  }
-
-  .map {
-    height: 360px;
-  }
-}
-
-@media (min-width: 768px) {
-  .hero-in,
-  .section {
-    padding-inline: 32px;
-  }
-}
-
-@media (min-width: 700px) {
   .hero {
     min-height: 32rem;
   }
 
   .hero::after {
-    background: linear-gradient(0deg, var(--veil-left), transparent 60%), linear-gradient(90deg, var(--veil-left), var(--veil-middle) 55%, var(--veil-right));
+    background: linear-gradient(0deg, var(--hero-fade-left), transparent 60%), linear-gradient(90deg, var(--hero-fade-left), var(--hero-fade-middle) 55%, var(--hero-fade-right));
+  }
+
+  .hero-in,
+  .section {
+    padding-inline: 32px;
+  }
+
+  .cta {
+    grid-template-columns: repeat(2, max-content);
   }
 }
 
+/* From 900px: desktop */
 @media (min-width: 900px) {
   .hero {
     align-items: center;
@@ -458,7 +202,18 @@
     padding: 88px 32px 0;
   }
 
-  .two {
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 56px;
+    align-items: start;
+  }
+
+  .split > div + div {
+    margin-top: 0;
+  }
+
+  .map {
+    height: 360px;
   }
 }

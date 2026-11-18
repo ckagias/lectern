@@ -36,7 +36,7 @@ if ($layout !== 'public') {
     }
     ?>
 </head>
-<body class="layout-<?php echo $layout; ?><?php if (isset($bodyClass)) { echo ' ' . $bodyClass; } ?>">
+<body class="layout-<?php echo $layout; ?><?php if ($layout !== 'public') { echo ' layout-app'; } ?><?php if (isset($bodyClass)) { echo ' ' . $bodyClass; } ?>">
     <a class="skip" href="#main"><?php echo t('skip_link'); ?></a>
 
     <header class="top">

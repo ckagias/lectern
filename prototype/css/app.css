@@ -1,26 +1,21 @@
-/* Logged in pages: the dashboard, the empty placeholder pages and Forbidden Action. */
+/* Logged in pages: the dashboard, the empty placeholder pages and Forbidden Action. Phone styles first, wider screens at the end of the file. */
+
+/* Page heading and width. The logged in pages use the whole width next to the side menu. */
 main h1 {
-  overflow-wrap: anywhere;
   font-size: 2rem;
+  overflow-wrap: anywhere;
 }
 
-/* The logged in pages use the whole width next to the side menu. */
-.layout-member main,
-.layout-librarian main {
+.layout-app main {
   max-width: none;
-}
-
-.empty-page main {
-  display: flex;
-  flex-direction: column;
 }
 
 .status {
   margin-top: 6px;
-  color: var(--ink-2);
+  color: var(--text-light);
 }
 
-/* The dashboard: a greeting, two lists and the card of the person on one side. */
+/* Dashboard: a greeting, two lists and the card of the person on one side. */
 .dash {
   max-width: 100rem;
 }
@@ -39,17 +34,19 @@ main h1 {
 }
 
 .dash-panel {
-  border: 1px solid var(--edge);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  background: var(--white);
   border-radius: var(--radius-lg);
-  background: var(--panel);
   box-shadow: var(--shadow-raised);
 }
 
 .dash-panel-head {
   display: flex;
+  gap: 12px;
   align-items: baseline;
   justify-content: space-between;
-  gap: 12px;
   padding: 16px 20px;
   border-bottom: 1px solid var(--line);
 }
@@ -60,26 +57,21 @@ main h1 {
 }
 
 .dash-panel-head a {
-  color: var(--ink-2);
   font-size: var(--text-sm);
+  color: var(--text-light);
 }
 
 .dash-panel-head a:hover {
-  color: var(--ink);
+  color: var(--text);
 }
 
 /* The empty state of a list: a small empty shelf, a title and a line of text, centred in the space under the heading. */
-.dash-panel {
-  display: flex;
-  flex-direction: column;
-}
-
 .dash-empty {
   display: grid;
   flex: 1;
-  justify-items: center;
-  align-content: center;
   gap: 6px;
+  align-content: center;
+  justify-items: center;
   padding: 36px 20px 40px;
   text-align: center;
 }
@@ -111,7 +103,7 @@ main h1 {
 
 .dash-empty p {
   max-width: 26rem;
-  color: var(--ink-2);
+  color: var(--text-light);
 }
 
 /* The card of the person, a light panel like the others. */
@@ -119,16 +111,16 @@ main h1 {
   display: grid;
   gap: 40px;
   padding: 20px;
-  border: 1px solid var(--edge);
+  border: 1px solid var(--border);
+  background: var(--white);
   border-radius: var(--radius-lg);
-  background: var(--panel);
   box-shadow: var(--shadow-raised);
 }
 
 .lib-card-brand {
   display: flex;
-  align-items: center;
   gap: 8px;
+  align-items: center;
   font-family: var(--font-heading);
   font-weight: 600;
 }
@@ -146,10 +138,10 @@ main h1 {
 
 .lib-card-meta {
   display: flex;
-  justify-content: space-between;
   gap: 12px;
+  justify-content: space-between;
   margin-top: 4px;
-  color: var(--ink-2);
+  color: var(--text-light);
 }
 
 .dash-info {
@@ -167,8 +159,8 @@ main h1 {
 }
 
 .dash-info dt {
-  color: var(--ink-2);
   font-size: var(--text-sm);
+  color: var(--text-light);
 }
 
 .dash-info dd {
@@ -176,38 +168,60 @@ main h1 {
   font-weight: 600;
 }
 
-/* An empty page: a short line under the heading says what the page is for, and a dashed box stands in the middle of the space below it. */
+/* Empty page: a short line under the heading says what the page is for, and a dashed box stands in the middle of the space below it.
+   Phones have no stretched grid row, so the page gets its height here. */
+.empty-page main {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 60px);
+}
+
 .page-lead {
   max-width: 40rem;
   margin-top: 8px;
-  color: var(--ink-2);
+  color: var(--text-light);
 }
 
 .empty {
   display: grid;
-  justify-items: center;
   gap: 8px;
+  justify-items: center;
   width: 100%;
   max-width: 34rem;
   margin: auto;
   padding: 48px 20px 52px;
-  border: 1px dashed var(--edge);
-  border-radius: var(--radius-lg);
+  border: 1px dashed var(--border);
   text-align: center;
+  border-radius: var(--radius-lg);
+}
+
+.empty h2 {
+  margin-top: 16px;
+  font-size: var(--text-xl);
+  font-weight: 600;
+}
+
+.empty p {
+  max-width: 28rem;
+  color: var(--text-light);
+}
+
+.empty .btn {
+  margin-top: 16px;
 }
 
 /* An empty shelf: three outlined spines on a plank, the last one leaning. */
 .empty-shelf {
   display: flex;
-  align-items: flex-end;
   gap: 8px;
+  align-items: flex-end;
   padding: 0 18px;
-  border-bottom: 4px solid var(--edge);
+  border-bottom: 4px solid var(--border);
 }
 
 .empty-shelf span {
   width: 18px;
-  border: 2px dashed var(--edge);
+  border: 2px dashed var(--border);
   border-bottom: 0;
   border-radius: 4px 4px 0 0;
 }
@@ -227,15 +241,16 @@ main h1 {
   transform-origin: bottom left;
 }
 
+/* Icon tile. Forbidden Action looks like the empty pages, with a red tile. */
 .tile {
   display: grid;
   flex: none;
   place-items: center;
   width: 48px;
   height: 48px;
+  color: var(--text);
+  background: var(--tint);
   border-radius: var(--radius);
-  background: var(--green-tint);
-  color: var(--green);
 }
 
 .empty .tile {
@@ -248,37 +263,19 @@ main h1 {
   height: 32px;
 }
 
-.empty h2 {
-  margin-top: 16px;
-  font-size: var(--text-xl);
-  font-weight: 600;
-}
-
-.empty p {
-  max-width: 28rem;
-  color: var(--ink-2);
-}
-
-.empty .btn {
-  margin-top: 16px;
-}
-
-/* Forbidden Action looks like the empty pages, with a red tile. */
 .forbidden .tile {
-  background: var(--error-bg);
   color: var(--error);
+  background: var(--error-bg);
 }
 
-/* Phones have no stretched grid row, so the empty page gets its height here. */
-@media (max-width: 767px) {
-  .empty-page main {
-    min-height: calc(100vh - 60px);
-  }
-}
-
+/* From 900px: desktop. The grid of the side menu stretches the empty page, so it needs no height of its own. */
 @media (min-width: 900px) {
   main h1 {
     font-size: 2.5rem;
+  }
+
+  .empty-page main {
+    min-height: auto;
   }
 
   .dash-grid {
@@ -298,7 +295,7 @@ main h1 {
   }
 }
 
-/* On wide screens the two lists stand side by side and are as tall as the column next to them. */
+/* From 1500px: wide screens. The two lists stand side by side and are as tall as the column next to them. */
 @media (min-width: 1500px) {
   .dash-grid {
     grid-template-columns: minmax(0, 1fr) 22rem;

@@ -1,80 +1,54 @@
-/* Design tokens. Every colour in the site comes from this file, in OKLCH: lightness, chroma, hue. */
+/* Design tokens: every colour used in more than one place, plus the type sizes, radii and shadows. */
 :root {
-  /* Almost no hue in the interface. The colour on the pages comes from the books and the photographs.
-     Light surfaces: page, panels, hairlines, text. Ink is the one dark, used for text, the side menu, buttons and the footer. */
-  --bg: oklch(0.987 0.002 250);
-  --side: oklch(0.17 0.006 250);
-  --card: oklch(0.994 0.002 250);
-  --panel: oklch(1 0 0);
-  --tile: oklch(0.96 0.004 250);
-  --ink: oklch(0.17 0.006 250);
-  --ink-2: oklch(0.45 0.008 250);
-  --line: oklch(0.91 0.004 250);
-  --link: oklch(0.5 0.16 258);
-  --link-hover: oklch(0.4 0.16 258);
-  --cream: oklch(0.985 0.002 250);
+  /* Light surfaces and text. Dark is the one dark colour: buttons, side menu, footer and focus ring. */
+  --page: #fafbfc;
+  --surface: #fcfdfe;
+  --white: #ffffff;
+  --light-grey: #f0f2f4;
+  --text: #0d1012;
+  --text-light: #52565a;
+  --tint: rgba(13, 16, 18, 0.06);
+  --line: #dfe1e4;
+  --border: rgba(13, 16, 18, 0.18);
+  --selection: rgba(13, 16, 18, 0.25);
+  --link: #1d60bc;
+  --link-hover: #00419b;
+  --dark: #0d1012;
 
-  /* Structure: ink for the side menu and icons, a faint ink wash for hovered and current rows. Links and main buttons are ink too. */
-  --green: oklch(0.17 0.006 250);
-  --green-tint: oklch(0.17 0.006 250 / 0.06);
-  --action: oklch(0.17 0.006 250);
+  /* On dark surfaces: side menu, tab bar, footer, buttons. */
+  --on-dark: #f9fafb;
+  --on-dark-nav: #a3a4a5;
+  --on-dark-foot: #bcbec0;
+  --dark-line: rgba(255, 255, 255, 0.1);
+  --dark-hover: rgba(255, 255, 255, 0.06);
+  --dark-current: rgba(255, 255, 255, 0.1);
+  --glass: rgba(255, 255, 255, 0.1);
+  --border-photo: #ababab;
+  --border-on-dark: rgba(249, 250, 251, 0.55);
 
-  /* White, for the logo mark and the hero button on photographs and dark surfaces */
-  --ochre: oklch(1 0 0);
+  /* Messages */
+  --error: #9e2034;
+  --error-bg: #ffeaea;
+  --success: #125c35;
+  --success-bg: #dcf9e5;
 
-  /* the books: binding cloth of the spines, gilt lettering, shelf, scrollbar */
-  --cloth-cobalt: oklch(0.449 0.153 261);
-  --cloth-terra: oklch(0.408 0.132 17);
-  --cloth-plum: oklch(0.414 0.076 160);
-  --cloth-teal: oklch(0.364 0.1 326);
-  --cloth-burgundy: oklch(0.386 0.063 230);
-  --cloth-forest: oklch(0.468 0.12 41);
-  --cloth-navy: oklch(0.29 0.019 272);
-  --cloth-charcoal: oklch(0.477 0.164 261);
-  --cloth-leather: oklch(0.354 0.112 17);
-  --cloth-slate: oklch(0.42 0.078 160);
-  --cloth-olive: oklch(0.42 0.119 325);
-  --cloth-rose: oklch(0.365 0.06 230);
-  --cloth-brick: oklch(0.428 0.109 40);
-  --cloth-petrol: oklch(0.325 0.022 267);
-  --cloth-aubergine: oklch(0.429 0.144 261);
-  --cloth-ochre: oklch(0.786 0.131 85);
-  --cloth-sand: oklch(0.867 0.023 90);
-  --cloth-ivory: oklch(0.854 0.026 132);
-  --gilt: oklch(0.96 0.03 95);
-  --gilt-on-ochre: var(--ink);
-  --wood: oklch(0.46 0.005 250);
-  --wood-top: oklch(0.63 0.005 250);
-  --paper: oklch(0.985 0.004 250);
-  --paper-edge: oklch(0.9 0.006 250);
-  --board: oklch(0.86 0.004 250);
-  --board-dark: oklch(0.78 0.005 250);
-  --scrim: oklch(0.1 0.01 250 / 0.72);
+  /* Hero photo: a fade stronger on the left where the text is. */
+  --hero-fade-left: rgba(5, 6, 8, 0.82);
+  --hero-fade-middle: rgba(5, 6, 8, 0.5);
+  --hero-fade-right: rgba(5, 6, 8, 0.15);
+  --hero-fade-top: rgba(2, 3, 5, 0.6);
 
-  /* tint over the hero photo, stronger on the left where the text is, and the hero text and button colours */
-  --veil-left: oklch(0.12 0.006 250 / 0.82);
-  --veil-middle: oklch(0.12 0.006 250 / 0.5);
-  --veil-right: oklch(0.12 0.006 250 / 0.15);
-  --veil-top: oklch(0.1 0.006 250 / 0.6);
-  --hero-fg: var(--cream);
-  --hero-btn: oklch(1 0 0);
-  --hero-btn-fg: oklch(0.17 0.006 250);
-  --glass: oklch(1 0 0 / 0.1);
+  /* Bookshelf: lettering, board, open book pages, the dark layer behind the open book and the scrollbar. */
+  --spine-text: #f8f2dc;
+  --shelf: #cfd1d3;
+  --shelf-dark: #b5b8ba;
+  --paper: #f8fafd;
+  --paper-edge: #dbdee2;
+  --overlay: rgba(2, 3, 6, 0.72);
+  --scrollbar: #87898c;
+  --scrollbar-hover: #56585b;
 
-  /* state colours, focus ring, buttons and footer */
-  --focus: oklch(0.17 0.006 250);
-  --on-dark: oklch(0.985 0.002 250);
-  --btn-bg: oklch(0.17 0.006 250);
-  --btn-fg: oklch(0.985 0.002 250);
-  --on-ochre: oklch(0.17 0.006 250);
-  --error: oklch(0.46 0.16 18);
-  --error-bg: oklch(0.955 0.025 18);
-  --success: oklch(0.42 0.095 155);
-  --success-bg: oklch(0.955 0.04 155);
-  --foot-bg: oklch(0.17 0.006 250);
-  --foot-fg: oklch(0.8 0.004 250);
-
-  /* type */
+  /* Type */
   --font: "Source Sans 3", system-ui, sans-serif;
   --font-heading: "Source Serif 4", Georgia, serif;
   --text-sm: 1rem;
@@ -83,15 +57,11 @@
   --text-xl: 1.5rem;
   --text-2xl: 2rem;
 
-  /* shape: gently rounded corners, hairline edges, two quiet shadows and one easing curve */
+  /* Shape and motion. One raised shadow for every card and every hovered button: two layers, one tight and one wider. */
   --radius: 8px;
   --radius-lg: 14px;
-  --border: 1px;
-  --edge: color-mix(in oklch, var(--ink) 18%, transparent);
-  --shadow-sm: 0 1px 2px oklch(0 0 0 / 0.06), 0 1px 1px oklch(0 0 0 / 0.04);
-  --shadow-md: 0 8px 24px -8px oklch(0 0 0 / 0.16), 0 2px 4px oklch(0 0 0 / 0.05);
-  /* One raised shadow for every card and every hovered button: two layers, one tight and one wider. */
-  --shadow-raised: 0 3px 6px oklch(0.17 0.006 250 / 0.16), 0 3px 6px oklch(0.17 0.006 250 / 0.23);
+  --shadow-raised: 0 3px 6px rgba(13, 16, 18, 0.16), 0 3px 6px rgba(13, 16, 18, 0.23);
+  --shadow-lift: 0 10px 14px rgba(0, 0, 0, 0.35);
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --page-width: 70rem;
 }

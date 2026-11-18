@@ -12,7 +12,7 @@ books.forEach(function (book) {
         document.getElementById('book-call').textContent = book.dataset.call;
         document.getElementById('book-summary').textContent = book.dataset.summary;
         dialog.style.setProperty('--cloth', getComputedStyle(book).getPropertyValue('--cloth'));
-        document.body.classList.add('book-open');
+        document.body.classList.add('no-scroll');
         dialog.showModal();
     });
 });
@@ -28,7 +28,7 @@ dialog.addEventListener('click', function (event) {
 });
 
 dialog.addEventListener('close', function () {
-    document.body.classList.remove('book-open');
+    document.body.classList.remove('no-scroll');
 });
 
 document.getElementById('book-print').addEventListener('click', function () {

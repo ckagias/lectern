@@ -5,8 +5,8 @@
   margin-inline: auto;
   padding: 26px 20px;
   border: 1px solid var(--line);
+  background: var(--white);
   border-radius: var(--radius-lg);
-  background: var(--panel);
   box-shadow: var(--shadow-raised);
 }
 
@@ -30,21 +30,21 @@
   width: 100%;
   min-height: 50px;
   padding: 0 16px;
-  border: var(--border) solid var(--edge);
-  border-radius: var(--radius);
-  background: var(--card);
-  color: var(--ink);
+  border: 1px solid var(--border);
   font: 500 var(--text-sm) var(--font);
+  color: var(--text);
+  background: var(--surface);
+  border-radius: var(--radius);
   transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
 }
 
 .input:hover {
-  border-color: var(--ink-2);
+  border-color: var(--text-light);
 }
 
 .input:focus-visible {
-  border-color: var(--focus);
-  outline: 2px solid var(--focus);
+  border-color: var(--dark);
+  outline: 2px solid var(--dark);
   outline-offset: 1px;
 }
 
@@ -54,9 +54,9 @@
 
 .error {
   margin: 0;
-  color: var(--error);
   font-weight: 600;
   font-size: var(--text-sm);
+  color: var(--error);
 }
 
 .error:empty {
@@ -71,37 +71,37 @@
 }
 
 .choices legend {
-  padding: 0;
   margin-bottom: 6px;
+  padding: 0;
 }
 
 .choice {
   display: flex;
+  gap: 8px;
   align-items: center;
   justify-content: center;
-  gap: 8px;
   min-height: 48px;
   padding: 0 8px;
-  border: var(--border) solid var(--edge);
-  border-radius: var(--radius);
-  background: var(--tile);
+  border: 1px solid var(--border);
   font-size: 0.9375rem;
   font-weight: 500;
-  cursor: pointer;
+  background: var(--light-grey);
+  border-radius: var(--radius);
   transition: border-color 0.2s var(--ease), background-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+  cursor: pointer;
 }
 
 .choice:hover {
-  border-color: var(--ink-2);
-  background: var(--panel);
+  border-color: var(--text-light);
+  background: var(--white);
   box-shadow: var(--shadow-raised);
 }
 
 /* The chosen answer is outlined in the action colour. */
 .choice:has(input:checked) {
-  border-color: var(--action);
-  background: var(--panel);
-  box-shadow: 0 0 0 1px var(--action), var(--shadow-raised);
+  border-color: var(--dark);
+  background: var(--white);
+  box-shadow: 0 0 0 1px var(--dark), var(--shadow-raised);
 }
 
 .choice + .choice {
@@ -110,10 +110,10 @@
 
 .choice input {
   flex-shrink: 0;
-  margin: 0;
   width: 18px;
   height: 18px;
-  accent-color: var(--action);
+  margin: 0;
+  accent-color: var(--dark);
 }
 
 .btn.block {
@@ -124,14 +124,14 @@
 /* Message at the top of the page, for example after registering. */
 .flash {
   display: flex;
-  align-items: flex-start;
   gap: 12px;
+  align-items: flex-start;
   margin-bottom: 20px;
   padding: 14px 16px;
-  border: var(--border) solid var(--edge);
-  border-radius: var(--radius);
-  background: var(--card);
+  border: 1px solid var(--border);
   font-weight: 500;
+  background: var(--surface);
+  border-radius: var(--radius);
 }
 
 .flash .icon {
