@@ -44,9 +44,12 @@ CREATE TABLE reservations (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     book_id INT UNSIGNED NOT NULL,
     user_id INT UNSIGNED NOT NULL,
-    status VARCHAR(10) NOT NULL,
+    status VARCHAR(10) NOT NULL CHECK (status IN ('active', 'cancelled', 'fulfilled')),
     reserved_at DATETIME NOT NULL,
     ended_at DATETIME,
+    -- Copy id while active and empty after. The unique key allows one active reservation per copy.
+    active_book_id INT UNSIGNED GENERATED ALWAYS AS (IF(status = 'active', book_id, NULL)) STORED,
+    UNIQUE KEY one_active_reservation (active_book_id),
     FOREIGN KEY (book_id) REFERENCES books(id),
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
@@ -62,9 +65,24 @@ CREATE TABLE loans (
     due_date DATE NOT NULL,
     returned_at DATETIME,
     returned_to INT UNSIGNED,
+    -- Copy id while open and empty after. The unique key allows one open loan per copy.
+    open_book_id INT UNSIGNED GENERATED ALWAYS AS (IF(returned_at IS NULL, book_id, NULL)) STORED,
+    UNIQUE KEY one_open_loan (open_book_id),
     FOREIGN KEY (book_id) REFERENCES books(id),
     FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (reservation_id) REFERENCES reservations(id),
     FOREIGN KEY (loaned_by) REFERENCES users(id),
     FOREIGN KEY (returned_to) REFERENCES users(id)
 );
+
+-- A copy on loan cannot get a new active reservation. A plain constraint cannot compare two tables.
+DELIMITER $$
+CREATE TRIGGER no_reservation_on_loan
+BEFORE INSERT ON reservations
+FOR EACH ROW
+BEGIN
+    IF NEW.status = 'active' AND EXISTS (SELECT 1 FROM loans WHERE book_id = NEW.book_id AND returned_at IS NULL) THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'This copy is on loan';
+    END IF;
+END$$
+DELIMITER ;

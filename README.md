@@ -96,7 +96,7 @@ The database is called `lectern` and has five tables. The full description and t
 | `reservations` | A member asking for a copy, with a status |
 | `loans` | A copy handed to a member, open until it is returned |
 
-A copy can be reserved only when it has no active reservation and no open loan. The state of a copy is never stored in `books`, it is worked out from the other two tables, so it cannot get out of date. The sample data has 31 copies of 27 titles in five categories.
+A copy can be reserved only when it has no active reservation and no open loan. The database enforces this itself and PHP does not have to. Two unique keys allow one active reservation and one open loan per copy, a check limits the status of a reservation, and a trigger refuses a new active reservation on a copy that is on loan. The state of a copy is never stored in `books`, it is worked out from the other two tables, so it cannot get out of date. The sample data has 31 copies of 27 titles in five categories.
 
 ## Setup
 
