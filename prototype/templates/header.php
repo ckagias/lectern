@@ -1,10 +1,7 @@
 <?php
-// Opens every page: head, header, menu and the start of <main>.
-// The page sets $base, $title, $layout (public, member or librarian) and $active (the menu item to highlight) first.
+// The top of every page: the skip link, the header and, for a logged in member or librarian, the menu.
+// The page sets $base, $layout (public, member or librarian) and $active (the menu item to highlight) first.
 // On the login page $active is 'login', so the header offers Register there instead of Log in.
-// A page can also set $styles, a list of extra stylesheet paths like 'css/home.css', and $bodyClass for an extra class on <body>.
-$lang = $_SESSION['lang'];
-$current = 'aria-current="page"';
 $other = 'en';
 if ($lang === 'en') {
     $other = 'el';
@@ -14,29 +11,6 @@ if ($layout !== 'public') {
     $home = 'dashboard.php';
 }
 ?>
-<!DOCTYPE html>
-<html lang="<?php echo $lang; ?>">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="color-scheme" content="only light">
-    <title><?php echo $title; ?> · AchaiaReads</title>
-    <link rel="icon" href="<?php echo $base; ?>pictures/favicon.png" type="image/png">
-    <link rel="stylesheet" href="<?php echo $base; ?>css/fonts.css">
-    <link rel="stylesheet" href="<?php echo $base; ?>css/tokens.css">
-    <link rel="stylesheet" href="<?php echo $base; ?>css/base.css">
-    <link rel="stylesheet" href="<?php echo $base; ?>css/layout.css">
-    <link rel="stylesheet" href="<?php echo $base; ?>css/components.css">
-    <link rel="stylesheet" href="<?php echo $base; ?>css/forms.css">
-    <?php
-    if (isset($styles)) {
-        foreach ($styles as $style) {
-            echo '<link rel="stylesheet" href="' . $base . $style . '">';
-        }
-    }
-    ?>
-</head>
-<body class="layout-<?php echo $layout; ?><?php if ($layout !== 'public') { echo ' layout-app'; } ?><?php if (isset($bodyClass)) { echo ' ' . $bodyClass; } ?>">
     <a class="skip" href="#main"><?php echo t('skip_link'); ?></a>
 
     <header class="top">
@@ -61,11 +35,11 @@ if ($layout !== 'public') {
 
     <?php if ($layout !== 'public') { ?>
         <nav class="nav" aria-label="<?php echo t('nav_label'); ?>">
-            <a href="<?php echo $base; ?>dashboard.php" <?php if ($active === 'home') { echo $current; } ?>>
+            <a href="<?php echo $base; ?>dashboard.php"<?php if ($active === 'home') { ?> aria-current="page"<?php } ?>>
                 <svg class="icon icon-off" aria-hidden="true"><use href="#ic-home-o"/></svg><svg class="icon icon-on" aria-hidden="true"><use href="#ic-home"/></svg><span><?php echo t('nav_home'); ?></span>
             </a>
             <?php foreach ($menus[$layout] as $item) { ?>
-                <a href="<?php echo $base . $item['page']; ?>" <?php if ($active === $item['key']) { echo $current; } ?>>
+                <a href="<?php echo $base . $item['page']; ?>"<?php if ($active === $item['key']) { ?> aria-current="page"<?php } ?>>
                     <svg class="icon icon-off" aria-hidden="true"><use href="#ic-<?php echo $item['icon']; ?>-o"/></svg><svg class="icon icon-on" aria-hidden="true"><use href="#ic-<?php echo $item['icon']; ?>"/></svg><span><?php echo t($item['label']); ?></span>
                 </a>
             <?php } ?>
@@ -75,5 +49,3 @@ if ($layout !== 'public') {
             </div>
         </nav>
     <?php } ?>
-
-    <main id="main">

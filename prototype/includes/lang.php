@@ -16,6 +16,9 @@ if (!isset($_SESSION['lang'])) {
     }
 }
 
+// The language code, el or en, that every page prints as the lang attribute of its html element.
+$lang = $_SESSION['lang'];
+
 /**
  * Returns the text for this key in the current language.
  *

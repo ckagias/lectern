@@ -49,39 +49,61 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $layout = 'public';
 $title = t('login');
 $active = 'login';
-$styles = ['css/auth.css'];
-$bodyClass = 'layout-auth';
-$scripts = ['js/validate.js'];
-require $base . 'templates/header.php';
 ?>
-<div class="auth">
-    <div class="auth-head">
-        <h1><?php echo t('login'); ?></h1>
-        <p class="auth-lead"><?php echo t('auth_login_lead'); ?></p>
-    </div>
-    <?php if ($errors['login'] !== '') { ?>
-        <div class="flash flash-error" role="alert"><svg class="icon" aria-hidden="true"><use href="#ic-alert"/></svg><p><?php echo t($errors['login']); ?></p></div>
-    <?php } elseif ($flash !== '') { ?>
-        <div class="flash flash-success"><svg class="icon" aria-hidden="true"><use href="#ic-check-line"/></svg><p><?php echo t($flash); ?></p></div>
-    <?php } ?>
+<!DOCTYPE html>
+<html lang="<?php echo $lang; ?>">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="only light">
+    <title><?php echo $title; ?> · AchaiaReads</title>
+    <link rel="icon" href="<?php echo $base; ?>pictures/favicon.png" type="image/png">
+    <link rel="stylesheet" href="<?php echo $base; ?>css/fonts.css">
+    <link rel="stylesheet" href="<?php echo $base; ?>css/tokens.css">
+    <link rel="stylesheet" href="<?php echo $base; ?>css/base.css">
+    <link rel="stylesheet" href="<?php echo $base; ?>css/layout.css">
+    <link rel="stylesheet" href="<?php echo $base; ?>css/components.css">
+    <link rel="stylesheet" href="<?php echo $base; ?>css/forms.css">
+    <link rel="stylesheet" href="<?php echo $base; ?>css/auth.css">
+</head>
+<body class="layout-public layout-auth">
+    <?php require $base . 'templates/header.php'; ?>
 
-    <form class="panel" id="login-form" action="login.php" method="post" novalidate>
-        <div class="field">
-            <label for="email"><?php echo t('reg_email'); ?></label>
-            <input class="input" id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-error" data-rule="email" data-error="<?php echo e(t('err_email')); ?>"<?php if ($errors['email'] !== '') { echo ' aria-invalid="true"'; } ?> value="<?php echo e($email); ?>">
-            <p class="error" id="email-error" aria-live="polite"><?php echo t($errors['email']); ?></p>
+    <main id="main">
+        <div class="auth">
+            <div class="auth-head">
+                <h1><?php echo t('login'); ?></h1>
+                <p class="auth-lead"><?php echo t('auth_login_lead'); ?></p>
+            </div>
+            <?php if ($errors['login'] !== '') { ?>
+                <div class="flash flash-error" role="alert"><svg class="icon" aria-hidden="true"><use href="#ic-alert"/></svg><p><?php echo t($errors['login']); ?></p></div>
+            <?php } elseif ($flash !== '') { ?>
+                <div class="flash flash-success"><svg class="icon" aria-hidden="true"><use href="#ic-check-line"/></svg><p><?php echo t($flash); ?></p></div>
+            <?php } ?>
+
+            <form class="panel" id="login-form" action="login.php" method="post" novalidate>
+                <div class="field">
+                    <label for="email"><?php echo t('reg_email'); ?></label>
+                    <input class="input" id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-error" data-rule="email" data-error="<?php echo e(t('err_email')); ?>"<?php if ($errors['email'] !== '') { ?> aria-invalid="true"<?php } ?> value="<?php echo e($email); ?>">
+                    <p class="error" id="email-error" aria-live="polite"><?php echo t($errors['email']); ?></p>
+                </div>
+
+                <div class="field">
+                    <label for="password"><?php echo t('reg_password'); ?></label>
+                    <input class="input" id="password" name="password" type="password" autocomplete="current-password" required aria-describedby="password-error" data-rule="filled" data-error="<?php echo e(t('err_password_empty')); ?>"<?php if ($errors['password'] !== '') { ?> aria-invalid="true"<?php } ?>>
+                    <p class="error" id="password-error" aria-live="polite"><?php echo t($errors['password']); ?></p>
+                </div>
+
+                <button class="btn action block" type="submit"><?php echo t('login'); ?></button>
+            </form>
+
+            <p class="switch"><?php echo t('log_no_account'); ?> <a href="register.php"><?php echo t('register'); ?></a></p>
+            <p class="auth-legal"><?php echo t('auth_legal_before'); ?><a href="privacy.php"><?php echo t('privacy_link'); ?></a><?php echo t('auth_legal_after'); ?></p>
         </div>
+    </main>
 
-        <div class="field">
-            <label for="password"><?php echo t('reg_password'); ?></label>
-            <input class="input" id="password" name="password" type="password" autocomplete="current-password" required aria-describedby="password-error" data-rule="filled" data-error="<?php echo e(t('err_password_empty')); ?>"<?php if ($errors['password'] !== '') { echo ' aria-invalid="true"'; } ?>>
-            <p class="error" id="password-error" aria-live="polite"><?php echo t($errors['password']); ?></p>
-        </div>
-
-        <button class="btn action block" type="submit"><?php echo t('login'); ?></button>
-    </form>
-
-    <p class="switch"><?php echo t('log_no_account'); ?> <a href="register.php"><?php echo t('register'); ?></a></p>
-    <p class="auth-legal"><?php echo t('auth_legal_before'); ?><a href="privacy.php"><?php echo t('privacy_link'); ?></a><?php echo t('auth_legal_after'); ?></p>
-</div>
-<?php require $base . 'templates/footer.php'; ?>
+    <?php require $base . 'templates/footer.php'; ?>
+    <?php require $base . 'templates/icons.php'; ?>
+    <script src="<?php echo $base; ?>js/validate.js"></script>
+</body>
+</html>

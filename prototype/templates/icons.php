@@ -1,4 +1,4 @@
-<?php // The icon sprite. Icons are used with <use href="#ic-name"/>. ?>
+<?php // The icon sprite. An icon is shown by pointing a use element at its id. ?>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <defs>
         <symbol id="ic-logo" viewBox="0 0 32 32"><g transform="translate(7.5 30) rotate(15)"><rect x="-2.0" y="-26" width="4" height="21.4" rx="1"/><rect x="-2.0" y="-3.4" width="4" height="3.4" rx="1"/></g><g transform="translate(24.5 30) rotate(-15)"><rect x="-2.0" y="-26" width="4" height="21.4" rx="1"/><rect x="-2.0" y="-3.4" width="4" height="3.4" rx="1"/></g><rect x="12.8" y="18.6" width="6.4" height="3.4" rx="0.8"/></symbol>
