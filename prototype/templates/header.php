@@ -4,15 +4,11 @@ $other = 'en';
 if ($lang === 'en') {
     $other = 'el';
 }
-$home = 'index.php';
-if ($layout !== 'public') {
-    $home = 'dashboard.php';
-}
 ?>
     <a class="skip" href="#main"><?php echo t('skip_link'); ?></a>
 
     <header class="top">
-        <a class="brand" href="<?php echo $base . $home; ?>"><svg class="icon brand-mark" aria-hidden="true"><use href="#ic-logo"/></svg>AchaiaReads</a>
+        <a class="brand" href="<?php echo $base; ?>index.php"><svg class="icon brand-mark" aria-hidden="true"><use href="#ic-logo"/></svg>AchaiaReads</a>
         <div class="top-actions">
             <a class="lang" href="?lang=<?php echo $other; ?>" title="<?php echo t('lang_to_' . $other); ?>">
                 <svg class="flag" aria-hidden="true"><use href="#flag-<?php echo $lang; ?>"/></svg><span aria-hidden="true"><?php echo strtoupper($lang); ?></span><span class="visually-hidden"><?php echo strtoupper($lang) . ', ' . t('lang_to_' . $other); ?></span>
