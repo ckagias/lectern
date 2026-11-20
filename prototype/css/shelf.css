@@ -45,7 +45,7 @@
 /* Each book sets its own colour in --cloth. */
 .book {
   --tex: url("../pictures/texture-book-cloth.jpg");
-  --spine-colour: var(--spine-text);
+  --spine-color: var(--spine-text);
   position: relative;
   flex: 1 1 0;
   min-width: 0;
@@ -73,7 +73,7 @@
 }
 
 .book.light {
-  --spine-colour: var(--text);
+  --spine-color: var(--text);
 }
 
 .book.plain .spine::before {
@@ -114,10 +114,10 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(var(--spine-colour), var(--spine-colour)) 0 12px / 100% 2px no-repeat,
-    linear-gradient(var(--spine-colour), var(--spine-colour)) 0 18px / 100% 2px no-repeat,
-    linear-gradient(var(--spine-colour), var(--spine-colour)) 0 calc(100% - 20px) / 100% 2px no-repeat,
-    linear-gradient(var(--spine-colour), var(--spine-colour)) 0 calc(100% - 14px) / 100% 2px no-repeat;
+    linear-gradient(var(--spine-color), var(--spine-color)) 0 12px / 100% 2px no-repeat,
+    linear-gradient(var(--spine-color), var(--spine-color)) 0 18px / 100% 2px no-repeat,
+    linear-gradient(var(--spine-color), var(--spine-color)) 0 calc(100% - 20px) / 100% 2px no-repeat,
+    linear-gradient(var(--spine-color), var(--spine-color)) 0 calc(100% - 14px) / 100% 2px no-repeat;
   opacity: 0.85;
 }
 
@@ -162,7 +162,7 @@
   letter-spacing: 0.04em;
   white-space: nowrap;
   writing-mode: vertical-rl;
-  color: var(--spine-colour);
+  color: var(--spine-color);
   pointer-events: none;
 }
 

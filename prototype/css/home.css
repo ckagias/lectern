@@ -10,7 +10,6 @@
   background-color: var(--dark);
 }
 
-/* A dark fade keeps the text readable on the photo. */
 .hero-img {
   position: absolute;
   inset: 0;
@@ -20,11 +19,12 @@
   object-position: center 35%;
 }
 
+/* A dark fade keeps the text readable on the photo. */
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(0deg, var(--hero-fade-left), transparent 65%), linear-gradient(var(--hero-fade-middle), var(--hero-fade-middle));
+  background: linear-gradient(0deg, var(--hero-fade-strong), transparent 65%), linear-gradient(var(--hero-fade-medium), var(--hero-fade-medium));
 }
 
 .hero-in {
@@ -161,7 +161,7 @@
   }
 
   .hero::after {
-    background: linear-gradient(0deg, var(--hero-fade-left), transparent 60%), linear-gradient(90deg, var(--hero-fade-left), var(--hero-fade-middle) 55%, var(--hero-fade-right));
+    background: linear-gradient(0deg, var(--hero-fade-strong), transparent 60%), linear-gradient(90deg, var(--hero-fade-strong), var(--hero-fade-medium) 55%, var(--hero-fade-light));
   }
 
   .hero-in,

@@ -31,9 +31,9 @@
   --success: #125c35;
   --success-bg: #dcf9e5;
 
-  --hero-fade-left: rgba(5, 6, 8, 0.82);
-  --hero-fade-middle: rgba(5, 6, 8, 0.5);
-  --hero-fade-right: rgba(5, 6, 8, 0.15);
+  --hero-fade-strong: rgba(5, 6, 8, 0.82);
+  --hero-fade-medium: rgba(5, 6, 8, 0.5);
+  --hero-fade-light: rgba(5, 6, 8, 0.15);
   --hero-fade-top: rgba(2, 3, 5, 0.6);
 
   --spine-text: #f8f2dc;
