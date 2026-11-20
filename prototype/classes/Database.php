@@ -4,6 +4,7 @@ class Database
 {
     private $conn;
 
+    // Connects to the lectern database.
     public function __construct()
     {
         // Errors become exceptions so a page can show a message.

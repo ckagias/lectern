@@ -4,6 +4,7 @@ class User
 {
     private $db;
 
+    // Keeps the database connection to use.
     public function __construct($db)
     {
         $this->db = $db;

@@ -30,6 +30,7 @@ class Validator
         return '';
     }
 
+    // Both password fields must be the same.
     public function passwordsMatch($password, $confirm)
     {
         if ($password !== $confirm) {
@@ -38,6 +39,7 @@ class Validator
         return '';
     }
 
+    // Only member and librarian are allowed.
     public function role($value)
     {
         if ($value !== 'member' && $value !== 'librarian') {
