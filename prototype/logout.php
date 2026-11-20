@@ -1,5 +1,5 @@
 <?php
-// Logout: the logout button posts here. The session and its cookie are removed, then the visitor goes to the public page.
+// The logout button posts here. The session and cookie are removed. The visitor then goes home.
 $base = '';
 require_once $base . 'includes/init.php';
 

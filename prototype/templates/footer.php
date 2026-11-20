@@ -1,5 +1,5 @@
 <?php
-// The footer of the public pages: opening hours, contact details and links.
+// The footer of the public pages.
 $weekdays = openingHours(1);
 $saturday = openingHours(6);
 ?>

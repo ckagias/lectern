@@ -2,7 +2,7 @@
 var lat = 38.2457;
 var lng = 21.7350;
 
-// On a phone one finger scrolls the page, and two fingers zoom the map.
+// On phones one finger scrolls the page. Two fingers zoom the map.
 var map = L.map('map', {dragging: !L.Browser.mobile}).setView([lat, lng], 16);
 
 var tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -11,7 +11,7 @@ var tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 });
 tiles.addTo(map);
 
-// Without internet the tiles cannot load, so a message explains the empty map.
+// Offline the tiles fail so a note explains the empty map.
 tiles.on('tileerror', function () {
     document.getElementById('map-note').hidden = false;
 });

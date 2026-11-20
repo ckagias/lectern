@@ -1,5 +1,5 @@
 <?php
-// FAQ page: short answers to the questions people ask most.
+// Short answers to common questions.
 $base = '';
 require_once $base . 'includes/init.php';
 
@@ -7,7 +7,7 @@ $layout = 'public';
 $title = t('faq_title');
 $active = 'faq';
 
-// The questions in the order they appear. Each one has a faq_q_ and a faq_a_ text in the language files.
+// The language files hold faq_q_ for the question and faq_a_ for the answer.
 $questions = ['join', 'reserve', 'loan', 'hours', 'language', 'data', 'real'];
 
 ?>

@@ -1,5 +1,5 @@
 <?php
-// Dashboard: the first page after login, the same for both roles. Only the two lists differ by role.
+// The first page after login. Both roles see it with different lists.
 $base = '';
 require_once $base . 'includes/init.php';
 requireLogin($base);
@@ -7,9 +7,10 @@ requireLogin($base);
 $layout = roleName();
 $title = t('dashboard_title');
 $active = 'home';
+// date('N') gives the weekday from 1 to 7.
 $status = openingStatus(date('N'), date('H:i'));
 
-// The two lists of each role: the page with the full list, the title, and the title and text shown while the list is empty.
+// The two lists of each role with the text shown when a list is empty.
 $lists = [
     'member' => [
         ['page' => 'member/loans.php', 'title' => 'dash_member_loans_title', 'empty_title' => 'dash_member_loans_empty_title', 'empty_text' => 'dash_member_loans_empty'],

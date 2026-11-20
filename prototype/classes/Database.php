@@ -1,29 +1,19 @@
 <?php
-/** Opens the database connection and runs prepared queries. */
+// Connects to the database and runs prepared queries.
 class Database
 {
-    /** @var mysqli The open connection. */
     private $conn;
 
-    /**
-     * Connects to the lectern database.
-     *
-     * @throws mysqli_sql_exception When the database cannot be reached.
-     */
     public function __construct()
     {
+        // Errors become exceptions so a page can show a message.
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         $this->conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+        // utf8mb4 keeps Greek letters correct.
         $this->conn->set_charset('utf8mb4');
     }
 
-    /**
-     * Runs a SELECT and returns all rows as an array.
-     *
-     * @param string $sql The query, with a ? for every value.
-     * @param array $params The values for the ? marks, in the same order.
-     * @return array The rows, each one an array of column values.
-     */
+    // Runs a SELECT and returns every row.
     public function select($sql, $params)
     {
         $stmt = $this->run($sql, $params);
@@ -36,13 +26,7 @@ class Database
         return $rows;
     }
 
-    /**
-     * Runs an INSERT, UPDATE or DELETE and returns the id of the new row.
-     *
-     * @param string $sql The query, with a ? for every value.
-     * @param array $params The values for the ? marks, in the same order.
-     * @return int The id of the inserted row, or 0 for an UPDATE or DELETE.
-     */
+    // Runs a query that changes data and returns the new id.
     public function execute($sql, $params)
     {
         $stmt = $this->run($sql, $params);
@@ -51,16 +35,11 @@ class Database
         return $id;
     }
 
-    /**
-     * Prepares the query and runs it with the values for the ? marks.
-     *
-     * @param string $sql The query, with a ? for every value.
-     * @param array $params The values for the ? marks, in the same order.
-     * @return mysqli_stmt The statement after it has run.
-     */
+    // The values are sent apart from the SQL. This blocks SQL injection.
     private function run($sql, $params)
     {
         $stmt = $this->conn->prepare($sql);
+        // Every value is bound as a string. MySQL converts it to the column type.
         $stmt->bind_param(str_repeat('s', count($params)), ...$params);
         $stmt->execute();
         return $stmt;

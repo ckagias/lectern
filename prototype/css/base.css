@@ -1,4 +1,4 @@
-/* Base styles: reset, type, focus ring, skip link and icons. */
+/* Base rules for every page. */
 * {
   box-sizing: border-box;
 }
@@ -7,7 +7,6 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
-/* A thin scrollbar in the colours of the shelf. */
 ::-webkit-scrollbar {
   width: 5px;
 }
@@ -90,7 +89,7 @@ svg {
   outline-color: var(--on-dark);
 }
 
-/* Hidden link that appears on keyboard focus and jumps past the header. */
+/* The skip link stays hidden until it gets keyboard focus. */
 .skip {
   position: absolute;
   top: -60px;
@@ -105,7 +104,7 @@ svg {
   top: 8px;
 }
 
-/* Text for screen readers only. */
+/* Text only for screen readers. */
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -115,7 +114,6 @@ svg {
   clip: rect(0 0 0 0);
 }
 
-/* Inline SVG icons. */
 .icon {
   flex: none;
   width: 24px;
@@ -123,7 +121,7 @@ svg {
   fill: currentColor;
 }
 
-/* From 900px: desktop */
+/* Desktop from 900px. */
 @media (min-width: 900px) {
   h1 {
     font-size: 2.75rem;

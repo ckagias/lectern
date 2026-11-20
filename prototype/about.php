@@ -1,5 +1,5 @@
 <?php
-// About page: what the library does and how reserving and borrowing works.
+// Tells what the library does and how borrowing works.
 $base = '';
 require_once $base . 'includes/init.php';
 

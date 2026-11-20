@@ -1,4 +1,4 @@
-/* Text pages (About us, Privacy, FAQ): one readable column under the header. */
+/* Text pages with one readable column. */
 .text-page {
   max-width: 44rem;
   margin-inline: auto;
@@ -37,7 +37,7 @@
   margin-top: 40px;
 }
 
-/* From 600px: tablet */
+/* Tablet from 600px. */
 @media (min-width: 600px) {
   .text-page {
     padding: 72px 32px 0;

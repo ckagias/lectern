@@ -2,13 +2,13 @@
 require_once $base . 'includes/lang_el.php';
 require_once $base . 'includes/lang_en.php';
 
-// A link like ?lang=en switches the language. The choice is kept in the session and a cookie.
+// ?lang=en switches the language. It is saved in the session and a cookie.
 if (isset($_GET['lang']) && ($_GET['lang'] === 'el' || $_GET['lang'] === 'en')) {
     $_SESSION['lang'] = $_GET['lang'];
     setcookie('lang', $_GET['lang'], time() + 31536000, '/');
 }
 
-// First visit: use the cookie, or Greek when there is none.
+// On the first visit the cookie decides. Greek is the default.
 if (!isset($_SESSION['lang'])) {
     $_SESSION['lang'] = 'el';
     if (isset($_COOKIE['lang']) && $_COOKIE['lang'] === 'en') {
@@ -16,15 +16,10 @@ if (!isset($_SESSION['lang'])) {
     }
 }
 
-// The language code, el or en, that every page prints as the lang attribute of its html element.
+// Pages print this code in the lang attribute.
 $lang = $_SESSION['lang'];
 
-/**
- * Returns the text for this key in the current language.
- *
- * @param string $key The key of the text in the language files.
- * @return string The text, or the key itself when the text does not exist.
- */
+// Returns the text for a key or the key itself if it is missing.
 function t($key)
 {
     global $lang_el, $lang_en;

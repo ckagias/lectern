@@ -1,6 +1,6 @@
-/* The bookshelf on the home page: a row of spines on a board, the five categories under it, and the open book that shows one book. Made with CSS only. */
+/* The shelf and the open book. Built with CSS only. */
 
-/* Shelf. The board follows the idea of a CodePen bookshelf by ekfuhrmann. The text on the spines cannot be selected. */
+/* The board idea comes from a CodePen bookshelf by ekfuhrmann. */
 .shelf {
   isolation: isolate;
   margin: 8px 0 0;
@@ -20,7 +20,7 @@
   padding: 16px 20px 0;
 }
 
-/* The top of the board. The transparent side borders cut its corners at an angle. */
+/* Transparent side borders cut the board corners at an angle. */
 .board {
   position: relative;
   box-sizing: border-box;
@@ -30,7 +30,6 @@
   border-left: 20px solid transparent;
 }
 
-/* The front of the board. */
 .board::before {
   content: "";
   position: absolute;
@@ -43,7 +42,7 @@
   box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.05), 0 4px 16px rgba(0, 0, 0, 0.25);
 }
 
-/* Book. The colour of the cloth comes from the book itself (--cloth, set in the page). */
+/* Each book sets its own colour in --cloth. */
 .book {
   --tex: url("../pictures/texture-book-cloth.jpg");
   --spine-colour: var(--spine-text);
@@ -73,17 +72,14 @@
   --tex: url("../pictures/texture-linen.jpg");
 }
 
-/* Pale cloth has dark lettering. */
 .book.light {
   --spine-colour: var(--text);
 }
 
-/* Some books have no gilt bands. */
 .book.plain .spine::before {
   display: none;
 }
 
-/* Books appear with a small rise when a category is chosen. */
 .books.swapped .book {
   animation: rise 0.45s var(--ease) backwards;
 }
@@ -95,14 +91,14 @@
   }
 }
 
-/* On phones the shelf starts with the first 12 books. A chosen category shows all of its books. */
+/* Phones start with the first 12. A chosen category shows all of its books. */
 @media (max-width: 599px) {
   .books:not(.filtered) .book:nth-child(n + 13) {
     display: none;
   }
 }
 
-/* Spine. The gilt bands are drawn with background layers and the round shading is the ::after layer. */
+/* Background layers draw the gilt bands and ::after draws the round shading. */
 .spine {
   position: absolute;
   inset: 0;
@@ -170,7 +166,7 @@
   pointer-events: none;
 }
 
-/* A focused book, and a hovered one on devices that can hover, pops up a little. */
+/* A focused book lifts a little. A hovered one does too on devices with hover. */
 .book:focus-visible {
   transform: translateY(-14px);
 }
@@ -189,7 +185,6 @@
   }
 }
 
-/* Categories: one press shows that category on the shelf, a second press goes back. */
 .categories {
   display: flex;
   flex-wrap: wrap;
@@ -223,7 +218,7 @@
   border-bottom-color: var(--text);
 }
 
-/* Open book: two paper pages on the cloth of the book that was clicked. On phones the pages stand under each other. */
+/* Two paper pages in the cloth colour of the clicked book. They stack on phones. */
 .open-book {
   width: min(56rem, calc(100vw - 24px));
   max-height: none;
@@ -380,7 +375,7 @@
   height: 20px;
 }
 
-/* From 900px: the two pages stand side by side like an open book. */
+/* Desktop from 900px. The pages sit next to each other like an open book. */
 @media (min-width: 900px) {
   .spread {
     display: grid;
@@ -419,7 +414,7 @@
   }
 }
 
-/* People who ask for less motion get no animation on the shelf and the open book. */
+/* No animation for visitors who ask for less motion. */
 @media (prefers-reduced-motion: reduce) {
   .books.swapped .book,
   .open-book[open],
@@ -428,7 +423,7 @@
   }
 }
 
-/* Print: only the open book is printed. */
+/* Only the open book is printed. */
 @media print {
   .skip,
   .top,

@@ -1,6 +1,5 @@
 <?php
-// The menu of each role. The side menu and the dashboard both loop over these lists.
-// An item has the page it opens, its icon, the text key of its name and the text key of its description.
+// The menu of each role. The navigation and the dashboard loop over it.
 $menus = [
     'member' => [
         ['key' => 'catalogue', 'page' => 'member/catalogue.php', 'icon' => 'search', 'label' => 'nav_catalogue', 'text' => 'dashboard_catalogue'],

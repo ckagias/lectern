@@ -1,5 +1,5 @@
 <?php
-// Librarian returns: an empty page for now.
+// Empty for now.
 $base = '../';
 require_once $base . 'includes/init.php';
 requireRole(ROLE_LIBRARIAN, $base);

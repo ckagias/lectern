@@ -1,5 +1,5 @@
 <?php
-// Member history: an empty page for now.
+// Empty for now.
 $base = '../';
 require_once $base . 'includes/init.php';
 requireRole(ROLE_MEMBER, $base);

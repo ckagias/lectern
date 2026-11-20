@@ -1,5 +1,5 @@
 <?php
-// Shown when a user opens a page that belongs to the other role. Visitors who are not logged in go to the login page instead.
+// Shown when a user opens a page of the other role. Logged out visitors go to login instead.
 $base = '';
 require_once $base . 'includes/init.php';
 requireLogin($base);

@@ -1,5 +1,5 @@
 <?php
-// Librarian books: an empty page for now. Adding and editing books come later.
+// Empty for now. Adding and editing books come later.
 $base = '../';
 require_once $base . 'includes/init.php';
 requireRole(ROLE_LIBRARIAN, $base);

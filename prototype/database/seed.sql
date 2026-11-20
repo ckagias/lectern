@@ -3,12 +3,12 @@
 SET NAMES utf8mb4;
 USE lectern;
 
--- Demo accounts, the passwords are in notes/database.md
+-- Demo accounts. The passwords are in notes/database.md.
 INSERT INTO users (id, username, email, password_hash, role_id, created_at) VALUES
     (1, 'member_demo', 'member@lectern.test', '$2y$12$0.Q4p.9yj19EmXmAzkcQPuePrZJjILooKuwXi1sEiVLV2EUu2ERQa', 1, '2026-11-01 09:00:00'),
     (2, 'librarian_demo', 'librarian@lectern.test', '$2y$12$OSTouY0h7MWd.GwHTGM4vuKfDsQc.oWp0mxAXSlV/hdxyDJrbOB62', 2, '2026-11-01 09:00:00');
 
--- Two rows with the same title are two copies
+-- Two rows with the same title are two copies.
 INSERT INTO books (id, title, author, call_number, category, published_year, description, created_at, updated_at) VALUES
     (1, 'Pride and Prejudice', 'Jane Austen', 'FIC-001-A', 'Fiction', 1813, 'Elizabeth Bennet and Mr Darcy misjudge each other in a country town obsessed with marriage and money.', '2026-11-01 09:00:00', '2026-11-01 09:00:00'),
     (2, 'Pride and Prejudice', 'Jane Austen', 'FIC-001-B', 'Fiction', 1813, 'Elizabeth Bennet and Mr Darcy misjudge each other in a country town obsessed with marriage and money.', '2026-11-01 09:00:00', '2026-11-01 09:00:00'),
@@ -42,7 +42,7 @@ INSERT INTO books (id, title, author, call_number, category, published_year, des
     (30, 'Euclid''s Elements', 'Euclid', 'SCI-003-A', 'Science', NULL, 'The geometry textbook that builds every proof from a few simple definitions, used for over two thousand years.', '2026-11-01 09:00:00', '2026-11-01 09:00:00'),
     (31, 'Opticks', 'Isaac Newton', 'SCI-004-A', 'Science', 1704, 'Newton''s experiments on light and colour, including how a prism splits white light.', '2026-11-01 09:00:00', '2026-11-01 09:00:00');
 
--- Jane Eyre on loan, Dracula returned, Pride and Prejudice (copy A) reserved, Moby-Dick cancelled
+-- Jane Eyre is on loan. Dracula is returned. Pride and Prejudice is reserved. Moby-Dick is cancelled.
 INSERT INTO reservations (id, book_id, user_id, status, reserved_at, ended_at) VALUES
     (1, 3, 1, 'fulfilled', '2026-11-04 10:00:00', '2026-11-05 11:00:00'),
     (2, 15, 1, 'fulfilled', '2026-10-04 10:00:00', '2026-10-05 11:00:00'),

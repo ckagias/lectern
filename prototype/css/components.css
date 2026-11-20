@@ -1,4 +1,4 @@
-/* Reusable parts: the buttons. */
+/* Button styles. */
 .btn {
   display: inline-flex;
   gap: 8px;
@@ -25,7 +25,6 @@
   transform: scale(0.98);
 }
 
-/* Main action, in ink like every button. It lifts on hover. */
 .btn.action {
   border-color: var(--dark);
   color: var(--on-dark);
@@ -36,7 +35,6 @@
   box-shadow: var(--shadow-raised);
 }
 
-/* White button for photos and dark backgrounds, like the hero. */
 .btn.white {
   border-color: var(--white);
   color: var(--text);
@@ -47,19 +45,16 @@
   filter: brightness(0.93);
 }
 
-/* Over the photo the white button gets the same thin grey edge as the other buttons. */
 .hero .btn.white {
   border-color: var(--border-photo);
 }
 
-/* Second button: an ink outline on light backgrounds, a white outline over photos and dark backgrounds. */
 .btn.line {
   border-color: var(--border);
   color: var(--text);
   background: var(--light-grey);
 }
 
-/* Flat and grey at rest, white and lifted on hover. Cards, tabs and choices follow the same rule. */
 .btn.line:hover {
   border-color: var(--text-light);
   background: var(--white);

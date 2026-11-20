@@ -1,5 +1,5 @@
 <?php
-// Login page: email and password. A right pair starts the session and opens the dashboard.
+// Checks the email and password. A right pair starts the session and opens the dashboard.
 $base = '';
 require_once $base . 'includes/init.php';
 
@@ -7,7 +7,7 @@ if (isLoggedIn()) {
     redirect('dashboard.php');
 }
 
-// A message left by the page before, for example after registering, is shown once.
+// A message from the previous page shows once. Registering leaves one.
 $flash = '';
 if (isset($_SESSION['flash'])) {
     $flash = $_SESSION['flash'];
@@ -17,6 +17,7 @@ if (isset($_SESSION['flash'])) {
 $email = '';
 $errors = ['email' => '', 'password' => '', 'login' => ''];
 
+// The form was sent.
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim(post('email'));
     $password = post('password');
@@ -30,10 +31,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $users = new User(new Database());
             $user = $users->checkLogin($email, $password);
             if ($user === null) {
-                // One message for a wrong email and a wrong password, so it does not tell which one was wrong.
+                // One message for a wrong email or password. It does not reveal which failed.
                 $errors['login'] = 'err_login';
             } else {
-                // A new session id, so an id someone else knew before the login is no longer valid.
+                // A new session id makes an id known before login useless.
                 session_regenerate_id(true);
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['username'] = $user['username'];
@@ -41,6 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 redirect('dashboard.php');
             }
         } catch (Exception $e) {
+            // The database could not be reached.
             $errors['login'] = 'err_database';
         }
     }

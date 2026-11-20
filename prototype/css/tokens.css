@@ -1,6 +1,6 @@
-/* Design tokens: every colour used in more than one place, plus the type sizes, radii and shadows. */
+/* Shared values for colours and type and shape. */
 :root {
-  /* Light surfaces and text. Dark is the one dark colour: buttons, side menu, footer and focus ring. */
+  /* Light surfaces and text. The dark colour is used on buttons and menus and the footer. */
   --page: #fafbfc;
   --surface: #fcfdfe;
   --white: #ffffff;
@@ -15,7 +15,7 @@
   --link-hover: #00419b;
   --dark: #0d1012;
 
-  /* On dark surfaces: side menu, tab bar, footer, buttons. */
+  /* Colours on dark surfaces such as the side menu and the footer. */
   --on-dark: #f9fafb;
   --on-dark-nav: #a3a4a5;
   --on-dark-foot: #bcbec0;
@@ -26,19 +26,16 @@
   --border-photo: #ababab;
   --border-on-dark: rgba(249, 250, 251, 0.55);
 
-  /* Messages */
   --error: #9e2034;
   --error-bg: #ffeaea;
   --success: #125c35;
   --success-bg: #dcf9e5;
 
-  /* Hero photo: a fade stronger on the left where the text is. */
   --hero-fade-left: rgba(5, 6, 8, 0.82);
   --hero-fade-middle: rgba(5, 6, 8, 0.5);
   --hero-fade-right: rgba(5, 6, 8, 0.15);
   --hero-fade-top: rgba(2, 3, 5, 0.6);
 
-  /* Bookshelf: lettering, board, open book pages, the dark layer behind the open book and the scrollbar. */
   --spine-text: #f8f2dc;
   --shelf: #cfd1d3;
   --shelf-dark: #b5b8ba;
@@ -48,7 +45,6 @@
   --scrollbar: #87898c;
   --scrollbar-hover: #56585b;
 
-  /* Type */
   --font: "Source Sans 3", system-ui, sans-serif;
   --font-heading: "Source Serif 4", Georgia, serif;
   --text-sm: 1rem;
@@ -57,7 +53,6 @@
   --text-xl: 1.5rem;
   --text-2xl: 2rem;
 
-  /* Shape and motion. One raised shadow for every card and every hovered button: two layers, one tight and one wider. */
   --radius: 8px;
   --radius-lg: 14px;
   --shadow-raised: 0 3px 6px rgba(13, 16, 18, 0.16), 0 3px 6px rgba(13, 16, 18, 0.23);

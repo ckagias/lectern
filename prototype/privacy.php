@@ -1,5 +1,5 @@
 <?php
-// Privacy page: what the site stores, which cookies it uses and who can see what.
+// Tells what the site stores and which cookies it uses.
 $base = '';
 require_once $base . 'includes/init.php';
 

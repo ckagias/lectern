@@ -1,4 +1,4 @@
-/* Login and registration: one centred column, the form in a bordered card, the footer as on every public page. */
+/* Login and register pages. One centred column with a bordered card. */
 .layout-auth .foot {
   margin-top: 0;
 }
@@ -81,7 +81,7 @@
   color: var(--link-hover);
 }
 
-/* From 600px: tablet */
+/* Tablet from 600px. */
 @media (min-width: 600px) {
   .auth {
     padding-top: 88px;

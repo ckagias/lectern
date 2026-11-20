@@ -1,33 +1,18 @@
 <?php
-/**
- * Makes text safe to print inside HTML.
- *
- * @param string $text The text to print.
- * @return string The same text with the special characters escaped.
- */
+// Escapes text so typed HTML cannot change the page.
 function e($text)
 {
     return filter_var($text, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 }
 
-/**
- * Sends the browser to another page and stops the script.
- *
- * @param string $path The page to open.
- * @return void
- */
+// Sends the browser to another page and stops the script.
 function redirect($path)
 {
     header('Location: ' . $path);
     exit;
 }
 
-/**
- * Returns a value sent by a form as text, or an empty string when it is missing.
- *
- * @param string $name The name of the form field.
- * @return string The value of the field.
- */
+// Returns a form value or an empty string if it is missing.
 function post($name)
 {
     if (isset($_POST[$name]) && is_string($_POST[$name])) {
@@ -36,12 +21,7 @@ function post($name)
     return '';
 }
 
-/**
- * Returns the opening and closing time of a weekday, or an empty array when the library is closed that day.
- *
- * @param int $day The weekday, 1 for Monday to 7 for Sunday.
- * @return array The times as 'open' and 'close', for example 09:00 and 21:00.
- */
+// Gives the open and close time of a weekday. A closed day returns an empty array.
 function openingHours($day)
 {
     if ($day >= 1 && $day <= 5) {
@@ -53,13 +33,7 @@ function openingHours($day)
     return [];
 }
 
-/**
- * Returns a sentence that tells whether the library is open at this moment, in the current language.
- *
- * @param int $day The weekday, 1 for Monday to 7 for Sunday.
- * @param string $now The time as hours and minutes, for example 18:30.
- * @return string For example "Open until 21:00" or "Closed now".
- */
+// Says in the current language if the library is open now.
 function openingStatus($day, $now)
 {
     $hours = openingHours($day);

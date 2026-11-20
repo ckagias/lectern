@@ -1,5 +1,5 @@
 <?php
-// Public library page: information about the library, with log in and register links.
+// The public home page with links to log in and register.
 $base = '';
 require_once $base . 'includes/init.php';
 require_once $base . 'includes/shelf_books.php';
@@ -47,7 +47,7 @@ $title = t('home_title');
 
         <section class="section" id="shelves">
             <h2><?php echo t('shelves_title'); ?></h2>
-            <?php // The shelf: a row of book spines on a board. Books marked extra stay hidden until their category is chosen. ?>
+            <?php // Books marked extra stay hidden until their category is chosen. ?>
             <div class="shelf">
                 <div class="books" id="books">
                     <?php foreach ($shelfBooks as $book) {

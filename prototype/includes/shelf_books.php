@@ -1,7 +1,5 @@
 <?php
-// The books on the home page shelf: how each spine looks and what its open book shows, with the summary in English and Greek.
-// color is the cloth of the spine. class adds the texture (leather or linen), light for a pale cloth, and the pattern (stairs or pyramid) or plain.
-// The first 18 stand on the shelf at the start. The books marked extra only appear when their category is chosen.
+// Each shelf book has an English and a Greek summary. Extra ones show only when their category is chosen.
 $shelfBooks = array(
     array(
         'color' => '#282b35',

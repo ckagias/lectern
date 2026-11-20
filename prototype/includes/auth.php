@@ -1,30 +1,17 @@
 <?php
-/**
- * Tells whether someone is logged in.
- *
- * @return bool True when the session holds a user id.
- */
+// A logged in visitor has a user id in the session.
 function isLoggedIn()
 {
     return isset($_SESSION['user_id']);
 }
 
-/**
- * Tells whether the logged in user has this role.
- *
- * @param int $roleId The role id to look for, ROLE_MEMBER or ROLE_LIBRARIAN.
- * @return bool True when someone is logged in with this role.
- */
+// True if the user has this role id.
 function hasRole($roleId)
 {
     return isLoggedIn() && $_SESSION['role_id'] == $roleId;
 }
 
-/**
- * Returns the name of the logged in user's role, which is also the name of the layout.
- *
- * @return string 'librarian' for a librarian and 'member' for everyone else.
- */
+// The role is also the name of the layout.
 function roleName()
 {
     if (hasRole(ROLE_LIBRARIAN)) {
@@ -33,27 +20,17 @@ function roleName()
     return 'member';
 }
 
-/**
- * Sends visitors who are not logged in to the login page. The browser is told not to keep the page, so the Back button after logout shows nothing private.
- *
- * @param string $base The path from the current page to the main folder.
- * @return void
- */
+// Logged out visitors go to the login page.
 function requireLogin($base = '')
 {
     if (!isLoggedIn()) {
         redirect($base . 'login.php');
     }
+    // No caching so the Back button shows nothing private after logout.
     header('Cache-Control: no-store');
 }
 
-/**
- * Lets only this role through. Other users are sent to the Forbidden Action page.
- *
- * @param int $roleId The role that may open the page.
- * @param string $base The path from the current page to the main folder.
- * @return void
- */
+// Other roles go to the Forbidden Action page.
 function requireRole($roleId, $base = '')
 {
     requireLogin($base);

@@ -1,5 +1,5 @@
 <?php
-// Every page includes this first, after it sets $base. It loads the settings, starts the session and loads the shared code.
+// Loads settings and shared code and starts the session.
 require_once $base . 'config.php';
 session_start();
 require_once $base . 'includes/helpers.php';

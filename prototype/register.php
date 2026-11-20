@@ -1,5 +1,5 @@
 <?php
-// Registration page: a form to create a member or librarian account. The server checks every value again, even when the browser already did.
+// Creates a member or librarian account. The server validates again since browser checks can be skipped.
 $base = '';
 require_once $base . 'includes/init.php';
 
@@ -12,6 +12,7 @@ $email = '';
 $role = 'member';
 $errors = ['username' => '', 'email' => '', 'password' => '', 'confirm' => '', 'role' => '', 'code' => '', 'form' => ''];
 
+// The form was sent.
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim(post('username'));
     $email = trim(post('email'));
@@ -27,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $errors['code'] = $validator->code($role, post('code'));
 
     try {
-        // A username or email that is already used is only looked up when its format is fine.
+        // Taken names are looked up only when the format is fine.
         $users = new User(new Database());
         if ($errors['username'] === '' && $users->findByUsername($username) !== null) {
             $errors['username'] = 'err_username_taken';
@@ -36,6 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $errors['email'] = 'err_email_taken';
         }
 
+        // The account is saved only when no error is left.
         $ok = true;
         foreach ($errors as $message) {
             if ($message !== '') {
@@ -43,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
         if ($ok) {
-            // The role id comes from the checked role, never from the form.
+            // The role id is set here and never copied from the form.
             $roleId = ROLE_MEMBER;
             if ($role === 'librarian') {
                 $roleId = ROLE_LIBRARIAN;
@@ -56,6 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors['form'] = 'err_database';
     }
 }
+// Any other role falls back to member.
 if ($role !== 'librarian') {
     $role = 'member';
 }

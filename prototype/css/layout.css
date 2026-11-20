@@ -1,6 +1,5 @@
-/* Page shell: header, menu (tab bar on phones, side menu from 900px), main area and footer. Phone styles first, wider screens at the end of the file. */
+/* The page shell. Phone styles first and wider screens last. */
 
-/* Header */
 .top {
   display: flex;
   gap: 4px;
@@ -67,7 +66,7 @@
   box-shadow: 0 0 0 1px var(--border);
 }
 
-/* Very narrow phones (under 360px): the brand mark and the language code give way, so the header fits on one line. */
+/* Under 360px the logo mark and language code are hidden so the header fits one line. */
 @media (max-width: 359px) {
   .brand-mark,
   .lang span[aria-hidden] {
@@ -75,7 +74,7 @@
   }
 }
 
-/* Menu: a dark tab bar fixed to the bottom on phones. */
+/* The menu is a dark tab bar at the bottom of phones. */
 .nav {
   display: grid;
   position: fixed;
@@ -116,7 +115,7 @@
   color: var(--on-dark);
 }
 
-/* Every menu icon has an outline and a solid version. The current page shows the solid one. */
+/* Each menu icon has an outline and a filled version. The current page uses the filled one. */
 .nav .icon-on,
 .nav a[aria-current="page"] .icon-off {
   display: none;
@@ -126,12 +125,11 @@
   display: block;
 }
 
-/* The user block at the bottom of the side menu. Phones have no side menu, so it is hidden there. */
+/* Phones have no side menu so the user block is hidden. */
 .nav-user {
   display: none;
 }
 
-/* Main area */
 main {
   width: 100%;
   max-width: var(--page-width);
@@ -151,7 +149,6 @@ main {
   padding: 0;
 }
 
-/* Footer */
 .foot {
   margin-top: 72px;
   padding: 40px 16px 28px;
@@ -215,7 +212,7 @@ main {
   color: var(--on-dark);
 }
 
-/* On phones the explore links stand in two columns to save height. */
+/* Phones show the explore links in two columns to save height. */
 .foot-explore {
   grid-template-columns: 1fr 1fr;
   column-gap: 16px;
@@ -251,7 +248,7 @@ main {
   opacity: 0.75;
 }
 
-/* From 600px: tablet */
+/* Tablet from 600px. */
 @media (min-width: 600px) {
   .top {
     gap: 8px;
@@ -270,7 +267,7 @@ main {
     padding: 0 14px;
   }
 
-  /* The header of every public page lines up with the page content and the footer. */
+  /* Public headers line up with the content and the footer. */
   .layout-public .top {
     padding-inline: max(32px, calc(50% - 35rem + 32px));
   }
@@ -304,7 +301,7 @@ main {
   }
 }
 
-/* From 900px: desktop. Logged in pages get a dark side menu with the brand on top, and a light strip with the language and log out. */
+/* Desktop from 900px. Logged in pages get a dark side menu and a light top strip. */
 @media (min-width: 900px) {
   .layout-app {
     display: grid;

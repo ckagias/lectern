@@ -1,7 +1,5 @@
 <?php
-// The top of every page: the skip link, the header and, for a logged in member or librarian, the menu.
-// The page sets $base, $layout (public, member or librarian) and $active (the menu item to highlight) first.
-// On the login page $active is 'login', so the header offers Register there instead of Log in.
+// Skip link and header and menu for logged in roles. The page sets $layout and $active first.
 $other = 'en';
 if ($lang === 'en') {
     $other = 'el';
@@ -24,6 +22,7 @@ if ($layout !== 'public') {
                     <button class="btn line" type="submit"><?php echo t('logout'); ?></button>
                 </form>
             <?php } else { ?>
+                <?php // On the login page the button says Register. ?>
                 <?php if (isset($active) && $active === 'login') { ?>
                     <a class="btn line" href="<?php echo $base; ?>register.php"><?php echo t('register'); ?></a>
                 <?php } else { ?>

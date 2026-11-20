@@ -1,6 +1,5 @@
-/* Logged in pages: the dashboard, the empty placeholder pages and Forbidden Action. Phone styles first, wider screens at the end of the file. */
+/* Logged in pages. Phone styles first and wider screens last. */
 
-/* Page heading and width. The logged in pages use the whole width next to the side menu. */
 main h1 {
   font-size: 2rem;
   overflow-wrap: anywhere;
@@ -15,7 +14,6 @@ main h1 {
   color: var(--text-light);
 }
 
-/* Dashboard: a greeting, two lists and the card of the person on one side. */
 .dash {
   max-width: 100rem;
 }
@@ -65,7 +63,6 @@ main h1 {
   color: var(--text);
 }
 
-/* The empty state of a list: a small empty shelf, a title and a line of text, centred in the space under the heading. */
 .dash-empty {
   display: grid;
   flex: 1;
@@ -106,7 +103,6 @@ main h1 {
   color: var(--text-light);
 }
 
-/* The card of the person, a light panel like the others. */
 .lib-card {
   display: grid;
   gap: 40px;
@@ -168,8 +164,7 @@ main h1 {
   font-weight: 600;
 }
 
-/* Empty page: a short line under the heading says what the page is for, and a dashed box stands in the middle of the space below it.
-   Phones have no stretched grid row, so the page gets its height here. */
+/* Phones have no grid row to stretch the page so it gets its height here. */
 .empty-page main {
   display: flex;
   flex-direction: column;
@@ -210,7 +205,7 @@ main h1 {
   margin-top: 16px;
 }
 
-/* An empty shelf: three outlined spines on a plank, the last one leaning. */
+/* Three outlined spines on a plank. The last one leans. */
 .empty-shelf {
   display: flex;
   gap: 8px;
@@ -241,7 +236,6 @@ main h1 {
   transform-origin: bottom left;
 }
 
-/* Icon tile. Forbidden Action looks like the empty pages, with a red tile. */
 .tile {
   display: grid;
   flex: none;
@@ -268,7 +262,7 @@ main h1 {
   background: var(--error-bg);
 }
 
-/* From 900px: desktop. The grid of the side menu stretches the empty page, so it needs no height of its own. */
+/* Desktop from 900px. The side menu grid stretches the empty page. */
 @media (min-width: 900px) {
   main h1 {
     font-size: 2.5rem;
@@ -295,7 +289,7 @@ main h1 {
   }
 }
 
-/* From 1500px: wide screens. The two lists stand side by side and are as tall as the column next to them. */
+/* Wide screens from 1500px. The two lists sit next to each other. */
 @media (min-width: 1500px) {
   .dash-grid {
     grid-template-columns: minmax(0, 1fr) 22rem;

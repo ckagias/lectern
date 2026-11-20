@@ -1,5 +1,5 @@
 <?php
-// Member catalogue: an empty page for now. The search and the list of books come later.
+// Empty for now. Search and the book list come later.
 $base = '../';
 require_once $base . 'includes/init.php';
 requireRole(ROLE_MEMBER, $base);

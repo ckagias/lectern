@@ -1,10 +1,10 @@
--- Lectern database with the two roles. Import this file first, then seed.sql for the sample data.
+-- Creates the lectern database. Import this first and then seed.sql.
 
 DROP DATABASE IF EXISTS lectern;
 CREATE DATABASE lectern CHARACTER SET utf8mb4;
 USE lectern;
 
--- The two roles: 1 = member, 2 = librarian
+-- 1 is member and 2 is librarian.
 CREATE TABLE roles (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(20) NOT NULL
@@ -14,7 +14,7 @@ INSERT INTO roles (id, name) VALUES
     (1, 'member'),
     (2, 'librarian');
 
--- Registered accounts, the password is stored as a hash
+-- Accounts. The password is stored as a hash.
 CREATE TABLE users (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(30) NOT NULL UNIQUE,
@@ -25,7 +25,7 @@ CREATE TABLE users (
     FOREIGN KEY (role_id) REFERENCES roles(id)
 );
 
--- One row is one physical copy of a book
+-- Each row is one physical copy of a book.
 CREATE TABLE books (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(200) NOT NULL,
@@ -39,7 +39,7 @@ CREATE TABLE books (
     updated_at DATETIME NOT NULL
 );
 
--- A member's reservation, status is active, cancelled or fulfilled
+-- A member's reservation. Status is active or cancelled or fulfilled.
 CREATE TABLE reservations (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     book_id INT UNSIGNED NOT NULL,
@@ -51,7 +51,7 @@ CREATE TABLE reservations (
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
--- A loan is open until returned_at is filled in
+-- A loan stays open until returned_at is filled.
 CREATE TABLE loans (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     book_id INT UNSIGNED NOT NULL,
