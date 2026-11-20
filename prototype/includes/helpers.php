@@ -2,7 +2,7 @@
 // Escapes text so typed HTML cannot change the page.
 function e($text)
 {
-    return filter_var($text, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    return htmlspecialchars($text, ENT_QUOTES, 'UTF-8');
 }
 
 // Sends the browser to another page and stops the script.

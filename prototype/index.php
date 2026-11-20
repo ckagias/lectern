@@ -52,11 +52,16 @@ $title = t('home_title');
                 <div class="books" id="books">
                     <?php foreach ($shelfBooks as $book) {
                         $summary = $book['summary'];
-                        if ($_SESSION['lang'] === 'el') {
+                        if ($lang === 'el') {
                             $summary = $book['summary_el'];
                         }
+                        // The size and colour of the spine go in custom properties of the button.
+                        $style = '--cloth: ' . $book['color'] . '; --h: ' . $book['h'] . 'px; --w: ' . $book['w'] . 'px;';
+                        if (isset($book['fs'])) {
+                            $style .= ' --fs: ' . $book['fs'] . ';';
+                        }
                     ?>
-                        <button type="button" class="book <?php echo $book['class']; ?>" style="--cloth: <?php echo $book['color']; ?>; --h: <?php echo $book['h']; ?>px; --w: <?php echo $book['w']; ?>px;<?php if (isset($book['fs'])) { ?> --fs: <?php echo $book['fs']; ?>;<?php } ?>" data-group="<?php echo $book['category']; ?>"<?php if (isset($book['extra'])) { ?> data-extra="yes" hidden<?php } ?> aria-haspopup="dialog" aria-label="<?php echo t('book_open'); ?>: <?php echo e($book['title']); ?>" data-title="<?php echo e($book['title']); ?>" data-author="<?php echo e($book['author']); ?>" data-year="<?php echo $book['year']; ?>" data-category="<?php echo t('cat_' . $book['category']); ?>" data-call="<?php echo e($book['call']); ?>" data-summary="<?php echo e($summary); ?>">
+                        <button type="button" class="book <?php echo $book['class']; ?>" style="<?php echo $style; ?>" data-group="<?php echo $book['category']; ?>"<?php if (isset($book['extra'])) { ?> data-extra="yes" hidden<?php } ?> aria-haspopup="dialog" aria-label="<?php echo t('book_open'); ?>: <?php echo e($book['title']); ?>" data-title="<?php echo e($book['title']); ?>" data-author="<?php echo e($book['author']); ?>" data-year="<?php echo $book['year']; ?>" data-category="<?php echo t('cat_' . $book['category']); ?>" data-call="<?php echo e($book['call']); ?>" data-summary="<?php echo e($summary); ?>">
                             <span class="spine"><span class="spine-title"><?php echo e($book['spine']); ?></span></span>
                         </button>
                     <?php } ?>
@@ -64,11 +69,9 @@ $title = t('home_title');
                 <div class="board"></div>
             </div>
             <ul class="categories">
-                <li><button type="button" class="category" data-group="fiction" aria-pressed="false"><?php echo t('cat_fiction'); ?></button></li>
-                <li><button type="button" class="category" data-group="adventure" aria-pressed="false"><?php echo t('cat_adventure'); ?></button></li>
-                <li><button type="button" class="category" data-group="poetry" aria-pressed="false"><?php echo t('cat_poetry'); ?></button></li>
-                <li><button type="button" class="category" data-group="philosophy" aria-pressed="false"><?php echo t('cat_philosophy'); ?></button></li>
-                <li><button type="button" class="category" data-group="science" aria-pressed="false"><?php echo t('cat_science'); ?></button></li>
+                <?php foreach (['fiction', 'adventure', 'poetry', 'philosophy', 'science'] as $category) { ?>
+                    <li><button type="button" class="category" data-group="<?php echo $category; ?>" aria-pressed="false"><?php echo t('cat_' . $category); ?></button></li>
+                <?php } ?>
             </ul>
         </section>
 
@@ -86,7 +89,7 @@ $title = t('home_title');
             </div>
             <div id="find">
                 <h2><?php echo t('find_title'); ?></h2>
-                <div id="map" class="map" role="region" aria-label="<?php echo t('map_label'); ?>"></div>
+                <div id="map" class="map" role="region" aria-label="<?php echo t('map_label'); ?>" data-address="<?php echo e(t('address_line')); ?>"></div>
                 <p class="map-note" id="map-note" hidden><?php echo t('map_error'); ?></p>
             </div>
         </section>

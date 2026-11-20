@@ -16,8 +16,6 @@ tiles.on('tileerror', function () {
     document.getElementById('map-note').hidden = false;
 });
 
-var address = 'Korinthou 100, Patras';
-if (document.documentElement.lang === 'el') {
-    address = 'Κορίνθου 100, Πάτρα';
-}
+// The address comes from the language file through the page.
+var address = document.getElementById('map').dataset.address;
 L.marker([lat, lng]).addTo(map).bindPopup('<b>AchaiaReads</b><br>' + address).openPopup();

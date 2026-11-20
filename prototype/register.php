@@ -38,13 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         // The account is saved only when no error is left.
-        $ok = true;
-        foreach ($errors as $message) {
-            if ($message !== '') {
-                $ok = false;
-            }
-        }
-        if ($ok) {
+        if (implode('', $errors) === '') {
             // The role id is set here and never copied from the form.
             $roleId = ROLE_MEMBER;
             if ($role === 'librarian') {

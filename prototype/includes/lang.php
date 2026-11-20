@@ -22,9 +22,9 @@ $lang = $_SESSION['lang'];
 // Returns the text for a key or the key itself if it is missing.
 function t($key)
 {
-    global $lang_el, $lang_en;
+    global $lang, $lang_el, $lang_en;
     $texts = $lang_el;
-    if ($_SESSION['lang'] === 'en') {
+    if ($lang === 'en') {
         $texts = $lang_en;
     }
     if (isset($texts[$key])) {

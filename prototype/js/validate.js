@@ -46,9 +46,9 @@ fields.forEach(function (field) {
             check(field);
         }
         // A new password can make the confirmation right or wrong.
-        var confirm = document.getElementById('confirm');
-        if (field.id === 'password' && confirm !== null && confirm.getAttribute('aria-invalid') === 'true') {
-            check(confirm);
+        var confirmField = document.getElementById('confirm');
+        if (field.id === 'password' && confirmField !== null && confirmField.getAttribute('aria-invalid') === 'true') {
+            check(confirmField);
         }
     });
 });

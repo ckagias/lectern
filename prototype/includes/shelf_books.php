@@ -1,7 +1,7 @@
 <?php
 // Each shelf book has an English and a Greek summary. Extra ones show only when their category is chosen.
-$shelfBooks = array(
-    array(
+$shelfBooks = [
+    [
         'color' => '#282b35',
         'class' => '',
         'h' => 175,
@@ -14,8 +14,8 @@ $shelfBooks = array(
         'call' => 'FIC-002-A',
         'summary' => 'Jane grows up as an unwanted orphan, is sent to a harsh school and becomes a governess at Thornfield Hall. She falls in love with its master, Mr Rochester, but a secret in the house forces her to choose between love and her own self-respect.',
         'summary_el' => 'Η Τζέην μεγαλώνει ως ανεπιθύμητο ορφανό, στέλνεται σε ένα αυστηρό σχολείο και καταλήγει γκουβερνάντα στο Θόρνφιλντ Χολ. Ερωτεύεται τον ιδιοκτήτη του, τον κύριο Ρότσεστερ, αλλά ένα μυστικό του σπιτιού την αναγκάζει να διαλέξει ανάμεσα στον έρωτα και στον αυτοσεβασμό της.'
-    ),
-    array(
+    ],
+    [
         'color' => '#194a5f',
         'class' => 'leather stairs',
         'h' => 205,
@@ -28,8 +28,8 @@ $shelfBooks = array(
         'call' => 'ADV-004-A',
         'summary' => 'A solicitor travels to Transylvania and discovers that his client, Count Dracula, is a vampire who plans to move to England. Told through letters, diaries and newspaper clippings, the novel follows a group of friends who try to track him down and stop him.',
         'summary_el' => 'Ένας δικηγόρος ταξιδεύει στην Τρανσυλβανία και ανακαλύπτει ότι ο πελάτης του, ο κόμης Δράκουλας, είναι βρικόλακας και σχεδιάζει να μετακομίσει στην Αγγλία. Το μυθιστόρημα, γραμμένο με γράμματα, ημερολόγια και αποκόμματα εφημερίδων, ακολουθεί μια παρέα φίλων που προσπαθεί να τον εντοπίσει και να τον σταματήσει.'
-    ),
-    array(
+    ],
+    [
         'color' => '#903e1d',
         'class' => '',
         'h' => 160,
@@ -42,8 +42,8 @@ $shelfBooks = array(
         'call' => 'POE-001-A',
         'summary' => 'After the fall of Troy, Odysseus spends ten years trying to sail home to Ithaca. He meets monsters, storms and tempting goddesses, while his wife Penelope holds off the suitors who have taken over his palace. It is one of the oldest surviving stories about a long journey home.',
         'summary_el' => 'Μετά την πτώση της Τροίας, ο Οδυσσέας περνά δέκα χρόνια προσπαθώντας να γυρίσει στην Ιθάκη. Συναντά τέρατα, θύελλες και δελεαστικές θεές, ενώ η γυναίκα του, η Πηνελόπη, κρατά μακριά τους μνηστήρες που έχουν καταλάβει το παλάτι του. Είναι μία από τις αρχαιότερες ιστορίες που σώζονται για ένα μακρύ ταξίδι της επιστροφής.'
-    ),
-    array(
+    ],
+    [
         'color' => '#6a1a26',
         'class' => 'leather',
         'h' => 232,
@@ -56,8 +56,8 @@ $shelfBooks = array(
         'call' => 'FIC-005-A',
         'summary' => 'A retired gentleman reads so many tales of knights that he decides to become one. With his neighbour Sancho Panza as squire he sets out to right wrongs, mistaking windmills for giants and inns for castles. The book is a comedy and also a gentle look at illusion and common sense.',
         'summary_el' => 'Ένας συνταξιούχος ευγενής διαβάζει τόσες ιστορίες με ιππότες που αποφασίζει να γίνει ιππότης κι ο ίδιος. Με σκουδιέρη τον γείτονά του Σάντσο Πάνσα ξεκινά να αποκαταστήσει αδικίες, παίρνοντας τους ανεμόμυλους για γίγαντες και τα πανδοχεία για κάστρα. Το βιβλίο είναι κωμωδία και συνάμα μια ήπια ματιά στην ψευδαίσθηση και την κοινή λογική.'
-    ),
-    array(
+    ],
+    [
         'color' => '#c9d3c2',
         'class' => 'linen light plain',
         'h' => 168,
@@ -70,8 +70,8 @@ $shelfBooks = array(
         'call' => 'PHI-001-A',
         'summary' => 'Socrates and his friends try to explain what justice is by imagining a perfect city. Along the way they discuss who should rule, how children should be educated and why the soul needs order. The book includes the famous image of prisoners in a cave who mistake shadows for reality.',
         'summary_el' => 'Ο Σωκράτης και οι φίλοι του προσπαθούν να εξηγήσουν τι είναι δικαιοσύνη φανταζόμενοι μια τέλεια πόλη. Στην πορεία συζητούν ποιος πρέπει να κυβερνά, πώς πρέπει να εκπαιδεύονται τα παιδιά και γιατί η ψυχή χρειάζεται τάξη. Το έργο περιέχει τη γνωστή εικόνα των φυλακισμένων σε ένα σπήλαιο που περνούν τις σκιές για πραγματικότητα.'
-    ),
-    array(
+    ],
+    [
         'color' => '#1e5a3e',
         'class' => '',
         'h' => 222,
@@ -84,8 +84,8 @@ $shelfBooks = array(
         'call' => 'ADV-002-A',
         'summary' => 'Ishmael joins the whaling ship Pequod, whose captain, Ahab, is obsessed with killing the white whale that took his leg. The novel mixes adventure, detailed chapters about whaling and a study of obsession. The hunt ends in disaster for almost everyone on board.',
         'summary_el' => 'Ο Ισμαήλ επιβιβάζεται στο φαλαινοθηρικό Πέκουοντ, με καπετάνιο τον Αχαάβ, ο οποίος έχει εμμονή να σκοτώσει τη λευκή φάλαινα που του πήρε το πόδι. Το μυθιστόρημα συνδυάζει περιπέτεια, αναλυτικά κεφάλαια για τη φαλαινοθηρία και μια μελέτη της εμμονής. Το κυνήγι καταλήγει σε καταστροφή για σχεδόν όλους στο πλοίο.'
-    ),
-    array(
+    ],
+    [
         'color' => '#82202f',
         'class' => 'leather stairs',
         'h' => 214,
@@ -98,8 +98,8 @@ $shelfBooks = array(
         'call' => 'FIC-003-A',
         'summary' => 'On the Yorkshire moors, Heathcliff, an orphan taken in by the Earnshaw family, falls in love with Catherine. When she marries someone else, he spends years taking revenge on both families. Two narrators tell the story, which makes it hard to know whom to trust.',
         'summary_el' => 'Στα ανεμοδαρμένα υψίπεδα του Γιορκσάιρ, ο Χήθκλιφ, ένα ορφανό που το δέχτηκε η οικογένεια Έρνσο, ερωτεύεται την Κάθριν. Όταν εκείνη παντρεύεται κάποιον άλλον, περνά χρόνια παίρνοντας εκδίκηση από τις δύο οικογένειες. Δύο αφηγητές λένε την ιστορία, κι έτσι είναι δύσκολο να ξέρεις ποιον να εμπιστευτείς.'
-    ),
-    array(
+    ],
+    [
         'color' => '#58285a',
         'class' => 'pyramid',
         'h' => 244,
@@ -113,8 +113,8 @@ $shelfBooks = array(
         'call' => 'SCI-001-A',
         'summary' => 'Darwin sets out his evidence that species were not created unchanged but developed over very long periods. He explains natural selection, where small useful differences help some individuals leave more offspring than others, and he answers the objections he expected from readers.',
         'summary_el' => 'Ο Δαρβίνος παρουσιάζει τα στοιχεία του ότι τα είδη δεν δημιουργήθηκαν αμετάβλητα αλλά αναπτύχθηκαν σε πολύ μεγάλα χρονικά διαστήματα. Εξηγεί τη φυσική επιλογή, όπου μικρές χρήσιμες διαφορές βοηθούν ορισμένα άτομα να αφήσουν περισσότερους απογόνους από άλλα, και απαντά στις αντιρρήσεις που περίμενε από τους αναγνώστες.'
-    ),
-    array(
+    ],
+    [
         'color' => '#2056b7',
         'class' => '',
         'h' => 236,
@@ -127,8 +127,8 @@ $shelfBooks = array(
         'call' => 'ADV-005-A',
         'summary' => 'Victor Frankenstein, a young scientist, builds a living creature from parts of dead bodies and then abandons it in horror. The lonely and angry creature turns against him. The novel asks what creators owe to the things they create.',
         'summary_el' => 'Ο Βίκτορ Φρανκενστάιν, ένας νεαρός επιστήμονας, δημιουργεί ένα ζωντανό πλάσμα από μέλη νεκρών σωμάτων και μετά το εγκαταλείπει τρομαγμένος. Το μοναχικό και θυμωμένο πλάσμα στρέφεται εναντίον του. Το μυθιστόρημα ρωτά τι οφείλουν οι δημιουργοί σε όσα δημιουργούν.'
-    ),
-    array(
+    ],
+    [
         'color' => '#1e583d',
         'class' => 'plain',
         'h' => 150,
@@ -141,8 +141,8 @@ $shelfBooks = array(
         'call' => 'PHI-002-A',
         'summary' => 'Machiavelli, a former Florentine official, writes a short guide for rulers on how to win and keep power. He argues that a prince must sometimes act against ordinary morals to protect the state, a view that gave the word Machiavellian its meaning.',
         'summary_el' => 'Ο Μακιαβέλι, πρώην αξιωματούχος της Φλωρεντίας, γράφει έναν σύντομο οδηγό για τους ηγεμόνες, με θέμα το πώς κερδίζεται και διατηρείται η εξουσία. Υποστηρίζει ότι ένας ηγεμόνας πρέπει κάποιες φορές να πάει ενάντια στην κοινή ηθική για να προστατεύσει το κράτος, άποψη που έδωσε στη λέξη μακιαβελικός το νόημά της.'
-    ),
-    array(
+    ],
+    [
         'color' => '#6c3270',
         'class' => 'stairs',
         'h' => 190,
@@ -155,8 +155,8 @@ $shelfBooks = array(
         'call' => 'FIC-007-A',
         'summary' => 'Gregor Samsa, a travelling salesman, wakes one morning changed into a giant insect. His family, who depended on his wages, slowly move from shock to disgust to neglect. The short story is about duty, isolation and how quickly people can stop seeing one of their own.',
         'summary_el' => 'Ο Γκρέγκορ Σάμσα, ένας εμπορικός αντιπρόσωπος, ξυπνά ένα πρωί μεταμορφωμένος σε γιγάντιο έντομο. Η οικογένειά του, που εξαρτιόταν από τον μισθό του, περνά σιγά σιγά από το σοκ στην αποστροφή και μετά στην αδιαφορία. Το διήγημα μιλά για το καθήκον, την απομόνωση και το πόσο γρήγορα οι άνθρωποι μπορούν να πάψουν να βλέπουν έναν δικό τους.'
-    ),
-    array(
+    ],
+    [
         'color' => '#1d4fa8',
         'class' => '',
         'h' => 212,
@@ -169,8 +169,8 @@ $shelfBooks = array(
         'call' => 'ADV-001-A',
         'summary' => 'Young Jim Hawkins finds a treasure map in the sea chest of a dead pirate and joins a voyage to find the gold. On board, the friendly cook Long John Silver turns out to be the leader of a mutiny. The book shaped many later pirate stories.',
         'summary_el' => 'Ο νεαρός Τζιμ Χόκινς βρίσκει έναν χάρτη θησαυρού στο σεντούκι ενός νεκρού πειρατή και μπαίνει σε ένα ταξίδι για να βρει το χρυσάφι. Στο πλοίο, ο φιλικός μάγειρας Λονγκ Τζον Σίλβερ αποδεικνύεται αρχηγός μιας ανταρσίας. Το βιβλίο επηρέασε πολλές μεταγενέστερες ιστορίες με πειρατές.'
-    ),
-    array(
+    ],
+    [
         'color' => '#154458',
         'class' => 'leather',
         'h' => 196,
@@ -184,8 +184,8 @@ $shelfBooks = array(
         'call' => 'FIC-001-A',
         'summary' => 'Elizabeth Bennet is one of five sisters whose family home will pass to a distant cousin. She meets the proud and wealthy Mr Darcy and quickly decides she dislikes him. As both learn that first impressions can be wrong, the novel follows courtship, money and class in the English countryside.',
         'summary_el' => 'Η Ελίζαμπεθ Μπένετ είναι μία από πέντε αδελφές, των οποίων το πατρικό σπίτι θα περάσει σε έναν μακρινό ξάδελφο. Γνωρίζει τον περήφανο και πλούσιο κύριο Ντάρσι και αποφασίζει γρήγορα ότι δεν τον συμπαθεί. Καθώς και οι δύο μαθαίνουν ότι οι πρώτες εντυπώσεις μπορεί να είναι λάθος, το μυθιστόρημα παρακολουθεί το φλερτ, τα χρήματα και την τάξη στην αγγλική εξοχή.'
-    ),
-    array(
+    ],
+    [
         'color' => '#7f361b',
         'class' => 'leather stairs',
         'h' => 180,
@@ -198,8 +198,8 @@ $shelfBooks = array(
         'call' => 'ADV-003-A',
         'summary' => 'Twelve short stories in which the detective Sherlock Holmes and his friend Dr Watson solve puzzling cases in Victorian London. Holmes notices small details that other people miss, and Watson tells each case so that the reader can follow the reasoning.',
         'summary_el' => 'Δώδεκα διηγήματα στα οποία ο ντετέκτιβ Σέρλοκ Χολμς και ο φίλος του, γιατρός Γουάτσον, λύνουν περίπλοκες υποθέσεις στο βικτωριανό Λονδίνο. Ο Χολμς προσέχει μικρές λεπτομέρειες που οι άλλοι χάνουν, και ο Γουάτσον αφηγείται κάθε υπόθεση ώστε ο αναγνώστης να ακολουθεί τη σκέψη.'
-    ),
-    array(
+    ],
+    [
         'color' => '#2f3440',
         'class' => 'pyramid',
         'h' => 226,
@@ -213,8 +213,8 @@ $shelfBooks = array(
         'call' => 'FIC-004-A',
         'summary' => 'Raskolnikov, a poor student in Saint Petersburg, murders a pawnbroker, convinced that his act is justified. He cannot escape his guilt while a police investigator slowly closes in. The novel follows his fear, his conscience and his struggle toward confession.',
         'summary_el' => 'Ο Ρασκόλνικοφ, ένας φτωχός φοιτητής στην Αγία Πετρούπολη, σκοτώνει μια ενεχυροδανείστρια, πεπεισμένος ότι η πράξη του δικαιολογείται. Δεν μπορεί να ξεφύγει από την ενοχή του ενώ ένας ανακριτής τον πλησιάζει σιγά σιγά. Το μυθιστόρημα ακολουθεί τον φόβο του, τη συνείδησή του και τον αγώνα του να ομολογήσει.'
-    ),
-    array(
+    ],
+    [
         'color' => '#e0b24a',
         'class' => 'linen light',
         'h' => 168,
@@ -228,8 +228,8 @@ $shelfBooks = array(
         'call' => 'ADV-006-A',
         'summary' => 'Alice follows a white rabbit down a rabbit hole and finds herself in a world where size, time and logic keep changing. She meets a grinning cat, a mad tea party and a furious Queen of Hearts. The book is full of wordplay and nonsense.',
         'summary_el' => 'Η Αλίκη ακολουθεί ένα λευκό κουνέλι σε μια τρύπα και βρίσκεται σε έναν κόσμο όπου το μέγεθος, ο χρόνος και η λογική αλλάζουν συνεχώς. Συναντά μια γάτα που χαμογελά, ένα τρελό τσάι και μια έξαλλη Βασίλισσα των Καρδιών. Το βιβλίο είναι γεμάτο λογοπαίγνια και ανοησία.'
-    ),
-    array(
+    ],
+    [
         'color' => '#1c4a9d',
         'class' => 'leather stairs',
         'h' => 190,
@@ -242,8 +242,8 @@ $shelfBooks = array(
         'call' => 'FIC-006-A',
         'summary' => 'A handsome young man wishes that his portrait would age in his place. The wish comes true, and while he stays young and lives selfishly, the painting records every wrong he does. The novel is about beauty, vanity and what a person tries to hide.',
         'summary_el' => 'Ένας όμορφος νεαρός εύχεται το πορτρέτο του να γερνά στη θέση του. Η ευχή πραγματοποιείται, και ενώ εκείνος μένει νέος και ζει εγωιστικά, ο πίνακας καταγράφει κάθε κακό που κάνει. Το μυθιστόρημα μιλά για την ομορφιά, τη ματαιοδοξία και όσα προσπαθεί να κρύψει ένας άνθρωπος.'
-    ),
-    array(
+    ],
+    [
         'color' => '#d9d3c3',
         'class' => 'linen light plain',
         'h' => 176,
@@ -256,8 +256,8 @@ $shelfBooks = array(
         'call' => 'FIC-008-A',
         'summary' => 'On the Greek island of Skiathos, Hadoula is an elderly woman who has watched poor families struggle to raise daughters. She decides she can spare the girls that life and begins to kill newborns. The novella is a dark study of poverty, told with both sympathy and horror.',
         'summary_el' => 'Στη Σκιάθο, η Χαδούλα είναι μια ηλικιωμένη γυναίκα που έχει δει φτωχές οικογένειες να παλεύουν να μεγαλώσουν κόρες. Αποφασίζει ότι μπορεί να γλιτώσει τα κορίτσια από αυτή τη ζωή και αρχίζει να σκοτώνει νεογέννητα. Η νουβέλα είναι μια σκοτεινή μελέτη της φτώχειας, γραμμένη με συμπόνια και φρίκη.'
-    ),
-    array(
+    ],
+    [
         'color' => '#194a5f',
         'class' => 'leather',
         'extra' => true,
@@ -271,8 +271,8 @@ $shelfBooks = array(
         'call' => 'POE-002-A',
         'summary' => 'In the tenth year of the Trojan War, the Greek hero Achilles quarrels with King Agamemnon and withdraws from the fighting. The Greeks begin to lose, and Achilles returns only after a personal loss. The poem is about anger, honour and the price of war.',
         'summary_el' => 'Στο δέκατο χρόνο του Τρωικού Πολέμου, ο Αχιλλέας τσακώνεται με τον βασιλιά Αγαμέμνονα και αποσύρεται από τη μάχη. Οι Έλληνες αρχίζουν να χάνουν και ο Αχιλλέας επιστρέφει μόνο μετά από μια προσωπική απώλεια. Το έπος μιλά για την οργή, την τιμή και το τίμημα του πολέμου.'
-    ),
-    array(
+    ],
+    [
         'color' => '#282b35',
         'class' => 'stairs',
         'extra' => true,
@@ -287,8 +287,8 @@ $shelfBooks = array(
         'call' => 'POE-003-A',
         'summary' => 'Dante, lost in a dark wood, is guided by the poet Virgil through Hell and Purgatory, and then by Beatrice through Heaven. On every level the souls are placed according to what they did in life. It is one of the great poems of European literature.',
         'summary_el' => 'Ο Δάντης, χαμένος σε ένα σκοτεινό δάσος, οδηγείται από τον ποιητή Βιργίλιο μέσα από την Κόλαση και το Καθαρτήριο και ύστερα από τη Βεατρίκη στον Παράδεισο. Σε κάθε επίπεδο οι ψυχές βρίσκονται εκεί που τις έφεραν οι πράξεις τους. Είναι ένα από τα μεγάλα ποιήματα της ευρωπαϊκής λογοτεχνίας.'
-    ),
-    array(
+    ],
+    [
         'color' => '#c9d3c2',
         'class' => 'linen light plain',
         'extra' => true,
@@ -302,8 +302,8 @@ $shelfBooks = array(
         'call' => 'POE-004-A',
         'summary' => 'Walt Whitman spent his life revising this collection of poems. It celebrates ordinary people, nature, the body and democracy in long, free lines that broke with the rhymed verse of its day.',
         'summary_el' => 'Ο Γουόλτ Γουίτμαν αφιέρωσε τη ζωή του στην αναθεώρηση αυτής της συλλογής. Υμνεί τους απλούς ανθρώπους, τη φύση, το σώμα και τη δημοκρατία, με μακριούς ελεύθερους στίχους που έσπασαν την ομοιοκαταληξία της εποχής του.'
-    ),
-    array(
+    ],
+    [
         'color' => '#6a1a26',
         'class' => 'leather pyramid',
         'extra' => true,
@@ -317,8 +317,8 @@ $shelfBooks = array(
         'call' => 'POE-005-A',
         'summary' => 'John Milton retells the Fall of Man in twelve books of blank verse. Satan, thrown out of Heaven, decides to corrupt Adam and Eve, and the poem asks why humans lose paradise and what they keep.',
         'summary_el' => 'Ο Τζον Μίλτον ξαναδιηγείται την Πτώση του ανθρώπου σε δώδεκα βιβλία με ελεύθερο στίχο. Ο Σατανάς, διωγμένος από τον ουρανό, αποφασίζει να παρασύρει τον Αδάμ και την Εύα, και το ποίημα ρωτά γιατί οι άνθρωποι χάνουν τον παράδεισο και τι τους μένει.'
-    ),
-    array(
+    ],
+    [
         'color' => '#1d4fa8',
         'class' => '',
         'extra' => true,
@@ -332,8 +332,8 @@ $shelfBooks = array(
         'call' => 'POE-006-A',
         'summary' => 'The Alexandrian poet C. P. Cavafy wrote short, quiet poems about history, memory, desire and growing old. In "Ithaka" the journey matters more than the arrival, and in "Waiting for the Barbarians" a city is left unsure of what it fears.',
         'summary_el' => 'Ο Αλεξανδρινός ποιητής Κ. Π. Καβάφης έγραψε σύντομα, ήσυχα ποιήματα για την ιστορία, τη μνήμη, τον πόθο και τα γηρατειά. Στην «Ιθάκη» το ταξίδι μετράει περισσότερο από την άφιξη και στους «Βαρβάρους» μια πόλη δεν ξέρει πια τι φοβάται.'
-    ),
-    array(
+    ],
+    [
         'color' => '#1e5a3e',
         'class' => '',
         'extra' => true,
@@ -347,8 +347,8 @@ $shelfBooks = array(
         'call' => 'PHI-003-A',
         'summary' => 'Marcus Aurelius wrote these notes to himself while leading Roman armies on the frontier. They are short reminders to stay calm, accept what cannot be changed and do the work in front of you.',
         'summary_el' => 'Ο Μάρκος Αυρήλιος έγραψε αυτές τις σημειώσεις για τον εαυτό του, την ώρα που οδηγούσε τα ρωμαϊκά στρατεύματα στα σύνορα. Είναι σύντομες υπενθυμίσεις να μένει κανείς ήρεμος, να δέχεται όσα δεν αλλάζουν και να κάνει τη δουλειά που έχει μπροστά του.'
-    ),
-    array(
+    ],
+    [
         'color' => '#7f361b',
         'class' => 'leather pyramid',
         'extra' => true,
@@ -363,8 +363,8 @@ $shelfBooks = array(
         'call' => 'PHI-004-A',
         'summary' => 'Aristotle asks what a good life is and answers that it means using our abilities well, among friends and with habits of courage, fairness and moderation. It is the starting point of much later thinking about virtue.',
         'summary_el' => 'Ο Αριστοτέλης ρωτά τι είναι καλή ζωή και απαντά ότι σημαίνει να χρησιμοποιούμε σωστά τις ικανότητές μας, με φίλους και με συνήθειες θάρρους, δικαιοσύνης και μέτρου. Είναι η αφετηρία πολλής μεταγενέστερης σκέψης για την αρετή.'
-    ),
-    array(
+    ],
+    [
         'color' => '#2056b7',
         'class' => 'stairs',
         'extra' => true,
@@ -378,8 +378,8 @@ $shelfBooks = array(
         'call' => 'PHI-005-A',
         'summary' => 'Friedrich Nietzsche questions the idea that philosophers simply search for the truth. In short, sharp sections he argues that our values grow out of habit, power and fear, and he asks the reader to think for themselves.',
         'summary_el' => 'Ο Φρίντριχ Νίτσε αμφισβητεί ότι οι φιλόσοφοι απλώς αναζητούν την αλήθεια. Σε σύντομες, κοφτές ενότητες υποστηρίζει ότι οι αξίες μας γεννιούνται από τη συνήθεια, την ισχύ και τον φόβο, και καλεί τον αναγνώστη να σκεφτεί μόνος του.'
-    ),
-    array(
+    ],
+    [
         'color' => '#82202f',
         'class' => 'leather',
         'extra' => true,
@@ -393,8 +393,8 @@ $shelfBooks = array(
         'call' => 'PHI-006-A',
         'summary' => 'Written during the English Civil War, Hobbes imagines life without a government as a constant fight of everyone against everyone. He argues that people agree to obey a strong ruler in return for safety.',
         'summary_el' => 'Γραμμένο την εποχή του Αγγλικού Εμφυλίου, το βιβλίο του Χομπς φαντάζεται τη ζωή χωρίς κράτος ως διαρκή αγώνα όλων εναντίον όλων. Υποστηρίζει ότι οι άνθρωποι συμφωνούν να υπακούν σε έναν ισχυρό ηγεμόνα για να έχουν ασφάλεια.'
-    ),
-    array(
+    ],
+    [
         'color' => '#2f3440',
         'class' => '',
         'extra' => true,
@@ -408,8 +408,8 @@ $shelfBooks = array(
         'call' => 'SCI-002-A',
         'summary' => 'Albert Einstein explains his special and general theories of relativity for readers without advanced mathematics. He shows how time, space and gravity depend on the observer and on the matter around them.',
         'summary_el' => 'Ο Άλμπερτ Αϊνστάιν εξηγεί την ειδική και τη γενική θεωρία της σχετικότητας σε αναγνώστες χωρίς προχωρημένα μαθηματικά. Δείχνει πώς ο χρόνος, ο χώρος και η βαρύτητα εξαρτώνται από τον παρατηρητή και από την ύλη γύρω του.'
-    ),
-    array(
+    ],
+    [
         'color' => '#d9d3c3',
         'class' => 'linen light plain',
         'extra' => true,
@@ -424,8 +424,8 @@ $shelfBooks = array(
         'call' => 'SCI-003-A',
         'summary' => 'Around 300 BC Euclid gathered the geometry of his time into thirteen books, building each result step by step from a few simple starting rules. For over two thousand years it was the model of how to prove something.',
         'summary_el' => 'Γύρω στο 300 π.Χ. ο Ευκλείδης συγκέντρωσε τη γεωμετρία της εποχής του σε δεκατρία βιβλία, χτίζοντας κάθε αποτέλεσμα βήμα βήμα από λίγους απλούς κανόνες. Για πάνω από δύο χιλιάδες χρόνια ήταν το πρότυπο για το πώς αποδεικνύεται κάτι.'
-    ),
-    array(
+    ],
+    [
         'color' => '#6c3270',
         'class' => '',
         'extra' => true,
@@ -439,8 +439,8 @@ $shelfBooks = array(
         'call' => 'SCI-004-A',
         'summary' => 'Isaac Newton describes his experiments with prisms and shows that white light is a mixture of colours. The book also reports on lenses, rainbows and the colours of thin films.',
         'summary_el' => 'Ο Ισαάκ Νεύτων περιγράφει τα πειράματά του με πρίσματα και δείχνει ότι το λευκό φως είναι μίγμα χρωμάτων. Το βιβλίο μιλά επίσης για φακούς, ουράνια τόξα και τα χρώματα των λεπτών υμενίων.'
-    ),
-    array(
+    ],
+    [
         'color' => '#1c4a9d',
         'class' => 'leather stairs',
         'extra' => true,
@@ -455,8 +455,8 @@ $shelfBooks = array(
         'call' => 'SCI-005-A',
         'summary' => 'In 1610 Galileo turned a telescope to the sky and wrote down what he saw: mountains on the Moon, countless new stars and four moons circling Jupiter. The short book changed how people pictured the heavens.',
         'summary_el' => 'Το 1610 ο Γαλιλαίος έστρεψε ένα τηλεσκόπιο στον ουρανό και κατέγραψε όσα είδε: βουνά στη Σελήνη, αμέτρητα νέα άστρα και τέσσερις δορυφόρους γύρω από τον Δία. Το μικρό βιβλίο άλλαξε τον τρόπο που οι άνθρωποι φαντάζονταν τον ουρανό.'
-    ),
-    array(
+    ],
+    [
         'color' => '#154458',
         'class' => 'leather pyramid',
         'extra' => true,
@@ -471,5 +471,5 @@ $shelfBooks = array(
         'call' => 'SCI-006-A',
         'summary' => 'Robert Boyle, in the form of a dialogue, questions the old belief that everything is made of four elements. He argues that matter should be tested by experiment, a step toward modern chemistry.',
         'summary_el' => 'Ο Ρόμπερτ Μπόιλ, με μορφή διαλόγου, αμφισβητεί την παλιά πεποίθηση ότι τα πάντα αποτελούνται από τέσσερα στοιχεία. Υποστηρίζει ότι η ύλη πρέπει να δοκιμάζεται με πειράματα, ένα βήμα προς τη σύγχρονη χημεία.'
-    ),
-);
+    ],
+];
