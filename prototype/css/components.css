@@ -25,12 +25,6 @@
   transform: scale(0.98);
 }
 
-.btn.action {
-  border-color: var(--dark);
-  color: var(--on-dark);
-  background: var(--dark);
-}
-
 .btn.action:hover {
   box-shadow: var(--shadow-raised);
 }

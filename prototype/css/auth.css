@@ -25,30 +25,10 @@
   color: var(--text-light);
 }
 
-.auth .flash {
-  width: auto;
-  margin: 20px 0 0;
-}
-
-.auth .panel {
-  max-width: none;
-  margin-top: 28px;
-  padding: 24px 20px;
-  background: var(--white);
-}
-
-.auth .choices {
-  margin-top: 16px;
-}
-
 .choice-row {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   gap: 8px;
-}
-
-.choice-row .choice + .choice {
-  margin-top: 0;
 }
 
 .switch {
@@ -89,9 +69,5 @@
 
   .auth-head h1 {
     font-size: 2.75rem;
-  }
-
-  .auth .panel {
-    padding: 28px;
   }
 }
