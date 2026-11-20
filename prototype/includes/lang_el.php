@@ -14,7 +14,6 @@ $lang_el = [
     'err_login' => 'Λάθος email ή κωδικός πρόσβασης.',
     'logout' => 'Αποσύνδεση',
     'dashboard_title' => 'Αρχική',
-    'dashboard_welcome' => 'Καλώς ήρθες,',
     'dashboard_open' => 'Ανοιχτά έως τις',
     'dashboard_closed' => 'Κλειστά τώρα',
     'dashboard_catalogue' => 'Αναζήτησε βιβλία και δες ποια αντίτυπα είναι διαθέσιμα.',

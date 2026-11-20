@@ -74,7 +74,7 @@ main h1 {
 }
 
 .dash-empty .empty-shelf {
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
 .dash-empty .empty-shelf span {
@@ -138,6 +138,7 @@ main h1 {
   justify-content: space-between;
   margin-top: 4px;
   color: var(--text-light);
+  font-variant-numeric: tabular-nums;
 }
 
 .dash-info {
@@ -210,7 +211,7 @@ main h1 {
   display: flex;
   gap: 8px;
   align-items: flex-end;
-  padding: 0 18px;
+  padding: 0 16px;
   border-bottom: 4px solid var(--border);
 }
 

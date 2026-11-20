@@ -14,7 +14,6 @@ $lang_en = [
     'err_login' => 'Wrong email or password.',
     'logout' => 'Log out',
     'dashboard_title' => 'Home',
-    'dashboard_welcome' => 'Welcome,',
     'dashboard_open' => 'Open until',
     'dashboard_closed' => 'Closed now',
     'dashboard_catalogue' => 'Search the books and see which copies are available.',

@@ -45,7 +45,7 @@ $lists = [
     <main id="main">
         <div class="dash">
             <header class="dash-head">
-                <h1><?php echo t('dashboard_welcome') . ' ' . e($_SESSION['username']); ?></h1>
+                <h1><?php echo t('dashboard_title'); ?></h1>
                 <p class="status"><?php echo t('role_' . $layout); ?> · <?php echo $status; ?></p>
             </header>
 
