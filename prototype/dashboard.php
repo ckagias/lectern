@@ -13,12 +13,12 @@ $status = openingStatus(date('N'), date('H:i'));
 // The two lists of each role with the text shown when a list is empty.
 $lists = [
     'member' => [
-        ['page' => 'member/loans.php', 'title' => 'dash_member_loans_title', 'empty_title' => 'dash_member_loans_empty_title', 'empty_text' => 'dash_member_loans_empty'],
-        ['page' => 'member/reservations.php', 'title' => 'dash_member_reservations_title', 'empty_title' => 'dash_member_reservations_empty_title', 'empty_text' => 'dash_member_reservations_empty'],
+        ['page' => 'member/loans.php', 'title' => 'dashboard_member_loans_title', 'empty_title' => 'dashboard_member_loans_empty_title', 'empty_text' => 'dashboard_member_loans_empty'],
+        ['page' => 'member/reservations.php', 'title' => 'dashboard_member_reservations_title', 'empty_title' => 'dashboard_member_reservations_empty_title', 'empty_text' => 'dashboard_member_reservations_empty'],
     ],
     'librarian' => [
-        ['page' => 'librarian/reservations.php', 'title' => 'dash_librarian_reservations_title', 'empty_title' => 'dash_librarian_reservations_empty_title', 'empty_text' => 'dash_librarian_reservations_empty'],
-        ['page' => 'librarian/loans.php', 'title' => 'dash_librarian_loans_title', 'empty_title' => 'dash_librarian_loans_empty_title', 'empty_text' => 'dash_librarian_loans_empty'],
+        ['page' => 'librarian/reservations.php', 'title' => 'dashboard_librarian_reservations_title', 'empty_title' => 'dashboard_librarian_reservations_empty_title', 'empty_text' => 'dashboard_librarian_reservations_empty'],
+        ['page' => 'librarian/loans.php', 'title' => 'dashboard_librarian_loans_title', 'empty_title' => 'dashboard_librarian_loans_empty_title', 'empty_text' => 'dashboard_librarian_loans_empty'],
     ],
 ];
 
@@ -55,7 +55,7 @@ $lists = [
                         <section class="dash-panel">
                             <div class="dash-panel-head">
                                 <h2><?php echo t($list['title']); ?></h2>
-                                <a href="<?php echo $base . $list['page']; ?>"><?php echo t('dash_view_all'); ?></a>
+                                <a href="<?php echo $base . $list['page']; ?>"><?php echo t('dashboard_view_all'); ?></a>
                             </div>
                             <div class="dash-empty">
                                 <div class="empty-shelf" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -67,17 +67,17 @@ $lists = [
                 </div>
 
                 <div class="dash-side">
-                    <section class="lib-card" aria-label="<?php echo t('dash_card_label'); ?>">
+                    <section class="lib-card" aria-label="<?php echo t('dashboard_card_label'); ?>">
                         <p class="lib-card-brand"><svg class="icon" aria-hidden="true"><use href="#ic-logo"/></svg>AchaiaReads</p>
                         <div>
                             <p class="lib-card-name"><?php echo e($_SESSION['username']); ?></p>
-                            <p class="lib-card-meta"><span><?php echo t('role_' . $layout); ?></span><span><?php echo t('dash_card_no') . ' ' . sprintf('%04d', $_SESSION['user_id']); ?></span></p>
+                            <p class="lib-card-meta"><span><?php echo t('role_' . $layout); ?></span><span><?php echo t('dashboard_card_no') . ' ' . sprintf('%04d', $_SESSION['user_id']); ?></span></p>
                         </div>
                     </section>
 
                     <section class="dash-panel">
                         <div class="dash-panel-head">
-                            <h2><?php echo t('dash_library_title'); ?></h2>
+                            <h2><?php echo t('dashboard_library_title'); ?></h2>
                         </div>
                         <dl class="dash-info">
                             <div><dt><?php echo t('hours_title'); ?></dt><dd><?php echo $status; ?></dd></div>
